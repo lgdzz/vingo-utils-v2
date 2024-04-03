@@ -2,13 +2,16 @@ package vingo
 
 import (
 	"fmt"
+	"github.com/google/uuid"
 	"math"
+	"math/rand"
 	"os"
 	"os/exec"
 	"reflect"
 	"runtime"
 	"strconv"
 	"strings"
+	"time"
 	"unicode"
 )
 
@@ -146,12 +149,6 @@ func CheckErr(err error) {
 	}
 }
 
-// Deprecated: This function is no longer recommended for use.
-// Suggested: Please use mysql.SqlLike instead.
-func SqlLike(keyword string) string {
-	return fmt.Sprintf("%%%v%%", strings.Trim(keyword, " "))
-}
-
 /**
  * 增长率计算
  * @param float64 $now 现在值
@@ -266,43 +263,6 @@ func Of[T any](v T) *T {
 	return &v
 }
 
-// 返回传入参数的指针
-// Deprecated: This function is no longer recommended for use.
-// Suggested: Please use Of() instead.
-func StringPointer(text string) *string {
-	return &text
-}
-
-// Deprecated: This function is no longer recommended for use.
-// Suggested: Please use Of() instead.
-func Int64Pointer(v int64) *int64 {
-	return &v
-}
-
-// Deprecated: This function is no longer recommended for use.
-// Suggested: Please use Of() instead.
-func IntPointer(v int) *int {
-	return &v
-}
-
-// Deprecated: This function is no longer recommended for use.
-// Suggested: Please use Of() instead.
-func UintPointer(v uint) *uint {
-	return &v
-}
-
-// Deprecated: This function is no longer recommended for use.
-// Suggested: Please use Of() instead.
-func Float64Pointer(v float64) *float64 {
-	return &v
-}
-
-// Deprecated: This function is no longer recommended for use.
-// Suggested: Please use Of() instead.
-func BoolPointer(v bool) *bool {
-	return &v
-}
-
 // 版本号自增
 func IncrementVersion(version string) (string, error) {
 	if version == "" {
@@ -379,4 +339,44 @@ func GetCurrentFunctionName() string {
 	pc, _, _, _ := runtime.Caller(1)
 	currentFunction := runtime.FuncForPC(pc).Name()
 	return currentFunction
+}
+
+// 生成UUID
+func GetUUID() string {
+	return uuid.NewString()
+}
+
+// 生成随机字符串
+func RandomString(length int) string {
+	letters := []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
+	r := rand.New(rand.NewSource(time.Now().UnixNano()))
+	b := make([]rune, length)
+	for i := range b {
+		b[i] = letters[r.Intn(len(letters))]
+	}
+	return string(b)
+}
+
+// 生成随机数
+func RandomNumber(length int) string {
+	digits := []rune("0123456789")
+	r := rand.New(rand.NewSource(time.Now().UnixNano()))
+	b := make([]rune, length)
+	for i := range b {
+		b[i] = digits[r.Intn(len(digits))]
+	}
+	return string(b)
+}
+
+// 生成按时间+随机数的单号
+func OrderNo(length int, check func(string) bool) string {
+	if length <= 14 {
+		panic("编号长度不少于15位")
+	}
+	orderNo := fmt.Sprintf("%v%v", time.Now().Format("20060102150405"), RandomNumber(length-14))
+	if check != nil && check(orderNo) {
+		// 已存在，重新生成
+		return OrderNo(length, check)
+	}
+	return strings.ToUpper(orderNo)
 }

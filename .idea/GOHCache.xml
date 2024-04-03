@@ -41,6 +41,7 @@
         <entry key="Config">
           <value>
             <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/config/index.go" />
               <option value="file://$PROJECT_DIR$/config/config.go" />
               <option value="file://$PROJECT_DIR$/db/mysql/config.go" />
             </set>
@@ -74,6 +75,13 @@
             </set>
           </value>
         </entry>
+        <entry key="DbApi">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/db/mysql/db.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="DbException">
           <value>
             <set>
@@ -92,6 +100,13 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/vingo/model.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="FunctionModule">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/api/api.go" />
             </set>
           </value>
         </entry>
@@ -194,10 +209,76 @@
             </set>
           </value>
         </entry>
+        <entry key="WenshuMb">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/wenshu_mb.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WenshuMbQuery">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/wenshu_mb.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WenshuYSJ">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/wenshu.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WenshuYSJItem">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/wenshu.go" />
+            </set>
+          </value>
+        </entry>
       </map>
     </option>
     <option name="scannedPathMapping">
       <map>
+        <entry key="file://$PROJECT_DIR$/../fast-go/api/account.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1712107854166" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/api/api.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1712108416034" />
+              <option name="schema">
+                <list>
+                  <option value="FunctionModule" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/config/index.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1712108345327" />
+              <option name="schema">
+                <list>
+                  <option value="Config" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/main.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1712108426276" />
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/../fast-go/model/account.go">
           <value>
             <ScannedPath>
@@ -236,10 +317,22 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/db/mysql/db.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1712111472942" />
+              <option name="schema">
+                <list>
+                  <option value="DbApi" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/db/mysql/init.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1710483317171" />
+              <option name="lastModified" value="1712109045270" />
             </ScannedPath>
           </value>
         </entry>
@@ -373,7 +466,7 @@
         <entry key="file://$PROJECT_DIR$/vingo/helper.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1704183612219" />
+              <option name="lastModified" value="1712112023719" />
             </ScannedPath>
           </value>
         </entry>
@@ -400,7 +493,7 @@
         <entry key="file://$PROJECT_DIR$/vingo/model.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1710485078652" />
+              <option name="lastModified" value="1712111564639" />
               <option name="schema">
                 <list>
                   <option value="Location" />
@@ -412,7 +505,6 @@
                   <option value="DbException" />
                   <option value="DateRange" />
                   <option value="DateRangeString" />
-                  <option value="QueryDateRange" />
                 </list>
               </option>
             </ScannedPath>
@@ -439,6 +531,32 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/wenshu.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1712111222392" />
+              <option name="schema">
+                <list>
+                  <option value="WenshuYSJItem" />
+                  <option value="WenshuYSJ" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/wenshu_mb.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1712111212653" />
+              <option name="schema">
+                <list>
+                  <option value="WenshuMb" />
+                  <option value="WenshuMbQuery" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
       </map>
     </option>
     <option name="tableStructMapping">
@@ -453,9 +571,11 @@
         <entry key="database" value="Database" />
         <entry key="date_range" value="DateRange" />
         <entry key="date_range_string" value="DateRangeString" />
+        <entry key="db_api" value="DbApi" />
         <entry key="db_exception" value="DbException" />
         <entry key="file_info" value="FileInfo" />
         <entry key="file_info_simple" value="FileInfoSimple" />
+        <entry key="function_module" value="FunctionModule" />
         <entry key="id_card_info" value="IdCardInfo" />
         <entry key="jwt_body" value="JwtBody" />
         <entry key="jwt_ticket" value="JwtTicket" />
@@ -470,6 +590,10 @@
         <entry key="result" value="Result" />
         <entry key="table_data" value="TableData" />
         <entry key="table_item" value="TableItem" />
+        <entry key="wenshu_mb" value="WenshuMb" />
+        <entry key="wenshu_mb_query" value="WenshuMbQuery" />
+        <entry key="wenshu_ysj" value="WenshuYSJ" />
+        <entry key="wenshu_ysj_item" value="WenshuYSJItem" />
       </map>
     </option>
     <option name="lastTimeChecked" value="1712107320368" />

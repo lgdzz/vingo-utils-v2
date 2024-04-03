@@ -2,6 +2,7 @@ package vingo
 
 import (
 	"database/sql/driver"
+	"encoding/json"
 	"strings"
 	"time"
 )
@@ -74,11 +75,6 @@ func (s *DateRange) OfString() DateRangeString {
 	}
 }
 
-type QueryDateRange struct {
-	StartTime string `form:"startTime"`
-	EndTime   string `form:"endTime"`
-}
-
 type DateAt [2]string
 
 func (s *DateAt) Start() string {
@@ -98,7 +94,10 @@ func (s UintIds) Value() (driver.Value, error) {
 func (s *UintIds) Scan(value interface{}) error {
 	v := string(value.([]byte))
 	if v == "" {
-		s = &UintIds{}
+		err := json.Unmarshal([]byte("[]"), s)
+		if err != nil {
+			panic(err)
+		}
 	} else {
 		CustomOutput(SliceStringToUint(strings.Split(v, ",")), s)
 	}
@@ -110,23 +109,26 @@ func (s *UintIds) Uints() (result []uint) {
 	return
 }
 
-type StringIds []string
+type StringSlice []string
 
-func (s StringIds) Value() (driver.Value, error) {
+func (s StringSlice) Value() (driver.Value, error) {
 	return strings.Join(s, ","), nil
 }
 
-func (s *StringIds) Scan(value interface{}) error {
+func (s *StringSlice) Scan(value interface{}) error {
 	v := string(value.([]byte))
 	if v == "" {
-		s = &StringIds{}
+		err := json.Unmarshal([]byte("[]"), s)
+		if err != nil {
+			panic(err)
+		}
 	} else {
 		*s = strings.Split(v, ",")
 	}
 	return nil
 }
 
-func (s *StringIds) Strings() (result []string) {
+func (s *StringSlice) Strings() (result []string) {
 	CustomOutput(s, &result)
 	return
 }
