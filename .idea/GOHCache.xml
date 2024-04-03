@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GoORMHelperCache">
+    <option name="schemaMapping">
+      <map>
+        <entry key="AuthException">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/model.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Column">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/db/pgsql/build_struct.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Config">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/config/config.go" />
+              <option value="file://$PROJECT_DIR$/db/mysql/config.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Context">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/context.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Database">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/db/pgsql/book.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DateRange">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/model.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DateRangeString">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/model.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DbException">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/model.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="FileInfo">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/model.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="FileInfoSimple">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/model.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="IdCardInfo">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/model.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="JwtBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/jwt.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="JwtTicket">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/jwt.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Limit">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/db/page/page.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Location">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/model.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Option">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/db/page/page.go" />
+              <option value="file://$PROJECT_DIR$/db/redis/redis.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Order">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/db/page/page.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="PatchBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/model.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="PgsqlConfig">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/db/pgsql/pgsql.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="QueryDateRange">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/model.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ResponseData">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/context.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Result">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/db/page/page.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="TableData">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/db/pgsql/build_struct.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="TableItem">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/db/pgsql/book.go" />
+            </set>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="scannedPathMapping">
+      <map>
+        <entry key="file://$PROJECT_DIR$/config/config.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710482767202" />
+              <option name="schema">
+                <list>
+                  <option value="Config" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/db/mysql/config.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710482862173" />
+              <option name="schema">
+                <list>
+                  <option value="Config" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/db/mysql/init.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710483317171" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/db/page/page.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1704776672394" />
+              <option name="schema">
+                <list>
+                  <option value="Result" />
+                  <option value="Limit" />
+                  <option value="Order" />
+                  <option value="Option" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/db/pgsql/book.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1698138142114" />
+              <option name="schema">
+                <list>
+                  <option value="TableItem" />
+                  <option value="Database" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/db/pgsql/build_struct.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1698138142108" />
+              <option name="schema">
+                <list>
+                  <option value="TableData" />
+                  <option value="Column" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/db/pgsql/pgsql.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1698138429454" />
+              <option name="schema">
+                <list>
+                  <option value="PgsqlConfig" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/db/redis/fast.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1694505390270" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/db/redis/redis.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1697091770310" />
+              <option name="schema">
+                <list>
+                  <option value="Option" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/db/sqlite/sqlite.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1692608273403" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/main.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710484437554" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/const.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710490756716" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/context.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710484930147" />
+              <option name="schema">
+                <list>
+                  <option value="Context" />
+                  <option value="ResponseData" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/exception.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1704183612038" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/file.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1706681496880" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/format.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710474475919" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/helper.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1704183612219" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/jwt.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710483468060" />
+              <option name="schema">
+                <list>
+                  <option value="JwtTicket" />
+                  <option value="JwtBody" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/log.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1687919918908" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/model.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710485078652" />
+              <option name="schema">
+                <list>
+                  <option value="Location" />
+                  <option value="PatchBody" />
+                  <option value="FileInfo" />
+                  <option value="FileInfoSimple" />
+                  <option value="IdCardInfo" />
+                  <option value="AuthException" />
+                  <option value="DbException" />
+                  <option value="DateRange" />
+                  <option value="DateRangeString" />
+                  <option value="QueryDateRange" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/random.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1683698215002" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/slice.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1694161544630" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/time.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1704330706098" />
+            </ScannedPath>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="tableStructMapping">
+      <map>
+        <entry key="auth_exception" value="AuthException" />
+        <entry key="column" value="Column" />
+        <entry key="config" value="Config" />
+        <entry key="context" value="Context" />
+        <entry key="database" value="Database" />
+        <entry key="date_range" value="DateRange" />
+        <entry key="date_range_string" value="DateRangeString" />
+        <entry key="db_exception" value="DbException" />
+        <entry key="file_info" value="FileInfo" />
+        <entry key="file_info_simple" value="FileInfoSimple" />
+        <entry key="id_card_info" value="IdCardInfo" />
+        <entry key="jwt_body" value="JwtBody" />
+        <entry key="jwt_ticket" value="JwtTicket" />
+        <entry key="limit" value="Limit" />
+        <entry key="location" value="Location" />
+        <entry key="option" value="Option" />
+        <entry key="order" value="Order" />
+        <entry key="patch_body" value="PatchBody" />
+        <entry key="pgsql_config" value="PgsqlConfig" />
+        <entry key="query_date_range" value="QueryDateRange" />
+        <entry key="response_data" value="ResponseData" />
+        <entry key="result" value="Result" />
+        <entry key="table_data" value="TableData" />
+        <entry key="table_item" value="TableItem" />
+      </map>
+    </option>
+    <option name="lastTimeChecked" value="1711689617490" />
+  </component>
+</project>
