@@ -3,6 +3,27 @@
   <component name="GoORMHelperCache">
     <option name="schemaMapping">
       <map>
+        <entry key="Account">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/account.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="AccountBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/account.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="AccountQuery">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/account.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="AuthException">
           <value>
             <set>
@@ -177,6 +198,20 @@
     </option>
     <option name="scannedPathMapping">
       <map>
+        <entry key="file://$PROJECT_DIR$/../fast-go/model/account.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1712107321856" />
+              <option name="schema">
+                <list>
+                  <option value="Account" />
+                  <option value="AccountQuery" />
+                  <option value="AccountBody" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/config/config.go">
           <value>
             <ScannedPath>
@@ -408,6 +443,9 @@
     </option>
     <option name="tableStructMapping">
       <map>
+        <entry key="account" value="Account" />
+        <entry key="account_body" value="AccountBody" />
+        <entry key="account_query" value="AccountQuery" />
         <entry key="auth_exception" value="AuthException" />
         <entry key="column" value="Column" />
         <entry key="config" value="Config" />
@@ -434,6 +472,6 @@
         <entry key="table_item" value="TableItem" />
       </map>
     </option>
-    <option name="lastTimeChecked" value="1711689617490" />
+    <option name="lastTimeChecked" value="1712107320368" />
   </component>
 </project>
