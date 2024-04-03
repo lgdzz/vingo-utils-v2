@@ -34,6 +34,7 @@
         <entry key="Column">
           <value>
             <set>
+              <option value="file://$PROJECT_DIR$/db/mysql/build_struct.go" />
               <option value="file://$PROJECT_DIR$/db/pgsql/build_struct.go" />
             </set>
           </value>
@@ -57,6 +58,7 @@
         <entry key="Database">
           <value>
             <set>
+              <option value="file://$PROJECT_DIR$/db/mysql/book.go" />
               <option value="file://$PROJECT_DIR$/db/pgsql/book.go" />
             </set>
           </value>
@@ -195,9 +197,18 @@
             </set>
           </value>
         </entry>
+        <entry key="TableColumn">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/db/mysql/db.go" />
+              <option value="file://$PROJECT_DIR$/db/mysql/helper.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="TableData">
           <value>
             <set>
+              <option value="file://$PROJECT_DIR$/db/mysql/build_struct.go" />
               <option value="file://$PROJECT_DIR$/db/pgsql/build_struct.go" />
             </set>
           </value>
@@ -205,6 +216,7 @@
         <entry key="TableItem">
           <value>
             <set>
+              <option value="file://$PROJECT_DIR$/db/mysql/book.go" />
               <option value="file://$PROJECT_DIR$/db/pgsql/book.go" />
             </set>
           </value>
@@ -244,14 +256,14 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/api/account.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1712107854166" />
+              <option name="lastModified" value="1712113144184" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/../fast-go/api/api.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1712108416034" />
+              <option name="lastModified" value="1712112493046" />
               <option name="schema">
                 <list>
                   <option value="FunctionModule" />
@@ -275,14 +287,14 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/main.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1712108426276" />
+              <option name="lastModified" value="1712112484849" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/../fast-go/model/account.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1712107321856" />
+              <option name="lastModified" value="1712113033526" />
               <option name="schema">
                 <list>
                   <option value="Account" />
@@ -305,6 +317,32 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/db/mysql/book.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1712113664196" />
+              <option name="schema">
+                <list>
+                  <option value="TableItem" />
+                  <option value="Database" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/db/mysql/build_struct.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1712113925502" />
+              <option name="schema">
+                <list>
+                  <option value="TableData" />
+                  <option value="Column" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/db/mysql/config.go">
           <value>
             <ScannedPath>
@@ -320,12 +358,20 @@
         <entry key="file://$PROJECT_DIR$/db/mysql/db.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1712111472942" />
+              <option name="lastModified" value="1712113564042" />
               <option name="schema">
                 <list>
                   <option value="DbApi" />
+                  <option value="TableColumn" />
                 </list>
               </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/db/mysql/helper.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1712113494243" />
             </ScannedPath>
           </value>
         </entry>
@@ -588,6 +634,7 @@
         <entry key="query_date_range" value="QueryDateRange" />
         <entry key="response_data" value="ResponseData" />
         <entry key="result" value="Result" />
+        <entry key="table_column" value="TableColumn" />
         <entry key="table_data" value="TableData" />
         <entry key="table_item" value="TableItem" />
         <entry key="wenshu_mb" value="WenshuMb" />
