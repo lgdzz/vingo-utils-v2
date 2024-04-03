@@ -265,3 +265,10 @@ func (s *DbApi) GetTableColumn(tableName string) []TableColumn {
 	}
 	return columns
 }
+
+// 事务函数
+func (s *DbApi) Commit(handler func(*gorm.DB)) {
+	tx := s.Begin()
+	defer s.AutoCommit(tx)
+	handler(tx)
+}

@@ -256,7 +256,7 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/api/account.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1712113144184" />
+              <option name="lastModified" value="1712114157966" />
             </ScannedPath>
           </value>
         </entry>
@@ -358,7 +358,7 @@
         <entry key="file://$PROJECT_DIR$/db/mysql/db.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1712113564042" />
+              <option name="lastModified" value="1712114321059" />
               <option name="schema">
                 <list>
                   <option value="DbApi" />
