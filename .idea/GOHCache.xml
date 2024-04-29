@@ -144,6 +144,13 @@
             </set>
           </value>
         </entry>
+        <entry key="HookOption">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/router/default.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="IdCardInfo">
           <value>
             <set>
@@ -419,7 +426,7 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/router/router.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714362971519" />
+              <option name="lastModified" value="1714368170362" />
             </ScannedPath>
           </value>
         </entry>
@@ -720,10 +727,11 @@
         <entry key="file://$PROJECT_DIR$/router/default.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714367312554" />
+              <option name="lastModified" value="1714368200027" />
               <option name="schema">
                 <list>
                   <option value="Hook" />
+                  <option value="HookOption" />
                   <option value="WebItem" />
                 </list>
               </option>
@@ -932,6 +940,7 @@
         <entry key="function_module" value="FunctionModule" />
         <entry key="handle" value="Handle" />
         <entry key="hook" value="Hook" />
+        <entry key="hook_option" value="HookOption" />
         <entry key="id_card_info" value="IdCardInfo" />
         <entry key="image_attr" value="ImageAttr" />
         <entry key="info" value="Info" />

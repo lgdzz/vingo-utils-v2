@@ -12,17 +12,19 @@ import (
 )
 
 type Hook struct {
-	Option struct {
-		Name      string
-		Port      uint
-		Copyright string
-		Debug     bool
-		Database  mysql.Config
-		Redis     redis.Option
-	}
+	Option         HookOption
 	RegisterRouter func(r *gin.Engine)
 	BaseMiddle     func(c *gin.Context)
 	LoadWeb        []WebItem // 通过此配置将前端项目打包到项目中
+}
+
+type HookOption struct {
+	Name      string
+	Port      uint
+	Copyright string
+	Debug     bool
+	Database  mysql.Config
+	Redis     redis.Option
 }
 
 type WebItem struct {
