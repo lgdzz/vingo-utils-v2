@@ -2,7 +2,7 @@ package sqlite
 
 import (
 	"fmt"
-	"github.com/lgdzz/vingo-utils/vingo"
+	"github.com/lgdzz/vingo-utils-v2/vingo"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"

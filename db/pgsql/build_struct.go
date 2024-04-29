@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"github.com/duke-git/lancet/v2/strutil"
-	"github.com/lgdzz/vingo-utils/vingo"
+	"github.com/lgdzz/vingo-utils-v2/vingo"
 	"os"
 	"path/filepath"
 	"text/template"

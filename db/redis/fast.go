@@ -2,7 +2,7 @@ package redis
 
 import (
 	"github.com/go-redis/redis"
-	"github.com/lgdzz/vingo-utils/vingo"
+	"github.com/lgdzz/vingo-utils-v2/vingo"
 	"time"
 )
 

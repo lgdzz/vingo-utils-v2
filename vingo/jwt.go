@@ -3,8 +3,7 @@ package vingo
 import (
 	"fmt"
 	"github.com/golang-jwt/jwt/v4"
-	"github.com/lgdzz/vingo-utils/vingo"
-	"github.com/lgdzz/vingo-utils/vingo/db/redis"
+	"github.com/lgdzz/vingo-utils-v2/db/redis"
 	"time"
 )
 
@@ -31,7 +30,7 @@ func JwtIssued[T any](body JwtBody[T], signingKey string) string {
 	day := 3600 * 24 * int64(body.Day)
 	exp := time.Now().Unix() + day
 	if body.CheckTK {
-		body.Ticket = &JwtTicket{Key: vingo.MD5(fmt.Sprintf("%v%v", signingKey, body.ID)), TK: vingo.RandomString(50)}
+		body.Ticket = &JwtTicket{Key: MD5(fmt.Sprintf("%v%v", signingKey, body.ID)), TK: RandomString(50)}
 		redis.Set(body.Ticket.Key, body.Ticket.TK, time.Second*time.Duration(day))
 	}
 	signedString, err := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{"id": body.ID, "checkTk": body.CheckTK, "ticket": body.Ticket, "business": body.Business, "exp": exp}).SignedString([]byte(signingKey))
@@ -49,14 +48,14 @@ func JwtCheck[T any](token string, signingKey string) JwtBody[T] {
 		return []byte(signingKey), nil
 	})
 	if err != nil {
-		panic(&vingo.AuthException{Message: err.Error()})
+		panic(&AuthException{Message: err.Error()})
 	}
 	var body JwtBody[T]
-	vingo.CustomOutput(claims.Claims, &body)
+	CustomOutput(claims.Claims, &body)
 	if body.CheckTK {
 		tkPointer := redis.Get[string](body.Ticket.Key)
 		if tkPointer == nil || body.Ticket.TK != *tkPointer {
-			panic(&vingo.AuthException{Message: "登录已失效"})
+			panic(&AuthException{Message: "登录已失效"})
 		}
 	}
 	return body

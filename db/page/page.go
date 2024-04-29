@@ -2,7 +2,7 @@ package page
 
 import (
 	"fmt"
-	"github.com/lgdzz/vingo-utils/vingo"
+	"github.com/lgdzz/vingo-utils-v2/vingo"
 	"gorm.io/gorm"
 	"strings"
 )

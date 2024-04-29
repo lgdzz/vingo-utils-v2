@@ -2,7 +2,7 @@ package mysql
 
 import (
 	"fmt"
-	"github.com/lgdzz/vingo-utils/vingo"
+	"github.com/lgdzz/vingo-utils-v2/vingo"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
@@ -39,8 +39,8 @@ func InitService(config *Config) *gorm.DB {
 			},
 		),
 		NowFunc: func() time.Time {
-			tmp := time.Now().Local().Format("2006-01-02 15:04:05")
-			now, _ := time.ParseInLocation("2006-01-02 15:04:05", tmp, time.Local)
+			tmp := time.Now().Local().Format(vingo.DatetimeFormat)
+			now, _ := time.ParseInLocation(vingo.DatetimeFormat, tmp, time.Local)
 			return now
 		},
 	})

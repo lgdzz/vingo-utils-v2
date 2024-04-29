@@ -3,10 +3,26 @@
   <component name="GoORMHelperCache">
     <option name="schemaMapping">
       <map>
+        <entry key="AudioAttr">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/oss/resource.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="AuthException">
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/vingo/model.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ClientApi">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/oss/aliyun/aliyun.go" />
+              <option value="file://$PROJECT_DIR$/oss/minio/minio.go" />
+              <option value="file://$PROJECT_DIR$/oss/qiniu/qiniu.go" />
             </set>
           </value>
         </entry>
@@ -23,6 +39,9 @@
             <set>
               <option value="file://$PROJECT_DIR$/config/config.go" />
               <option value="file://$PROJECT_DIR$/db/mysql/config.go" />
+              <option value="file://$PROJECT_DIR$/oss/aliyun/aliyun.go" />
+              <option value="file://$PROJECT_DIR$/oss/minio/minio.go" />
+              <option value="file://$PROJECT_DIR$/oss/qiniu/qiniu.go" />
             </set>
           </value>
         </entry>
@@ -83,6 +102,13 @@
             </set>
           </value>
         </entry>
+        <entry key="FileAttr">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/oss/resource.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="FileInfo">
           <value>
             <set>
@@ -104,10 +130,38 @@
             </set>
           </value>
         </entry>
+        <entry key="Handle">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/queue/redis.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Hook">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/router/default.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="IdCardInfo">
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/vingo/model.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ImageAttr">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/oss/resource.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Info">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/ip/ip.go" />
             </set>
           </value>
         </entry>
@@ -146,11 +200,26 @@
             </set>
           </value>
         </entry>
+        <entry key="MessagePackage">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/queue/redis.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="NsqService">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/queue/nsq.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="Option">
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/db/page/page.go" />
               <option value="file://$PROJECT_DIR$/db/redis/redis.go" />
+              <option value="file://$PROJECT_DIR$/request/request.go" />
             </set>
           </value>
         </entry>
@@ -179,6 +248,62 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/db/pgsql/pgsql.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="RedisQueue">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/queue/redis.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="RedisQueueConfig">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/queue/redis.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Resource">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/oss/resource.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ResourceAudio">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/oss/resource.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ResourceFile">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/oss/resource.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ResourceImage">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/oss/resource.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ResourceQuery">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/oss/resource.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ResourceVideo">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/oss/resource.go" />
             </set>
           </value>
         </entry>
@@ -226,6 +351,27 @@
             </set>
           </value>
         </entry>
+        <entry key="VideoAttr">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/oss/resource.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="VideoResource">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/oss/resource.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WebItem">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/router/default.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="ZipObject">
           <value>
             <set>
@@ -240,7 +386,7 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/api/api.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714361723635" />
+              <option name="lastModified" value="1714362919765" />
               <option name="schema">
                 <list>
                   <option value="FunctionModule" />
@@ -266,7 +412,21 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/main.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714361687282" />
+              <option name="lastModified" value="1714362931555" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/router/router.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714362971519" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/cache/cache.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714367293483" />
             </ScannedPath>
           </value>
         </entry>
@@ -297,7 +457,7 @@
         <entry key="file://$PROJECT_DIR$/db/mysql/book.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1712113664196" />
+              <option name="lastModified" value="1714367751816" />
               <option name="schema">
                 <list>
                   <option value="TableItem" />
@@ -310,7 +470,7 @@
         <entry key="file://$PROJECT_DIR$/db/mysql/build_struct.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1712113925502" />
+              <option name="lastModified" value="1714367953291" />
               <option name="schema">
                 <list>
                   <option value="TableData" />
@@ -348,14 +508,14 @@
         <entry key="file://$PROJECT_DIR$/db/mysql/init.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1712109045270" />
+              <option name="lastModified" value="1714367829956" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/db/page/page.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1704776672394" />
+              <option name="lastModified" value="1714367764220" />
               <option name="schema">
                 <list>
                   <option value="Result" />
@@ -370,7 +530,7 @@
         <entry key="file://$PROJECT_DIR$/db/pgsql/book.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1698138142114" />
+              <option name="lastModified" value="1714367841434" />
               <option name="schema">
                 <list>
                   <option value="TableItem" />
@@ -383,7 +543,7 @@
         <entry key="file://$PROJECT_DIR$/db/pgsql/build_struct.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1698138142108" />
+              <option name="lastModified" value="1714367788752" />
               <option name="schema">
                 <list>
                   <option value="TableData" />
@@ -396,7 +556,7 @@
         <entry key="file://$PROJECT_DIR$/db/pgsql/pgsql.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1698138429454" />
+              <option name="lastModified" value="1714367743202" />
               <option name="schema">
                 <list>
                   <option value="PgsqlConfig" />
@@ -408,7 +568,7 @@
         <entry key="file://$PROJECT_DIR$/db/redis/fast.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1694505390270" />
+              <option name="lastModified" value="1714367778847" />
             </ScannedPath>
           </value>
         </entry>
@@ -427,7 +587,19 @@
         <entry key="file://$PROJECT_DIR$/db/sqlite/sqlite.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1692608273403" />
+              <option name="lastModified" value="1714367772123" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/ip/ip.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714367518379" />
+              <option name="schema">
+                <list>
+                  <option value="Info" />
+                </list>
+              </option>
             </ScannedPath>
           </value>
         </entry>
@@ -435,6 +607,126 @@
           <value>
             <ScannedPath>
               <option name="lastModified" value="1710484437554" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/oss/aliyun/aliyun.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714367691927" />
+              <option name="schema">
+                <list>
+                  <option value="Config" />
+                  <option value="ClientApi" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/oss/minio/minio.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714367622728" />
+              <option name="schema">
+                <list>
+                  <option value="Config" />
+                  <option value="ClientApi" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/oss/qiniu/qiniu.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714367544566" />
+              <option name="schema">
+                <list>
+                  <option value="Config" />
+                  <option value="ClientApi" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/oss/resource.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714367502267" />
+              <option name="schema">
+                <list>
+                  <option value="Resource" />
+                  <option value="VideoAttr" />
+                  <option value="AudioAttr" />
+                  <option value="ImageAttr" />
+                  <option value="FileAttr" />
+                  <option value="VideoResource" />
+                  <option value="ResourceQuery" />
+                  <option value="ResourceImage" />
+                  <option value="ResourceFile" />
+                  <option value="ResourceVideo" />
+                  <option value="ResourceAudio" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/queue/nsq.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714367529052" />
+              <option name="schema">
+                <list>
+                  <option value="NsqService" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/queue/redis.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714367360025" />
+              <option name="schema">
+                <list>
+                  <option value="RedisQueueConfig" />
+                  <option value="RedisQueue" />
+                  <option value="Handle" />
+                  <option value="MessagePackage" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/request/request.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714367681857" />
+              <option name="schema">
+                <list>
+                  <option value="Option" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/router/base_middle.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714367391644" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/router/default.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714367312554" />
+              <option name="schema">
+                <list>
+                  <option value="Hook" />
+                  <option value="WebItem" />
+                </list>
+              </option>
             </ScannedPath>
           </value>
         </entry>
@@ -481,7 +773,7 @@
         <entry key="file://$PROJECT_DIR$/vingo/fast.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714355336914" />
+              <option name="lastModified" value="1714367583357" />
             </ScannedPath>
           </value>
         </entry>
@@ -509,7 +801,7 @@
         <entry key="file://$PROJECT_DIR$/vingo/jwt.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1710483468060" />
+              <option name="lastModified" value="1714367733827" />
               <option name="schema">
                 <list>
                   <option value="JwtTicket" />
@@ -621,7 +913,9 @@
     </option>
     <option name="tableStructMapping">
       <map>
+        <entry key="audio_attr" value="AudioAttr" />
         <entry key="auth_exception" value="AuthException" />
+        <entry key="client_api" value="ClientApi" />
         <entry key="column" value="Column" />
         <entry key="config" value="Config" />
         <entry key="context" value="Context" />
@@ -632,26 +926,44 @@
         <entry key="db_exception" value="DbException" />
         <entry key="diff_box" value="DiffBox" />
         <entry key="diff_item" value="DiffItem" />
+        <entry key="file_attr" value="FileAttr" />
         <entry key="file_info" value="FileInfo" />
         <entry key="file_info_simple" value="FileInfoSimple" />
         <entry key="function_module" value="FunctionModule" />
+        <entry key="handle" value="Handle" />
+        <entry key="hook" value="Hook" />
         <entry key="id_card_info" value="IdCardInfo" />
+        <entry key="image_attr" value="ImageAttr" />
+        <entry key="info" value="Info" />
         <entry key="json_object" value="JsonObject" />
         <entry key="jwt_body" value="JwtBody" />
         <entry key="jwt_ticket" value="JwtTicket" />
         <entry key="limit" value="Limit" />
         <entry key="location" value="Location" />
+        <entry key="message_package" value="MessagePackage" />
+        <entry key="nsq_service" value="NsqService" />
         <entry key="option" value="Option" />
         <entry key="options" value="Options" />
         <entry key="order" value="Order" />
         <entry key="patch_body" value="PatchBody" />
         <entry key="pgsql_config" value="PgsqlConfig" />
+        <entry key="redis_queue" value="RedisQueue" />
+        <entry key="redis_queue_config" value="RedisQueueConfig" />
+        <entry key="resource" value="Resource" />
+        <entry key="resource_audio" value="ResourceAudio" />
+        <entry key="resource_file" value="ResourceFile" />
+        <entry key="resource_image" value="ResourceImage" />
+        <entry key="resource_query" value="ResourceQuery" />
+        <entry key="resource_video" value="ResourceVideo" />
         <entry key="response_data" value="ResponseData" />
         <entry key="result" value="Result" />
         <entry key="table_column" value="TableColumn" />
         <entry key="table_data" value="TableData" />
         <entry key="table_item" value="TableItem" />
         <entry key="tj_menu" value="TjMenu" />
+        <entry key="video_attr" value="VideoAttr" />
+        <entry key="video_resource" value="VideoResource" />
+        <entry key="web_item" value="WebItem" />
         <entry key="zip_object" value="ZipObject" />
       </map>
     </option>

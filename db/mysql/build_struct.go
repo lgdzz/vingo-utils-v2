@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"github.com/duke-git/lancet/v2/strutil"
-	"github.com/lgdzz/vingo-utils/vingo"
+	"github.com/lgdzz/vingo-utils-v2/vingo"
 	"os"
 	"path/filepath"
 	"text/template"
@@ -14,7 +14,7 @@ import (
 const tpl = `// *****************************************************************************
 // 作者: lgdz
 // 创建时间: {{ .Date }}
-// 描述：
+// 描述：{{ .TableComment }}
 // *****************************************************************************
 
 package model
@@ -30,6 +30,7 @@ func (s *{{ .ModelName }}) TableName() string {
 
 type {{ .ModelName }}Query struct {
 	page.Limit
+	*page.Order
 	Keyword string ` + "`form:\"keyword\"`" + `
 }
 
