@@ -9,20 +9,20 @@ import (
 // key 缓存key
 // expired 缓存有效期，0则永不过期
 // handle 要缓存数据的处理函数
-func Fast[T any](key string, expired time.Duration, handle func() *T) *T {
-	return FastRefresh(key, expired, handle, false)
+func Fast[T any](redisApi *redis.RedisApi, key string, expired time.Duration, handle func() *T) *T {
+	return FastRefresh(redisApi, key, expired, handle, false)
 }
 
-func FastRefresh[T any](key string, expired time.Duration, handle func() *T, refresh bool) *T {
+func FastRefresh[T any](redisApi *redis.RedisApi, key string, expired time.Duration, handle func() *T, refresh bool) *T {
 	var result *T
 	if refresh {
 		result = handle()
-		redis.Set(key, result, expired)
+		redisApi.Set(key, result, expired)
 	} else {
-		result = redis.Get[T](key)
+		redisApi.Get(key, result)
 		if result == nil {
 			result = handle()
-			redis.Set(key, result, expired)
+			redisApi.Set(key, result, expired)
 		}
 	}
 	return result

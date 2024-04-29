@@ -13,11 +13,12 @@ import (
 var Redis RedisQueue
 
 type RedisQueueConfig struct {
-	Debug             *bool   // 调试模式，为true时日志在控制台输出，否则记录到日志文件，默认为true
-	AutoBootTime      *int    // 监控器异常自动重启时间间隔，默认3秒
-	SortedSetRestTime *int    // 有序集合中没有消息时休息等待时间，默认2秒
-	RetryWaitTime     *int    // 消费失败重试等待时间，默认5秒
-	Handle            *Handle // 消费处理方法调度中心，一般默认即可，特殊要求需实现Handler接口
+	Debug             *bool                // 调试模式，为true时日志在控制台输出，否则记录到日志文件，默认为true
+	AutoBootTime      *int                 // 监控器异常自动重启时间间隔，默认3秒
+	SortedSetRestTime *int                 // 有序集合中没有消息时休息等待时间，默认2秒
+	RetryWaitTime     *int                 // 消费失败重试等待时间，默认5秒
+	Handle            *Handle              // 消费处理方法调度中心，一般默认即可，特殊要求需实现Handler接口
+	RedisApi          *vingoRedis.RedisApi // redis操作对象
 }
 
 type RedisQueue struct {
@@ -71,18 +72,18 @@ func (s *RedisQueue) toString(value any) string {
 }
 
 func (s *RedisQueue) getTopic(topic string) string {
-	return fmt.Sprintf("%v%v.queue", vingoRedis.KeyPrefix, topic)
+	return fmt.Sprintf("%v%v.queue", s.Config.RedisApi.Config.Prefix, topic)
 }
 
 func (s *RedisQueue) getDelayTopic(topic string) string {
-	return fmt.Sprintf("%v%v.queue.delay", vingoRedis.KeyPrefix, topic)
+	return fmt.Sprintf("%v%v.queue.delay", s.Config.RedisApi.Config.Prefix, topic)
 }
 
 // 推送实时任务
 // topic-消息队列主题
 // value-消息内容，可选类型[struct|string]
 func (s *RedisQueue) Push(topic string, value any) bool {
-	r, err := vingoRedis.Client.RPush(s.getTopic(topic), s.toString(value)).Result()
+	r, err := s.Config.RedisApi.Client.RPush(s.getTopic(topic), s.toString(value)).Result()
 	if err != nil {
 		panic(err.Error())
 	}
@@ -96,7 +97,7 @@ func (s *RedisQueue) Push(topic string, value any) bool {
 func (s *RedisQueue) PushDelay(topic string, value any, delayed int64) bool {
 	var nowTime = time.Now()
 	var score = float64(nowTime.Add(time.Duration(delayed) * time.Second).Unix())
-	r, err := vingoRedis.Client.ZAdd(s.getDelayTopic(topic), redis.Z{Member: s.toString(value), Score: score}).Result()
+	r, err := s.Config.RedisApi.Client.ZAdd(s.getDelayTopic(topic), redis.Z{Member: s.toString(value), Score: score}).Result()
 	if err != nil {
 		panic(err.Error())
 	}
@@ -130,7 +131,7 @@ func (s *RedisQueue) monitorGuard(topic string, handler Handler, methods any) {
 func (s *RedisQueue) monitor(topic string, handler Handler, methods any) {
 	topicQueue := s.getTopic(topic)
 	for {
-		r, err := vingoRedis.Client.BLPop(0, topicQueue).Result()
+		r, err := s.Config.RedisApi.Client.BLPop(0, topicQueue).Result()
 		if err != nil {
 			panic(err.Error())
 		}
@@ -182,7 +183,7 @@ func (s *RedisQueue) monitorGuardDelay(topic string) {
 func (s *RedisQueue) monitorDelay(topic string) {
 	topicDelay := s.getDelayTopic(topic)
 	for {
-		r, err := vingoRedis.Client.ZRangeWithScores(topicDelay, 0, 0).Result()
+		r, err := s.Config.RedisApi.Client.ZRangeWithScores(topicDelay, 0, 0).Result()
 		if err != nil {
 			panic(err.Error())
 		}
@@ -209,7 +210,7 @@ func (s *RedisQueue) monitorDelay(topic string) {
 				}
 			} else {
 				// 删除记录有序集合中的记录
-				vingoRedis.Client.ZRem(topicDelay, member)
+				s.Config.RedisApi.Client.ZRem(topicDelay, member)
 				// 将任务加入到实时队列
 				s.Push(topic, member)
 			}

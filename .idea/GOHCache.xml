@@ -17,6 +17,27 @@
             </set>
           </value>
         </entry>
+        <entry key="Body">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/jwt/jwt.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Business">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/main.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="CacheApi">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/cache/cache.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="ClientApi">
           <value>
             <set>
@@ -37,8 +58,10 @@
         <entry key="Config">
           <value>
             <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/config/index.go" />
               <option value="file://$PROJECT_DIR$/config/config.go" />
               <option value="file://$PROJECT_DIR$/db/mysql/config.go" />
+              <option value="file://$PROJECT_DIR$/db/redis/redis.go" />
               <option value="file://$PROJECT_DIR$/oss/aliyun/aliyun.go" />
               <option value="file://$PROJECT_DIR$/oss/minio/minio.go" />
               <option value="file://$PROJECT_DIR$/oss/qiniu/qiniu.go" />
@@ -179,9 +202,17 @@
             </set>
           </value>
         </entry>
+        <entry key="JwtApi">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/jwt/jwt.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="JwtBody">
           <value>
             <set>
+              <option value="file://$PROJECT_DIR$/jwt/jwt.go" />
               <option value="file://$PROJECT_DIR$/vingo/jwt.go" />
             </set>
           </value>
@@ -189,6 +220,7 @@
         <entry key="JwtTicket">
           <value>
             <set>
+              <option value="file://$PROJECT_DIR$/jwt/jwt.go" />
               <option value="file://$PROJECT_DIR$/vingo/jwt.go" />
             </set>
           </value>
@@ -255,6 +287,13 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/db/pgsql/pgsql.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="RedisApi">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/db/redis/redis.go" />
             </set>
           </value>
         </entry>
@@ -351,6 +390,13 @@
             </set>
           </value>
         </entry>
+        <entry key="Ticket">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/jwt/jwt.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="TjMenu">
           <value>
             <set>
@@ -416,6 +462,18 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/config/index.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714368305046" />
+              <option name="schema">
+                <list>
+                  <option value="Config" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/../fast-go/main.go">
           <value>
             <ScannedPath>
@@ -426,14 +484,21 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/router/router.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714368170362" />
+              <option name="lastModified" value="1714368295325" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/build.sh.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714381740545" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/cache/cache.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714367293483" />
+              <option name="lastModified" value="1714381171672" />
             </ScannedPath>
           </value>
         </entry>
@@ -582,10 +647,11 @@
         <entry key="file://$PROJECT_DIR$/db/redis/redis.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1697091770310" />
+              <option name="lastModified" value="1714380953418" />
               <option name="schema">
                 <list>
-                  <option value="Option" />
+                  <option value="Config" />
+                  <option value="RedisApi" />
                 </list>
               </option>
             </ScannedPath>
@@ -610,10 +676,24 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/jwt/jwt.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714381038985" />
+              <option name="schema">
+                <list>
+                  <option value="JwtApi" />
+                  <option value="JwtTicket" />
+                  <option value="JwtBody" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/main.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1710484437554" />
+              <option name="lastModified" value="1714381669328" />
             </ScannedPath>
           </value>
         </entry>
@@ -693,7 +773,7 @@
         <entry key="file://$PROJECT_DIR$/queue/redis.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714367360025" />
+              <option name="lastModified" value="1714370233019" />
               <option name="schema">
                 <list>
                   <option value="RedisQueueConfig" />
@@ -908,12 +988,33 @@
         <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/auth.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714354621946" />
+              <option name="lastModified" value="1714377362548" />
               <option name="schema">
                 <list>
                   <option value="TjMenu" />
                 </list>
               </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/es/sync.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714368792999" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/es/sync_all.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714368805139" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/main.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714368843368" />
             </ScannedPath>
           </value>
         </entry>
@@ -923,6 +1024,9 @@
       <map>
         <entry key="audio_attr" value="AudioAttr" />
         <entry key="auth_exception" value="AuthException" />
+        <entry key="body" value="Body" />
+        <entry key="business" value="Business" />
+        <entry key="cache_api" value="CacheApi" />
         <entry key="client_api" value="ClientApi" />
         <entry key="column" value="Column" />
         <entry key="config" value="Config" />
@@ -945,6 +1049,7 @@
         <entry key="image_attr" value="ImageAttr" />
         <entry key="info" value="Info" />
         <entry key="json_object" value="JsonObject" />
+        <entry key="jwt_api" value="JwtApi" />
         <entry key="jwt_body" value="JwtBody" />
         <entry key="jwt_ticket" value="JwtTicket" />
         <entry key="limit" value="Limit" />
@@ -956,6 +1061,7 @@
         <entry key="order" value="Order" />
         <entry key="patch_body" value="PatchBody" />
         <entry key="pgsql_config" value="PgsqlConfig" />
+        <entry key="redis_api" value="RedisApi" />
         <entry key="redis_queue" value="RedisQueue" />
         <entry key="redis_queue_config" value="RedisQueueConfig" />
         <entry key="resource" value="Resource" />
@@ -969,6 +1075,7 @@
         <entry key="table_column" value="TableColumn" />
         <entry key="table_data" value="TableData" />
         <entry key="table_item" value="TableItem" />
+        <entry key="ticket" value="Ticket" />
         <entry key="tj_menu" value="TjMenu" />
         <entry key="video_attr" value="VideoAttr" />
         <entry key="video_resource" value="VideoResource" />
