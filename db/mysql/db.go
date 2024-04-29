@@ -131,6 +131,14 @@ func (s *DbApi) QueryWhere(db *gorm.DB, query any, column string) *gorm.DB {
 	return db
 }
 
+// query参数必须是指针切片类型，如：*[]int|*[]uint|*[]string
+func (s *DbApi) QueryWhereIn(db *gorm.DB, query any, column string) *gorm.DB {
+	if query != nil {
+		db = db.Where(fmt.Sprintf("%v in(?)", column), query)
+	}
+	return db
+}
+
 func (s *DbApi) QueryWhereDateAt(db *gorm.DB, query *vingo.DateAt, column string) *gorm.DB {
 	if query != nil {
 		db = s.TimeBetween(db, column, *query)
@@ -271,4 +279,21 @@ func (s *DbApi) Commit(handler func(*gorm.DB)) {
 	tx := s.Begin()
 	defer s.AutoCommit(tx)
 	handler(tx)
+}
+
+// 通过条件获取单条记录
+func Fetch[T any](tx *gorm.DB, condition ...any) (row T) {
+	err := tx.First(&row, condition...).Error
+	if err == gorm.ErrRecordNotFound {
+		panic(err.Error())
+	} else if err != nil {
+		panic(err.Error())
+	}
+	return
+}
+
+// 通过主键id获取记录
+func FetchById[T any](tx *gorm.DB, id any) (row T) {
+	Fetch[T](tx, "id=?", id)
+	return
 }

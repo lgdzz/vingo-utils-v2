@@ -231,32 +231,6 @@ func GetSliceElement(slice interface{}, index int) interface{} {
 	return element.Interface()
 }
 
-// 从切片中删除元素
-// Deprecated: This function is no longer recommended for use.
-// Suggested: Please use SliceRemove() instead.
-func SliceDelItem(item interface{}, items interface{}) {
-	value := reflect.ValueOf(items)
-	if value.Kind() != reflect.Ptr || value.Elem().Kind() != reflect.Slice {
-		panic("not a slice pointer")
-	}
-
-	sliceValue := value.Elem()
-	for i := 0; i < sliceValue.Len(); i++ {
-		if reflect.DeepEqual(sliceValue.Index(i).Interface(), item) {
-			// 将要删除的元素移到最后一个元素位置
-			lastIndex := sliceValue.Len() - 1
-			lastElement := sliceValue.Index(lastIndex)
-			sliceValue.Index(i).Set(lastElement)
-
-			// 切片长度减一
-			newSliceValue := sliceValue.Slice(0, lastIndex)
-			sliceValue.Set(newSliceValue)
-
-			return
-		}
-	}
-}
-
 // 在切片中搜索元素，返回索引，-1未找到
 func IndexOf(item interface{}, items interface{}) int {
 	value := reflect.ValueOf(items)
@@ -270,44 +244,6 @@ func IndexOf(item interface{}, items interface{}) int {
 		}
 	}
 	return -1
-}
-
-// 将切片结构体中的某列作为map的key，结构体作为map的value，返回一个新的结果，结果需要断言
-// 如：result.(map[string]FileInfo)
-// Deprecated: This function is no longer recommended for use.
-// Suggested: Please use SliceToMapSlice instead.
-func SliceColumn(slice any, columnName string) any {
-	sliceValue := reflect.ValueOf(slice)
-	if sliceValue.Kind() != reflect.Slice {
-		panic("SliceColumn函数参数1必须是切片类型")
-	}
-	length := sliceValue.Len()
-	if length == 0 {
-		return map[string]any{}
-	}
-	tmpItem := sliceValue.Index(0)
-	structType := tmpItem.Type()
-	// 确保切片元素是结构体类型
-	if structType.Kind() != reflect.Struct {
-		panic("SliceColumn函数切片元素必须是结构体")
-	}
-
-	mapType := reflect.MapOf(tmpItem.FieldByName(columnName).Type(), structType)
-	result := reflect.MakeMap(mapType)
-
-	// 缓存重复操作的结果
-	columnField, ok := structType.FieldByName(columnName)
-	if !ok {
-		panic(fmt.Sprintf("SliceColumn函数元素结构体字段 '%s' 不存在", columnName))
-	}
-	columnIndex := columnField.Index
-
-	for i := 0; i < length; i++ {
-		elem := sliceValue.Index(i)
-		fieldValue := elem.FieldByIndex(columnIndex)
-		result.SetMapIndex(fieldValue, elem)
-	}
-	return result.Interface()
 }
 
 // 将数组对象转字典对象

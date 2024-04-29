@@ -220,6 +220,15 @@ func GetThisMonthRange() (r DateRange) {
 	return
 }
 
+// 本季时间范围
+func GetThisQuarterRange() (r DateRange) {
+	now := time.Now()
+	quarter := (now.Month() - 1) / 3
+	r.Start = time.Date(now.Year(), time.Month(quarter*3+1), 1, 0, 0, 0, 0, now.Location())
+	r.End = r.Start.AddDate(0, 3, -1).Add(time.Hour * 23).Add(time.Minute * 59).Add(time.Second * 59) // 设置到本季度最后一天的最后一秒钟
+	return
+}
+
 // 今年时间范围
 func GetThisYearRange() (r DateRange) {
 	now := time.Now()  // 获取当前时间

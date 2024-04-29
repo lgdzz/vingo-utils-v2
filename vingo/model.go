@@ -1,9 +1,6 @@
 package vingo
 
 import (
-	"database/sql/driver"
-	"encoding/json"
-	"strings"
 	"time"
 )
 
@@ -83,52 +80,4 @@ func (s *DateAt) Start() string {
 
 func (s *DateAt) End() string {
 	return s[1]
-}
-
-type UintIds []uint
-
-func (s UintIds) Value() (driver.Value, error) {
-	return strings.Join(SliceUintToString(s), ","), nil
-}
-
-func (s *UintIds) Scan(value interface{}) error {
-	v := string(value.([]byte))
-	if v == "" {
-		err := json.Unmarshal([]byte("[]"), s)
-		if err != nil {
-			panic(err)
-		}
-	} else {
-		CustomOutput(SliceStringToUint(strings.Split(v, ",")), s)
-	}
-	return nil
-}
-
-func (s *UintIds) Uints() (result []uint) {
-	CustomOutput(s, &result)
-	return
-}
-
-type StringSlice []string
-
-func (s StringSlice) Value() (driver.Value, error) {
-	return strings.Join(s, ","), nil
-}
-
-func (s *StringSlice) Scan(value interface{}) error {
-	v := string(value.([]byte))
-	if v == "" {
-		err := json.Unmarshal([]byte("[]"), s)
-		if err != nil {
-			panic(err)
-		}
-	} else {
-		*s = strings.Split(v, ",")
-	}
-	return nil
-}
-
-func (s *StringSlice) Strings() (result []string) {
-	CustomOutput(s, &result)
-	return
 }

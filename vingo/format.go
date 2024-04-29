@@ -5,8 +5,8 @@ import (
 	"crypto/sha256"
 	"encoding/json"
 	"fmt"
+	"github.com/duke-git/lancet/v2/convertor"
 	"math"
-	"strconv"
 	"strings"
 )
 
@@ -68,94 +68,45 @@ func ToPercentString(value float64) string {
 	return fmt.Sprintf("%v%%", math.Round(value*100))
 }
 
-func ToUint(v any) uint {
-	switch t := v.(type) {
-	case uint:
-		return t
-	case int32:
-		return uint(t)
-	case int64:
-		return uint(t)
-	case uint32:
-		return uint(t)
-	case float32:
-		return uint(t)
-	case float64:
-		return uint(t)
-	case string:
-		v, _ := strconv.Atoi(t)
-		return uint(v)
-	default:
-		panic(fmt.Sprintf("Cannot convert to uint: %v", v))
-	}
-	return 0
+func ToInt(value any) int {
+	return int(ToInt64(value))
 }
 
-func ToString(v any) string {
-	switch value := v.(type) {
-	case int:
-		return strconv.Itoa(value)
-	case int8:
-		return strconv.FormatInt(int64(value), 10)
-	case int16:
-		return strconv.FormatInt(int64(value), 10)
-	case int32:
-		return strconv.FormatInt(int64(value), 10)
-	case int64:
-		return strconv.FormatInt(value, 10)
-	case uint:
-		return strconv.FormatUint(uint64(value), 10)
-	case uint8:
-		return strconv.FormatUint(uint64(value), 10)
-	case uint16:
-		return strconv.FormatUint(uint64(value), 10)
-	case uint32:
-		return strconv.FormatUint(uint64(value), 10)
-	case uint64:
-		return strconv.FormatUint(value, 10)
-	case float32:
-		return strconv.FormatFloat(float64(value), 'f', -1, 32)
-	case float64:
-		return strconv.FormatFloat(value, 'f', -1, 64)
-	}
-	return ""
+func ToInt64(value any) int64 {
+	v, _ := convertor.ToInt(value)
+	return v
 }
 
-func ToFloat64(value interface{}) float64 {
-	switch v := value.(type) {
-	case string:
-		f, err := strconv.ParseFloat(v, 64)
-		if err != nil {
-			panic(fmt.Sprintf("字符串：%v转换float64失败，错误：%v", v, err.Error()))
-		}
-		return f
-	case int:
-		return float64(v)
-	case int8:
-		return float64(v)
-	case int16:
-		return float64(v)
-	case int32:
-		return float64(v)
-	case int64:
-		return float64(v)
-	case uint:
-		return float64(v)
-	case uint8:
-		return float64(v)
-	case uint16:
-		return float64(v)
-	case uint32:
-		return float64(v)
-	case uint64:
-		return float64(v)
-	case float32:
-		return float64(v)
-	case float64:
-		return v
-	default:
-		return 0
-	}
+func ToUint(value any) uint {
+	return uint(ToInt64(value))
+}
+
+func ToFloat(value any) float64 {
+	v, _ := convertor.ToFloat(value)
+	return v
+}
+
+func ToBool(value string) bool {
+	v, _ := convertor.ToBool(value)
+	return v
+}
+
+// 将值转换为字符串，对于数字、字符串、[]byte，将转换为字符串。 对于其他类型（切片、映射、数组、结构体）将调用 json.Marshal
+func ToString(value any) string {
+	return convertor.ToString(value)
+}
+
+func ToBase64(value any) string {
+	return convertor.ToStdBase64(value)
+}
+
+func ToUrlBase64(value any) string {
+	return convertor.ToUrlBase64(value)
+}
+
+func ToJson(value any) string {
+	v, _ := convertor.ToJson(value)
+	return v
 }
 
 // 将阿拉伯数字转换为中文数字

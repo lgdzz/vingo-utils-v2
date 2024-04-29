@@ -3,27 +3,6 @@
   <component name="GoORMHelperCache">
     <option name="schemaMapping">
       <map>
-        <entry key="Account">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../fast-go/model/account.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="AccountBody">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../fast-go/model/account.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="AccountQuery">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../fast-go/model/account.go" />
-            </set>
-          </value>
-        </entry>
         <entry key="AuthException">
           <value>
             <set>
@@ -42,7 +21,6 @@
         <entry key="Config">
           <value>
             <set>
-              <option value="file://$PROJECT_DIR$/../fast-go/config/index.go" />
               <option value="file://$PROJECT_DIR$/config/config.go" />
               <option value="file://$PROJECT_DIR$/db/mysql/config.go" />
             </set>
@@ -91,6 +69,20 @@
             </set>
           </value>
         </entry>
+        <entry key="DiffBox">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/diff.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DiffItem">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/diff.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="FileInfo">
           <value>
             <set>
@@ -105,17 +97,17 @@
             </set>
           </value>
         </entry>
-        <entry key="FunctionModule">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../fast-go/api/api.go" />
-            </set>
-          </value>
-        </entry>
         <entry key="IdCardInfo">
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/vingo/model.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="JsonObject">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/serialize_json.go" />
             </set>
           </value>
         </entry>
@@ -176,13 +168,6 @@
             </set>
           </value>
         </entry>
-        <entry key="QueryDateRange">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/vingo/model.go" />
-            </set>
-          </value>
-        </entry>
         <entry key="ResponseData">
           <value>
             <set>
@@ -201,7 +186,6 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/db/mysql/db.go" />
-              <option value="file://$PROJECT_DIR$/db/mysql/helper.go" />
             </set>
           </value>
         </entry>
@@ -221,31 +205,17 @@
             </set>
           </value>
         </entry>
-        <entry key="WenshuMb">
+        <entry key="TjMenu">
           <value>
             <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/wenshu_mb.go" />
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/auth.go" />
             </set>
           </value>
         </entry>
-        <entry key="WenshuMbQuery">
+        <entry key="ZipObject">
           <value>
             <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/wenshu_mb.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="WenshuYSJ">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/wenshu.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="WenshuYSJItem">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/wenshu.go" />
+              <option value="file://$PROJECT_DIR$/vingo/zip.go" />
             </set>
           </value>
         </entry>
@@ -253,58 +223,6 @@
     </option>
     <option name="scannedPathMapping">
       <map>
-        <entry key="file://$PROJECT_DIR$/../fast-go/api/account.go">
-          <value>
-            <ScannedPath>
-              <option name="lastModified" value="1712114157966" />
-            </ScannedPath>
-          </value>
-        </entry>
-        <entry key="file://$PROJECT_DIR$/../fast-go/api/api.go">
-          <value>
-            <ScannedPath>
-              <option name="lastModified" value="1712112493046" />
-              <option name="schema">
-                <list>
-                  <option value="FunctionModule" />
-                </list>
-              </option>
-            </ScannedPath>
-          </value>
-        </entry>
-        <entry key="file://$PROJECT_DIR$/../fast-go/config/index.go">
-          <value>
-            <ScannedPath>
-              <option name="lastModified" value="1712108345327" />
-              <option name="schema">
-                <list>
-                  <option value="Config" />
-                </list>
-              </option>
-            </ScannedPath>
-          </value>
-        </entry>
-        <entry key="file://$PROJECT_DIR$/../fast-go/main.go">
-          <value>
-            <ScannedPath>
-              <option name="lastModified" value="1712112484849" />
-            </ScannedPath>
-          </value>
-        </entry>
-        <entry key="file://$PROJECT_DIR$/../fast-go/model/account.go">
-          <value>
-            <ScannedPath>
-              <option name="lastModified" value="1712113033526" />
-              <option name="schema">
-                <list>
-                  <option value="Account" />
-                  <option value="AccountQuery" />
-                  <option value="AccountBody" />
-                </list>
-              </option>
-            </ScannedPath>
-          </value>
-        </entry>
         <entry key="file://$PROJECT_DIR$/config/config.go">
           <value>
             <ScannedPath>
@@ -358,20 +276,13 @@
         <entry key="file://$PROJECT_DIR$/db/mysql/db.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1712114321059" />
+              <option name="lastModified" value="1714355353884" />
               <option name="schema">
                 <list>
                   <option value="DbApi" />
                   <option value="TableColumn" />
                 </list>
               </option>
-            </ScannedPath>
-          </value>
-        </entry>
-        <entry key="file://$PROJECT_DIR$/db/mysql/helper.go">
-          <value>
-            <ScannedPath>
-              <option name="lastModified" value="1712113494243" />
             </ScannedPath>
           </value>
         </entry>
@@ -471,7 +382,7 @@
         <entry key="file://$PROJECT_DIR$/vingo/const.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1710490756716" />
+              <option name="lastModified" value="1714356834218" />
             </ScannedPath>
           </value>
         </entry>
@@ -488,10 +399,30 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/diff.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1704705558000" />
+              <option name="schema">
+                <list>
+                  <option value="DiffBox" />
+                  <option value="DiffItem" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/vingo/exception.go">
           <value>
             <ScannedPath>
               <option name="lastModified" value="1704183612038" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/fast.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714355336914" />
             </ScannedPath>
           </value>
         </entry>
@@ -505,7 +436,7 @@
         <entry key="file://$PROJECT_DIR$/vingo/format.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1710474475919" />
+              <option name="lastModified" value="1714359243134" />
             </ScannedPath>
           </value>
         </entry>
@@ -539,7 +470,7 @@
         <entry key="file://$PROJECT_DIR$/vingo/model.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1712111564639" />
+              <option name="lastModified" value="1714357779876" />
               <option name="schema">
                 <list>
                   <option value="Location" />
@@ -556,48 +487,72 @@
             </ScannedPath>
           </value>
         </entry>
-        <entry key="file://$PROJECT_DIR$/vingo/random.go">
+        <entry key="file://$PROJECT_DIR$/vingo/serialize_json.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1683698215002" />
+              <option name="lastModified" value="1714360033472" />
+              <option name="schema">
+                <list>
+                  <option value="JsonObject" />
+                </list>
+              </option>
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/vingo/slice.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1694161544630" />
+              <option name="lastModified" value="1714357720720" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/string_ids.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714357800487" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/strings.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1683707199144" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/vingo/time.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1704330706098" />
+              <option name="lastModified" value="1714356792902" />
             </ScannedPath>
           </value>
         </entry>
-        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/wenshu.go">
+        <entry key="file://$PROJECT_DIR$/vingo/uint_ids.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1712111222392" />
+              <option name="lastModified" value="1714357726785" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/zip.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714357430160" />
               <option name="schema">
                 <list>
-                  <option value="WenshuYSJItem" />
-                  <option value="WenshuYSJ" />
+                  <option value="ZipObject" />
                 </list>
               </option>
             </ScannedPath>
           </value>
         </entry>
-        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/wenshu_mb.go">
+        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/auth.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1712111212653" />
+              <option name="lastModified" value="1714354621946" />
               <option name="schema">
                 <list>
-                  <option value="WenshuMb" />
-                  <option value="WenshuMbQuery" />
+                  <option value="TjMenu" />
                 </list>
               </option>
             </ScannedPath>
@@ -607,9 +562,6 @@
     </option>
     <option name="tableStructMapping">
       <map>
-        <entry key="account" value="Account" />
-        <entry key="account_body" value="AccountBody" />
-        <entry key="account_query" value="AccountQuery" />
         <entry key="auth_exception" value="AuthException" />
         <entry key="column" value="Column" />
         <entry key="config" value="Config" />
@@ -619,10 +571,12 @@
         <entry key="date_range_string" value="DateRangeString" />
         <entry key="db_api" value="DbApi" />
         <entry key="db_exception" value="DbException" />
+        <entry key="diff_box" value="DiffBox" />
+        <entry key="diff_item" value="DiffItem" />
         <entry key="file_info" value="FileInfo" />
         <entry key="file_info_simple" value="FileInfoSimple" />
-        <entry key="function_module" value="FunctionModule" />
         <entry key="id_card_info" value="IdCardInfo" />
+        <entry key="json_object" value="JsonObject" />
         <entry key="jwt_body" value="JwtBody" />
         <entry key="jwt_ticket" value="JwtTicket" />
         <entry key="limit" value="Limit" />
@@ -631,18 +585,15 @@
         <entry key="order" value="Order" />
         <entry key="patch_body" value="PatchBody" />
         <entry key="pgsql_config" value="PgsqlConfig" />
-        <entry key="query_date_range" value="QueryDateRange" />
         <entry key="response_data" value="ResponseData" />
         <entry key="result" value="Result" />
         <entry key="table_column" value="TableColumn" />
         <entry key="table_data" value="TableData" />
         <entry key="table_item" value="TableItem" />
-        <entry key="wenshu_mb" value="WenshuMb" />
-        <entry key="wenshu_mb_query" value="WenshuMbQuery" />
-        <entry key="wenshu_ysj" value="WenshuYSJ" />
-        <entry key="wenshu_ysj_item" value="WenshuYSJItem" />
+        <entry key="tj_menu" value="TjMenu" />
+        <entry key="zip_object" value="ZipObject" />
       </map>
     </option>
-    <option name="lastTimeChecked" value="1712107320368" />
+    <option name="lastTimeChecked" value="1714353828687" />
   </component>
 </project>

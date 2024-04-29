@@ -7,6 +7,8 @@ const (
 	True  = 1
 	False = 2
 
+	DateYearFormat        = "2006"
+	DateYearMonthFormat   = "2006-01"
 	DateFormat            = "2006-01-02"
 	DateFormatChinese     = "2006年01月02日"
 	DatetimeFormat        = "2006-01-02 15:04:05"
