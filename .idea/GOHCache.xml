@@ -97,6 +97,13 @@
             </set>
           </value>
         </entry>
+        <entry key="FunctionModule">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/api/api.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="IdCardInfo">
           <value>
             <set>
@@ -144,6 +151,13 @@
             <set>
               <option value="file://$PROJECT_DIR$/db/page/page.go" />
               <option value="file://$PROJECT_DIR$/db/redis/redis.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Options">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/cli/cli.go" />
             </set>
           </value>
         </entry>
@@ -223,10 +237,48 @@
     </option>
     <option name="scannedPathMapping">
       <map>
+        <entry key="file://$PROJECT_DIR$/../fast-go/api/api.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714361723635" />
+              <option name="schema">
+                <list>
+                  <option value="FunctionModule" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/api/role.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714361608600" />
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/../fast-go/api/rule.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714360698043" />
+              <option name="lastModified" value="1714361047381" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/main.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714361687282" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/cli/cli.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714362295866" />
+              <option name="schema">
+                <list>
+                  <option value="Options" />
+                </list>
+              </option>
             </ScannedPath>
           </value>
         </entry>
@@ -582,6 +634,7 @@
         <entry key="diff_item" value="DiffItem" />
         <entry key="file_info" value="FileInfo" />
         <entry key="file_info_simple" value="FileInfoSimple" />
+        <entry key="function_module" value="FunctionModule" />
         <entry key="id_card_info" value="IdCardInfo" />
         <entry key="json_object" value="JsonObject" />
         <entry key="jwt_body" value="JwtBody" />
@@ -589,6 +642,7 @@
         <entry key="limit" value="Limit" />
         <entry key="location" value="Location" />
         <entry key="option" value="Option" />
+        <entry key="options" value="Options" />
         <entry key="order" value="Order" />
         <entry key="patch_body" value="PatchBody" />
         <entry key="pgsql_config" value="PgsqlConfig" />
