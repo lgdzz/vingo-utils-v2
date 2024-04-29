@@ -223,6 +223,13 @@
     </option>
     <option name="scannedPathMapping">
       <map>
+        <entry key="file://$PROJECT_DIR$/../fast-go/api/rule.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714360698043" />
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/config/config.go">
           <value>
             <ScannedPath>
@@ -276,7 +283,7 @@
         <entry key="file://$PROJECT_DIR$/db/mysql/db.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714355353884" />
+              <option name="lastModified" value="1714360697987" />
               <option name="schema">
                 <list>
                   <option value="DbApi" />

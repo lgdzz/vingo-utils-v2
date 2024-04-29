@@ -39,12 +39,12 @@ func (s *DbApi) FirstOrCreate(dest any, conds ...any) *gorm.DB {
 }
 
 // Updates 更新指定模型字段
-func (s *DbApi) Updates(model *any, column string, columns ...any) *gorm.DB {
+func (s *DbApi) Updates(model any, column string, columns ...any) *gorm.DB {
 	return s.DB.Select(column, columns...).Updates(model)
 }
 
 // Delete 删除数据记录
-func (s *DbApi) Delete(model *any, conds ...any) *gorm.DB {
+func (s *DbApi) Delete(model any, conds ...any) *gorm.DB {
 	return s.DB.Delete(model, conds...)
 }
 
@@ -54,6 +54,10 @@ func (s *DbApi) Save(value any) *gorm.DB {
 
 func (s *DbApi) Debug() *gorm.DB {
 	return s.DB.Debug()
+}
+
+func (s *DbApi) Unscoped() *gorm.DB {
+	return s.DB.Unscoped()
 }
 
 func (s *DbApi) Table(name string, args ...any) *gorm.DB {
