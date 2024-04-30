@@ -253,6 +253,13 @@
             </set>
           </value>
         </entry>
+        <entry key="Object">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/oss/interface.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="Option">
           <value>
             <set>
@@ -404,6 +411,13 @@
             </set>
           </value>
         </entry>
+        <entry key="UploadRes">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/oss/interface.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="VideoAttr">
           <value>
             <set>
@@ -465,7 +479,7 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/config/index.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714368305046" />
+              <option name="lastModified" value="1714381911331" />
               <option name="schema">
                 <list>
                   <option value="Config" />
@@ -580,7 +594,7 @@
         <entry key="file://$PROJECT_DIR$/db/mysql/init.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714367829956" />
+              <option name="lastModified" value="1714439460447" />
             </ScannedPath>
           </value>
         </entry>
@@ -647,7 +661,7 @@
         <entry key="file://$PROJECT_DIR$/db/redis/redis.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714380953418" />
+              <option name="lastModified" value="1714439443282" />
               <option name="schema">
                 <list>
                   <option value="Config" />
@@ -661,6 +675,13 @@
           <value>
             <ScannedPath>
               <option name="lastModified" value="1714367772123" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/excel/import.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1706088276460" />
             </ScannedPath>
           </value>
         </entry>
@@ -705,6 +726,19 @@
                 <list>
                   <option value="Config" />
                   <option value="ClientApi" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/oss/interface.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1694589715818" />
+              <option name="schema">
+                <list>
+                  <option value="Object" />
+                  <option value="UploadRes" />
                 </list>
               </option>
             </ScannedPath>
@@ -807,7 +841,7 @@
         <entry key="file://$PROJECT_DIR$/router/default.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714368200027" />
+              <option name="lastModified" value="1714381946530" />
               <option name="schema">
                 <list>
                   <option value="Hook" />
@@ -883,6 +917,20 @@
           <value>
             <ScannedPath>
               <option name="lastModified" value="1712112023719" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/ids_string.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714357800487" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/ids_uint.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714357726785" />
             </ScannedPath>
           </value>
         </entry>
@@ -1056,6 +1104,7 @@
         <entry key="location" value="Location" />
         <entry key="message_package" value="MessagePackage" />
         <entry key="nsq_service" value="NsqService" />
+        <entry key="object" value="Object" />
         <entry key="option" value="Option" />
         <entry key="options" value="Options" />
         <entry key="order" value="Order" />
@@ -1077,6 +1126,7 @@
         <entry key="table_item" value="TableItem" />
         <entry key="ticket" value="Ticket" />
         <entry key="tj_menu" value="TjMenu" />
+        <entry key="upload_res" value="UploadRes" />
         <entry key="video_attr" value="VideoAttr" />
         <entry key="video_resource" value="VideoResource" />
         <entry key="web_item" value="WebItem" />

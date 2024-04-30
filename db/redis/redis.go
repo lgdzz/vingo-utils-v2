@@ -95,7 +95,7 @@ func (s *RedisApi) Del(key ...string) int64 {
 	return result
 }
 
-// redis初始化
+// 新建一个redis连接池
 func NewRedis(config Config) *RedisApi {
 	config.StringValue(&config.Host, "127.0.0.1")
 	config.StringValue(&config.Port, "6379")

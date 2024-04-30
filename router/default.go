@@ -24,7 +24,7 @@ type HookOption struct {
 	Copyright string
 	Debug     bool
 	Database  mysql.Config
-	Redis     redis.Option
+	Redis     redis.Config
 }
 
 type WebItem struct {

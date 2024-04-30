@@ -11,7 +11,8 @@ import (
 	"time"
 )
 
-func InitService(config *Config) *gorm.DB {
+// 新建一个数据库连接池
+func NewMysql(config Config) *gorm.DB {
 	config.StringValue(&config.Host, "127.0.0.1")
 	config.StringValue(&config.Port, "3306")
 	config.StringValue(&config.Username, "root")
