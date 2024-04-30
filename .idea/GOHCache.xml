@@ -283,6 +283,27 @@
             </set>
           </value>
         </entry>
+        <entry key="OrgType">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/model/org_type.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="OrgTypeBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/model/org_type.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="OrgTypeQuery">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/model/org_type.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="PatchBody">
           <value>
             <set>
@@ -394,6 +415,13 @@
             <set>
               <option value="file://$PROJECT_DIR$/db/mysql/book.go" />
               <option value="file://$PROJECT_DIR$/db/pgsql/book.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Test">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/model/org_type.go" />
             </set>
           </value>
         </entry>
@@ -516,7 +544,7 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/api/api.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714442422580" />
+              <option name="lastModified" value="1714442980529" />
               <option name="schema">
                 <list>
                   <option value="FunctionModule" />
@@ -554,14 +582,14 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/main.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714362931555" />
+              <option name="lastModified" value="1714442952297" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/../fast-go/router/router.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714368295325" />
+              <option name="lastModified" value="1714442889481" />
             </ScannedPath>
           </value>
         </entry>
@@ -619,7 +647,7 @@
         <entry key="file://$PROJECT_DIR$/db/mysql/build_struct.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714367953291" />
+              <option name="lastModified" value="1714443526239" />
               <option name="schema">
                 <list>
                   <option value="TableData" />
@@ -777,7 +805,22 @@
         <entry key="file://$PROJECT_DIR$/main.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714442582058" />
+              <option name="lastModified" value="1714444287586" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/model/org_type.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714443991964" />
+              <option name="schema">
+                <list>
+                  <option value="Test" />
+                  <option value="OrgType" />
+                  <option value="OrgTypeQuery" />
+                  <option value="OrgTypeBody" />
+                </list>
+              </option>
             </ScannedPath>
           </value>
         </entry>
@@ -1040,7 +1083,7 @@
         <entry key="file://$PROJECT_DIR$/vingo/serialize_json.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714360033472" />
+              <option name="lastModified" value="1714444267317" />
               <option name="schema">
                 <list>
                   <option value="JsonObject" />
@@ -1191,6 +1234,9 @@
         <entry key="option" value="Option" />
         <entry key="options" value="Options" />
         <entry key="order" value="Order" />
+        <entry key="org_type" value="OrgType" />
+        <entry key="org_type_body" value="OrgTypeBody" />
+        <entry key="org_type_query" value="OrgTypeQuery" />
         <entry key="patch_body" value="PatchBody" />
         <entry key="pgsql_config" value="PgsqlConfig" />
         <entry key="redis_api" value="RedisApi" />
@@ -1207,6 +1253,7 @@
         <entry key="table_column" value="TableColumn" />
         <entry key="table_data" value="TableData" />
         <entry key="table_item" value="TableItem" />
+        <entry key="test" value="Test" />
         <entry key="ticket" value="Ticket" />
         <entry key="tj_menu" value="TjMenu" />
         <entry key="upload_res" value="UploadRes" />

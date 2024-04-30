@@ -13,7 +13,7 @@ import (
 )
 
 type JsonObject[T any] struct {
-	Data T
+	Json T `json:"json"`
 }
 
 func (s JsonObject[T]) Value() (driver.Value, error) {

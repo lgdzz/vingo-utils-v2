@@ -21,7 +21,7 @@ package model
 
 type {{ .ModelName }} struct {
 	{{ range .TableColumns }}{{ .DataName }}   {{ .DataType }}  ` + "`gorm:\"{{ if eq .Key \"PRI\" }}primaryKey;{{ end }}column:{{ .Field }}\" json:\"{{ .JsonName }}\"`" + ` {{ if .Comment }}// {{ .Comment }}{{ end }}
-	{{ end }}
+    {{ end }}
 }
 
 func (s *{{ .ModelName }}) TableName() string {
@@ -31,6 +31,7 @@ func (s *{{ .ModelName }}) TableName() string {
 type {{ .ModelName }}Query struct {
 	page.Limit
 	*page.Order
+	CreatedAt *vingo.DateAt ` + "`form:\"createdAt[]\"`" + `
 	Keyword string ` + "`form:\"keyword\"`" + `
 }
 
@@ -76,6 +77,9 @@ func (s *DbApi) CreateDbModel(tableNames ...string) (bool, error) {
 			continue
 		}
 
+		var tableComment string
+		s.DB.Table("information_schema.tables").Where("table_schema=? AND table_name=?", s.Config.Dbname, tableName).Select("table_comment").Scan(&tableComment)
+
 		var columns []Column
 		s.DB.Raw("SHOW FULL COLUMNS FROM " + tableName).Select("Field,Type,Comment").Scan(&columns)
 		columns = vingo.ForEach[Column](columns, func(item Column, index int) Column {
@@ -116,6 +120,7 @@ func (s *DbApi) CreateDbModel(tableNames ...string) (bool, error) {
 		if err = t.Execute(outputFile, TableData{
 			TableName:    tableName,
 			ModelName:    strutil.UpperFirst(strutil.CamelCase(tableName)),
+			TableComment: tableComment,
 			TableColumns: columns,
 			Date:         time.Now().Format("2006/01/02"),
 		}); err != nil {
