@@ -3,6 +3,27 @@
   <component name="GoORMHelperCache">
     <option name="schemaMapping">
       <map>
+        <entry key="Account">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/account.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="AccountBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/account.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="AccountQuery">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/account.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="AudioAttr">
           <value>
             <set>
@@ -246,6 +267,13 @@
             </set>
           </value>
         </entry>
+        <entry key="Methods">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/queue/start.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="NsqService">
           <value>
             <set>
@@ -283,9 +311,31 @@
             </set>
           </value>
         </entry>
+        <entry key="Org">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/org.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="OrgBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/org.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="OrgQuery">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/org.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="OrgType">
           <value>
             <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/org_type.go" />
               <option value="file://$PROJECT_DIR$/model/org_type.go" />
             </set>
           </value>
@@ -293,6 +343,7 @@
         <entry key="OrgTypeBody">
           <value>
             <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/org_type.go" />
               <option value="file://$PROJECT_DIR$/model/org_type.go" />
             </set>
           </value>
@@ -300,6 +351,7 @@
         <entry key="OrgTypeQuery">
           <value>
             <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/org_type.go" />
               <option value="file://$PROJECT_DIR$/model/org_type.go" />
             </set>
           </value>
@@ -395,6 +447,48 @@
             </set>
           </value>
         </entry>
+        <entry key="Role">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/role.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="RoleBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/role.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="RoleQuery">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/role.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Rule">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/rule.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="RuleBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/rule.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="RuleQuery">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/rule.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="TableColumn">
           <value>
             <set>
@@ -443,6 +537,34 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/oss/interface.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/user.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="UserAfterLogin">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/user.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="UserBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/user.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="UserQuery">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/user.go" />
             </set>
           </value>
         </entry>
@@ -541,10 +663,17 @@
     </option>
     <option name="scannedPathMapping">
       <map>
+        <entry key="file://$PROJECT_DIR$/../fast-go/api/account.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714447700384" />
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/../fast-go/api/api.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714442980529" />
+              <option name="lastModified" value="1714447628120" />
               <option name="schema">
                 <list>
                   <option value="FunctionModule" />
@@ -553,17 +682,31 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/api/org.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714447722225" />
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/../fast-go/api/role.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714361608600" />
+              <option name="lastModified" value="1714447735573" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/../fast-go/api/rule.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714361047381" />
+              <option name="lastModified" value="1714447746674" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/api/user.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714447758787" />
             </ScannedPath>
           </value>
         </entry>
@@ -579,10 +722,135 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/global/variable.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714448281073" />
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/../fast-go/main.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714442952297" />
+              <option name="lastModified" value="1714449340010" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/middleware/admin.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714448240216" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/middleware/mobile.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714444809529" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/model/account.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714445869243" />
+              <option name="schema">
+                <list>
+                  <option value="Account" />
+                  <option value="AccountQuery" />
+                  <option value="AccountBody" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/model/org.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714445887960" />
+              <option name="schema">
+                <list>
+                  <option value="Org" />
+                  <option value="OrgQuery" />
+                  <option value="OrgBody" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/model/org_type.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714449529307" />
+              <option name="schema">
+                <list>
+                  <option value="OrgType" />
+                  <option value="OrgTypeQuery" />
+                  <option value="OrgTypeBody" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/model/role.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714445898316" />
+              <option name="schema">
+                <list>
+                  <option value="Role" />
+                  <option value="RoleQuery" />
+                  <option value="RoleBody" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/model/rule.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714445843923" />
+              <option name="schema">
+                <list>
+                  <option value="Rule" />
+                  <option value="RuleQuery" />
+                  <option value="RuleBody" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/model/user.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714447591548" />
+              <option name="schema">
+                <list>
+                  <option value="User" />
+                  <option value="UserQuery" />
+                  <option value="UserBody" />
+                  <option value="UserAfterLogin" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/queue/default.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714448387528" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/queue/start.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714448343392" />
+              <option name="schema">
+                <list>
+                  <option value="Methods" />
+                </list>
+              </option>
             </ScannedPath>
           </value>
         </entry>
@@ -590,6 +858,20 @@
           <value>
             <ScannedPath>
               <option name="lastModified" value="1714442889481" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/task/task.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714449346991" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/task/zfba.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714448480262" />
             </ScannedPath>
           </value>
         </entry>
@@ -647,7 +929,7 @@
         <entry key="file://$PROJECT_DIR$/db/mysql/build_struct.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714443526239" />
+              <option name="lastModified" value="1714455325789" />
               <option name="schema">
                 <list>
                   <option value="TableData" />
@@ -805,17 +1087,16 @@
         <entry key="file://$PROJECT_DIR$/main.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714444287586" />
+              <option name="lastModified" value="1714455249454" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/model/org_type.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714443991964" />
+              <option name="lastModified" value="1714455337275" />
               <option name="schema">
                 <list>
-                  <option value="Test" />
                   <option value="OrgType" />
                   <option value="OrgTypeQuery" />
                   <option value="OrgTypeBody" />
@@ -1192,10 +1473,27 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/router/common.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714448602462" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/router/openapi.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714453744595" />
+            </ScannedPath>
+          </value>
+        </entry>
       </map>
     </option>
     <option name="tableStructMapping">
       <map>
+        <entry key="account" value="Account" />
+        <entry key="account_body" value="AccountBody" />
+        <entry key="account_query" value="AccountQuery" />
         <entry key="audio_attr" value="AudioAttr" />
         <entry key="auth_exception" value="AuthException" />
         <entry key="body" value="Body" />
@@ -1229,11 +1527,15 @@
         <entry key="limit" value="Limit" />
         <entry key="location" value="Location" />
         <entry key="message_package" value="MessagePackage" />
+        <entry key="methods" value="Methods" />
         <entry key="nsq_service" value="NsqService" />
         <entry key="object" value="Object" />
         <entry key="option" value="Option" />
         <entry key="options" value="Options" />
         <entry key="order" value="Order" />
+        <entry key="org" value="Org" />
+        <entry key="org_body" value="OrgBody" />
+        <entry key="org_query" value="OrgQuery" />
         <entry key="org_type" value="OrgType" />
         <entry key="org_type_body" value="OrgTypeBody" />
         <entry key="org_type_query" value="OrgTypeQuery" />
@@ -1250,6 +1552,12 @@
         <entry key="resource_video" value="ResourceVideo" />
         <entry key="response_data" value="ResponseData" />
         <entry key="result" value="Result" />
+        <entry key="role" value="Role" />
+        <entry key="role_body" value="RoleBody" />
+        <entry key="role_query" value="RoleQuery" />
+        <entry key="rule" value="Rule" />
+        <entry key="rule_body" value="RuleBody" />
+        <entry key="rule_query" value="RuleQuery" />
         <entry key="table_column" value="TableColumn" />
         <entry key="table_data" value="TableData" />
         <entry key="table_item" value="TableItem" />
@@ -1257,6 +1565,10 @@
         <entry key="ticket" value="Ticket" />
         <entry key="tj_menu" value="TjMenu" />
         <entry key="upload_res" value="UploadRes" />
+        <entry key="user" value="User" />
+        <entry key="user_after_login" value="UserAfterLogin" />
+        <entry key="user_body" value="UserBody" />
+        <entry key="user_query" value="UserQuery" />
         <entry key="video_attr" value="VideoAttr" />
         <entry key="video_resource" value="VideoResource" />
         <entry key="web_item" value="WebItem" />

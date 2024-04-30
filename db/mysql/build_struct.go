@@ -19,6 +19,12 @@ const tpl = `// ****************************************************************
 
 package model
 
+import(
+	"github.com/lgdzz/vingo-utils-v2/vingo"
+	"github.com/lgdzz/vingo-utils-v2/db/page"
+	"gorm.io/gorm"
+)
+
 type {{ .ModelName }} struct {
 	{{ range .TableColumns }}{{ .DataName }}   {{ .DataType }}  ` + "`gorm:\"{{ if eq .Key \"PRI\" }}primaryKey;{{ end }}column:{{ .Field }}\" json:\"{{ .JsonName }}\"`" + ` {{ if .Comment }}// {{ .Comment }}{{ end }}
     {{ end }}
