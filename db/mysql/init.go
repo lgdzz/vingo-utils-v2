@@ -12,7 +12,7 @@ import (
 )
 
 // 新建一个数据库连接池
-func NewMysql(config Config) *gorm.DB {
+func NewMysql(config Config) *DbApi {
 	config.StringValue(&config.Host, "127.0.0.1")
 	config.StringValue(&config.Port, "3306")
 	config.StringValue(&config.Username, "root")
@@ -20,6 +20,11 @@ func NewMysql(config Config) *gorm.DB {
 	config.StringValue(&config.Charset, "utf8mb4")
 	config.IntValue(&config.MaxIdleConns, 10)
 	config.IntValue(&config.MaxOpenConns, 100)
+
+	var dbApi = DbApi{
+		Config: config,
+	}
+
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=%s&parseTime=true&loc=Local",
 		config.Username,
 		config.Password,
@@ -64,7 +69,8 @@ func NewMysql(config Config) *gorm.DB {
 	RegisterAfterUpdate(db)
 	RegisterAfterDelete(db)
 
-	return db
+	dbApi.DB = db
+	return &dbApi
 }
 
 func RegisterAfterQuery(db *gorm.DB) {

@@ -439,6 +439,69 @@
             </set>
           </value>
         </entry>
+        <entry key="ZfbaAjWs">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/zfba_aj_ws.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ZfbaAjWsDetail">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/zfba_aj_ws.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ZfbaAjWsDetailOption">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/zfba_aj_ws.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ZfbaAjWsDspTopItem">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/zfba_aj_ws.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ZfbaAjWsQuery">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/zfba_aj_ws.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ZfbaXzcfAjWsDspItem">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/zfba_aj_ws.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ZfbaXzcfAjWsYspItem">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/zfba_aj_ws.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ZfbaXzjcAjWsDspItem">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/zfba_aj_ws.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ZfbaXzjcAjWsYspItem">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/zfba_aj_ws.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="ZipObject">
           <value>
             <set>
@@ -453,7 +516,7 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/api/api.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714362919765" />
+              <option name="lastModified" value="1714442422580" />
               <option name="schema">
                 <list>
                   <option value="FunctionModule" />
@@ -581,7 +644,7 @@
         <entry key="file://$PROJECT_DIR$/db/mysql/db.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714360697987" />
+              <option name="lastModified" value="1714442299834" />
               <option name="schema">
                 <list>
                   <option value="DbApi" />
@@ -594,7 +657,7 @@
         <entry key="file://$PROJECT_DIR$/db/mysql/init.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714439460447" />
+              <option name="lastModified" value="1714442365518" />
             </ScannedPath>
           </value>
         </entry>
@@ -714,7 +777,7 @@
         <entry key="file://$PROJECT_DIR$/main.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714381669328" />
+              <option name="lastModified" value="1714442582058" />
             </ScannedPath>
           </value>
         </entry>
@@ -1066,6 +1129,26 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/zfba_aj_ws.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1714441988008" />
+              <option name="schema">
+                <list>
+                  <option value="ZfbaAjWs" />
+                  <option value="ZfbaAjWsQuery" />
+                  <option value="ZfbaAjWsDetail" />
+                  <option value="ZfbaAjWsDetailOption" />
+                  <option value="ZfbaAjWsDspTopItem" />
+                  <option value="ZfbaXzcfAjWsDspItem" />
+                  <option value="ZfbaXzcfAjWsYspItem" />
+                  <option value="ZfbaXzjcAjWsDspItem" />
+                  <option value="ZfbaXzjcAjWsYspItem" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
       </map>
     </option>
     <option name="tableStructMapping">
@@ -1130,6 +1213,15 @@
         <entry key="video_attr" value="VideoAttr" />
         <entry key="video_resource" value="VideoResource" />
         <entry key="web_item" value="WebItem" />
+        <entry key="zfba_aj_ws" value="ZfbaAjWs" />
+        <entry key="zfba_aj_ws_detail" value="ZfbaAjWsDetail" />
+        <entry key="zfba_aj_ws_detail_option" value="ZfbaAjWsDetailOption" />
+        <entry key="zfba_aj_ws_dsp_top_item" value="ZfbaAjWsDspTopItem" />
+        <entry key="zfba_aj_ws_query" value="ZfbaAjWsQuery" />
+        <entry key="zfba_xzcf_aj_ws_dsp_item" value="ZfbaXzcfAjWsDspItem" />
+        <entry key="zfba_xzcf_aj_ws_ysp_item" value="ZfbaXzcfAjWsYspItem" />
+        <entry key="zfba_xzjc_aj_ws_dsp_item" value="ZfbaXzjcAjWsDspItem" />
+        <entry key="zfba_xzjc_aj_ws_ysp_item" value="ZfbaXzjcAjWsYspItem" />
         <entry key="zip_object" value="ZipObject" />
       </map>
     </option>

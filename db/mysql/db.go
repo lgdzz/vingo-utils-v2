@@ -16,7 +16,8 @@ import (
 )
 
 type DbApi struct {
-	DB *gorm.DB
+	DB     *gorm.DB
+	Config Config
 }
 
 func (s *DbApi) NewDB() *gorm.DB {
