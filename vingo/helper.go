@@ -80,9 +80,9 @@ func Tree[T any](rows *[]T, pidName string, enable bool) []map[string]any {
 		rowValue := reflect.ValueOf(row)
 
 		if enable {
-			var status = uint(rowValue.FieldByName("Status").Uint())
+			var isHide = rowValue.FieldByName("IsHide").Bool()
 			var currentId = uint(rowValue.FieldByName("Id").Uint())
-			if status != 1 {
+			if isHide {
 				hideIds = append(hideIds, currentId)
 				continue
 			}

@@ -299,6 +299,6 @@ func Fetch[T any](tx *gorm.DB, condition ...any) (row T) {
 
 // 通过主键id获取记录
 func FetchById[T any](tx *gorm.DB, id any) (row T) {
-	Fetch[T](tx, "id=?", id)
+	row = Fetch[T](tx, "id=?", id)
 	return
 }
