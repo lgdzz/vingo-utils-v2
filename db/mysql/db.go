@@ -284,8 +284,8 @@ type PathOption struct {
 	DbApi       *DbApi
 	Tx          *gorm.DB
 	AppendField []string
-	RootAppend  func(reflect.Value)
-	ChildAppend func(reflect.Value)
+	RootAppend  func(s reflect.Value)
+	ChildAppend func(s reflect.Value, p reflect.Value)
 }
 
 // 设置数据路径，上下级数据结构包含（path、len）字段使用
@@ -301,7 +301,7 @@ func SetPath[T any](model T, parent T, option PathOption) {
 		s.FieldByName("Path").SetString(fmt.Sprintf("%v,%d", parentValue.FieldByName("Path").String(), s.FieldByName("Id").Uint()))
 		s.FieldByName("Len").SetUint(parentValue.FieldByName("Len").Uint() + 1)
 		if option.ChildAppend != nil {
-			option.ChildAppend(s)
+			option.ChildAppend(s, parentValue)
 		}
 	} else {
 		s.FieldByName("Path").SetString(strconv.Itoa(int(s.FieldByName("Id").Uint())))

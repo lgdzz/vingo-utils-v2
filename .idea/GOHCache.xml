@@ -10,6 +10,13 @@
             </set>
           </value>
         </entry>
+        <entry key="ApiItem">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/rule.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="AudioAttr">
           <value>
             <set>
@@ -142,6 +149,13 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/vingo/model.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="FlfgItem">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/search.go" />
             </set>
           </value>
         </entry>
@@ -454,6 +468,34 @@
             </set>
           </value>
         </entry>
+        <entry key="Rule">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/rule.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="RuleBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/rule.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="RuleOptions">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/rule.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="RuleQuery">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/rule.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="TableColumn">
           <value>
             <set>
@@ -568,6 +610,13 @@
             </set>
           </value>
         </entry>
+        <entry key="ZfbaItem">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/search.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="ZfbaLrkh">
           <value>
             <set>
@@ -662,6 +711,7 @@
         <entry key="ZfryItem">
           <value>
             <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/search.go" />
               <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/zfba_xzcf_aj.go" />
             </set>
           </value>
@@ -680,7 +730,14 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/api/role.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715584941855" />
+              <option name="lastModified" value="1715586694565" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/api/rule.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1715587193749" />
             </ScannedPath>
           </value>
         </entry>
@@ -693,6 +750,22 @@
                   <option value="Role" />
                   <option value="RoleQuery" />
                   <option value="RoleBody" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/model/rule.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1715586745033" />
+              <option name="schema">
+                <list>
+                  <option value="RuleOptions" />
+                  <option value="ApiItem" />
+                  <option value="Rule" />
+                  <option value="RuleQuery" />
+                  <option value="RuleBody" />
                 </list>
               </option>
             </ScannedPath>
@@ -770,7 +843,7 @@
         <entry key="file://$PROJECT_DIR$/db/mysql/db.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715586030511" />
+              <option name="lastModified" value="1715588247528" />
               <option name="schema">
                 <list>
                   <option value="DbApi" />
@@ -1253,6 +1326,20 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/search.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1715587894660" />
+              <option name="schema">
+                <list>
+                  <option value="ZfbaItem" />
+                  <option value="FlfgItem" />
+                  <option value="ZfryItem" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/xzcf_aj.go">
           <value>
             <ScannedPath>
@@ -1367,6 +1454,7 @@
     <option name="tableStructMapping">
       <map>
         <entry key="aj_wenshu_list" value="AjWenshuList" />
+        <entry key="api_item" value="ApiItem" />
         <entry key="audio_attr" value="AudioAttr" />
         <entry key="auth_exception" value="AuthException" />
         <entry key="client_api" value="ClientApi" />
@@ -1385,6 +1473,7 @@
         <entry key="file_attr" value="FileAttr" />
         <entry key="file_info" value="FileInfo" />
         <entry key="file_info_simple" value="FileInfoSimple" />
+        <entry key="flfg_item" value="FlfgItem" />
         <entry key="handle" value="Handle" />
         <entry key="hook" value="Hook" />
         <entry key="hook_option" value="HookOption" />
@@ -1429,6 +1518,10 @@
         <entry key="role" value="Role" />
         <entry key="role_body" value="RoleBody" />
         <entry key="role_query" value="RoleQuery" />
+        <entry key="rule" value="Rule" />
+        <entry key="rule_body" value="RuleBody" />
+        <entry key="rule_options" value="RuleOptions" />
+        <entry key="rule_query" value="RuleQuery" />
         <entry key="table_column" value="TableColumn" />
         <entry key="table_data" value="TableData" />
         <entry key="table_item" value="TableItem" />
@@ -1445,6 +1538,7 @@
         <entry key="zfba_aj_ws_dsp" value="ZfbaAjWsDsp" />
         <entry key="zfba_aj_ws_dsp_top_item" value="ZfbaAjWsDspTopItem" />
         <entry key="zfba_aj_ws_query" value="ZfbaAjWsQuery" />
+        <entry key="zfba_item" value="ZfbaItem" />
         <entry key="zfba_lrkh" value="ZfbaLrkh" />
         <entry key="zfba_xzcf_aj" value="ZfbaXzcfAj" />
         <entry key="zfba_xzcf_aj_cfzl" value="ZfbaXzcfAjCfzl" />
