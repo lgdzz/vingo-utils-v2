@@ -23,9 +23,12 @@ func (s *DiffItem) SetMessage() {
 }
 
 // 设置新值并且执行比对
-func (s *DiffBox) SetNewAndCompare(newValue any) {
+func (s *DiffBox) SetNewAndCompare(newValue any, result func(diff *DiffBox)) {
 	s.New = newValue
 	s.Compare()
+	if result != nil {
+		result(s)
+	}
 }
 
 // 比较
