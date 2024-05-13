@@ -342,6 +342,13 @@
             </set>
           </value>
         </entry>
+        <entry key="PathOption">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/db/mysql/db.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="PgsqlConfig">
           <value>
             <set>
@@ -673,7 +680,7 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/api/role.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715583652582" />
+              <option name="lastModified" value="1715584941855" />
             </ScannedPath>
           </value>
         </entry>
@@ -763,11 +770,12 @@
         <entry key="file://$PROJECT_DIR$/db/mysql/db.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715581332984" />
+              <option name="lastModified" value="1715586030511" />
               <option name="schema">
                 <list>
                   <option value="DbApi" />
                   <option value="TableColumn" />
+                  <option value="PathOption" />
                 </list>
               </option>
             </ScannedPath>
@@ -1405,6 +1413,7 @@
         <entry key="page_query" value="PageQuery" />
         <entry key="page_result" value="PageResult" />
         <entry key="patch_body" value="PatchBody" />
+        <entry key="path_option" value="PathOption" />
         <entry key="pgsql_config" value="PgsqlConfig" />
         <entry key="redis_api" value="RedisApi" />
         <entry key="redis_queue" value="RedisQueue" />
