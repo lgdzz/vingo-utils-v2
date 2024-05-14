@@ -294,7 +294,7 @@ func SetPath[T any](model T, parent T, option PathOption) {
 	s := reflect.ValueOf(model).Elem()
 	pid := s.FieldByName("Pid").Uint()
 	if pid > 0 {
-		if parent == nil {
+		if reflect.ValueOf(parent).IsNil() {
 			option.DbApi.TXNotExistsErr(option.Tx, &parent, pid)
 		}
 		parentValue := reflect.ValueOf(parent).Elem()

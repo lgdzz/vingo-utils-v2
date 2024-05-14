@@ -300,6 +300,20 @@
             </set>
           </value>
         </entry>
+        <entry key="Org">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/org.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="OrgBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/org.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="OrgCountItem">
           <value>
             <set>
@@ -311,6 +325,13 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/count.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="OrgQuery">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/org.go" />
             </set>
           </value>
         </entry>
@@ -727,24 +748,51 @@
     </option>
     <option name="scannedPathMapping">
       <map>
+        <entry key="file://$PROJECT_DIR$/../fast-go/api/account.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1715594673777" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/api/org.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1715592194803" />
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/../fast-go/api/role.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715586694565" />
+              <option name="lastModified" value="1715589116742" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/../fast-go/api/rule.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715587193749" />
+              <option name="lastModified" value="1715589135911" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/model/org.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1715593597621" />
+              <option name="schema">
+                <list>
+                  <option value="Org" />
+                  <option value="OrgQuery" />
+                </list>
+              </option>
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/../fast-go/model/role.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715581956344" />
+              <option name="lastModified" value="1715592077508" />
               <option name="schema">
                 <list>
                   <option value="Role" />
@@ -758,7 +806,7 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/model/rule.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715586745033" />
+              <option name="lastModified" value="1715591824627" />
               <option name="schema">
                 <list>
                   <option value="RuleOptions" />
@@ -843,7 +891,7 @@
         <entry key="file://$PROJECT_DIR$/db/mysql/db.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715588247528" />
+              <option name="lastModified" value="1715650862194" />
               <option name="schema">
                 <list>
                   <option value="DbApi" />
@@ -986,7 +1034,7 @@
         <entry key="file://$PROJECT_DIR$/main.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714465589529" />
+              <option name="lastModified" value="1715651236462" />
             </ScannedPath>
           </value>
         </entry>
@@ -1350,7 +1398,7 @@
         <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/xzcf_aj_ws.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715580294895" />
+              <option name="lastModified" value="1715595296736" />
               <option name="schema">
                 <list>
                   <option value="XzcfAjWenshuItem" />
@@ -1361,10 +1409,17 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/xzjc_aj.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1715590707864" />
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/xzjc_aj_ws.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715564110243" />
+              <option name="lastModified" value="1715595302880" />
             </ScannedPath>
           </value>
         </entry>
@@ -1378,7 +1433,7 @@
         <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/zfba_aj_ws.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715579802378" />
+              <option name="lastModified" value="1715650470176" />
               <option name="schema">
                 <list>
                   <option value="ZfbaAjWs" />
@@ -1494,8 +1549,11 @@
         <entry key="option" value="Option" />
         <entry key="options" value="Options" />
         <entry key="order" value="Order" />
+        <entry key="org" value="Org" />
+        <entry key="org_body" value="OrgBody" />
         <entry key="org_count_item" value="OrgCountItem" />
         <entry key="org_count_item_ajcxlb" value="OrgCountItem_ajcxlb" />
+        <entry key="org_query" value="OrgQuery" />
         <entry key="page_limit" value="PageLimit" />
         <entry key="page_option" value="PageOption" />
         <entry key="page_order" value="PageOrder" />
