@@ -848,14 +848,14 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/api/dict.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715668203470" />
+              <option name="lastModified" value="1715672299351" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/../fast-go/api/org.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715667334046" />
+              <option name="lastModified" value="1715671497505" />
             </ScannedPath>
           </value>
         </entry>
@@ -869,7 +869,7 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/api/rule.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715655285874" />
+              <option name="lastModified" value="1715671508608" />
             </ScannedPath>
           </value>
         </entry>
@@ -897,7 +897,7 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/model/dict.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715667954357" />
+              <option name="lastModified" value="1715672146105" />
               <option name="schema">
                 <list>
                   <option value="DictGroup" />
@@ -911,7 +911,7 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/model/org.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715666999511" />
+              <option name="lastModified" value="1715672159794" />
               <option name="schema">
                 <list>
                   <option value="Org" />
@@ -924,7 +924,7 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/model/role.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715592077508" />
+              <option name="lastModified" value="1715672169535" />
               <option name="schema">
                 <list>
                   <option value="Role" />
@@ -938,7 +938,7 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/model/rule.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715591824627" />
+              <option name="lastModified" value="1715672177186" />
               <option name="schema">
                 <list>
                   <option value="RuleOptions" />
@@ -1037,7 +1037,7 @@
         <entry key="file://$PROJECT_DIR$/db/mysql/db.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715666913810" />
+              <option name="lastModified" value="1715672419692" />
               <option name="schema">
                 <list>
                   <option value="DbApi" />
