@@ -152,6 +152,40 @@ func (s *DbApi) QueryWhereDateAt(db *gorm.DB, query *vingo.DateAt, column string
 	return db
 }
 
+func (s *DbApi) QueryWhereDateAtString(db *gorm.DB, query *string, column string) *gorm.DB {
+	if query != nil {
+		arr := strings.Split(*query, ",")
+		db = s.TimeBetween(db, column, vingo.DateAt{arr[0], arr[1]})
+	}
+	return db
+}
+
+func (s *DbApi) FindInSet(db *gorm.DB, query any, column string) *gorm.DB {
+	db = s.Where(fmt.Sprintf("FIND_IN_SET(?,%v)", column), query)
+	return db
+}
+
+func (s *DbApi) QueryWhereFindInSetInt(db *gorm.DB, query *int, column string) *gorm.DB {
+	if query != nil {
+		db = s.FindInSet(db, *query, column)
+	}
+	return db
+}
+
+func (s *DbApi) QueryWhereFindInSetUint(db *gorm.DB, query *uint, column string) *gorm.DB {
+	if query != nil {
+		db = s.FindInSet(db, *query, column)
+	}
+	return db
+}
+
+func (s *DbApi) QueryWhereFindInSetString(db *gorm.DB, query *string, column string) *gorm.DB {
+	if query != nil {
+		db = s.FindInSet(db, *query, column)
+	}
+	return db
+}
+
 func (s *DbApi) QueryWhereLike(db *gorm.DB, query string, column ...string) *gorm.DB {
 	if query != "" {
 		db = s.LikeOr(db, query, column...)

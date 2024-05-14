@@ -69,6 +69,13 @@
             </set>
           </value>
         </entry>
+        <entry key="ComponentModule">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/api/component.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="Config">
           <value>
             <set>
@@ -205,6 +212,13 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/search.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="FunctionModule">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/api/api.go" />
             </set>
           </value>
         </entry>
@@ -805,31 +819,50 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/api/api.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1715656579426" />
+              <option name="schema">
+                <list>
+                  <option value="FunctionModule" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/api/component.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1715656390807" />
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/../fast-go/api/dict.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715654635306" />
+              <option name="lastModified" value="1715655426426" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/../fast-go/api/org.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715653617624" />
+              <option name="lastModified" value="1715656995707" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/../fast-go/api/role.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715653603923" />
+              <option name="lastModified" value="1715655448866" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/../fast-go/api/rule.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715653627828" />
+              <option name="lastModified" value="1715655285874" />
             </ScannedPath>
           </value>
         </entry>
@@ -870,7 +903,7 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/model/org.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715593597621" />
+              <option name="lastModified" value="1715656828745" />
               <option name="schema">
                 <list>
                   <option value="Org" />
@@ -907,6 +940,20 @@
                   <option value="RuleBody" />
                 </list>
               </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/router/component.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1715656744975" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/router/router.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1715656691354" />
             </ScannedPath>
           </value>
         </entry>
@@ -982,7 +1029,7 @@
         <entry key="file://$PROJECT_DIR$/db/mysql/db.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715655198809" />
+              <option name="lastModified" value="1715657455882" />
               <option name="schema">
                 <list>
                   <option value="DbApi" />
@@ -1608,6 +1655,7 @@
         <entry key="auth_exception" value="AuthException" />
         <entry key="client_api" value="ClientApi" />
         <entry key="column" value="Column" />
+        <entry key="component_module" value="ComponentModule" />
         <entry key="config" value="Config" />
         <entry key="context" value="Context" />
         <entry key="count_orgs" value="CountOrgs" />
@@ -1627,6 +1675,7 @@
         <entry key="file_info" value="FileInfo" />
         <entry key="file_info_simple" value="FileInfoSimple" />
         <entry key="flfg_item" value="FlfgItem" />
+        <entry key="function_module" value="FunctionModule" />
         <entry key="handle" value="Handle" />
         <entry key="hook" value="Hook" />
         <entry key="hook_option" value="HookOption" />
