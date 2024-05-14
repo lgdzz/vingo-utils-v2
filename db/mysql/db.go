@@ -351,7 +351,16 @@ func Fetch[T any](tx *gorm.DB, condition ...any) (row T) {
 }
 
 // 通过主键id获取记录
-func FetchById[T any](tx *gorm.DB, id any) (row T) {
+func FetchById[T any](tx *gorm.DB, id any, diff ...bool) (row T) {
 	row = Fetch[T](tx, "id=?", id)
+
+	// 初始化diff
+	if len(diff) > 0 && diff[0] {
+		rowVal := reflect.ValueOf(&row).Elem()
+		diffField := rowVal.FieldByName("Diff")
+		if diffField.IsValid() && diffField.CanSet() {
+			diffField.Set(reflect.ValueOf(&vingo.DiffBox{Old: row}))
+		}
+	}
 	return
 }

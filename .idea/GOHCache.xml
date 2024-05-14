@@ -3,6 +3,27 @@
   <component name="GoORMHelperCache">
     <option name="schemaMapping">
       <map>
+        <entry key="Account">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/account.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="AccountBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/account.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="AccountQuery">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/account.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="AjWenshuList">
           <value>
             <set>
@@ -110,6 +131,27 @@
             </set>
           </value>
         </entry>
+        <entry key="Dict">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/dict.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DictBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/dict.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DictQuery">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/dict.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="DiffBox">
           <value>
             <set>
@@ -128,6 +170,13 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/xzcf_aj_ws.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="FetchOption">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/db/mysql/db.go" />
             </set>
           </value>
         </entry>
@@ -756,29 +805,65 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/api/dict.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1715654635306" />
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/../fast-go/api/org.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715653113070" />
+              <option name="lastModified" value="1715653617624" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/../fast-go/api/role.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715653194617" />
-              <option name="schema">
-                <list>
-                  <option value="PathOption" />
-                </list>
-              </option>
+              <option name="lastModified" value="1715653603923" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/../fast-go/api/rule.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715653123245" />
+              <option name="lastModified" value="1715653627828" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/api/user.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1715653795752" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/model/account.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1715653752910" />
+              <option name="schema">
+                <list>
+                  <option value="Account" />
+                  <option value="AccountQuery" />
+                  <option value="AccountBody" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/model/dict.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1715654613667" />
+              <option name="schema">
+                <list>
+                  <option value="Dict" />
+                  <option value="DictQuery" />
+                </list>
+              </option>
             </ScannedPath>
           </value>
         </entry>
@@ -897,7 +982,7 @@
         <entry key="file://$PROJECT_DIR$/db/mysql/db.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715653486984" />
+              <option name="lastModified" value="1715655198809" />
               <option name="schema">
                 <list>
                   <option value="DbApi" />
@@ -1514,6 +1599,9 @@
     </option>
     <option name="tableStructMapping">
       <map>
+        <entry key="account" value="Account" />
+        <entry key="account_body" value="AccountBody" />
+        <entry key="account_query" value="AccountQuery" />
         <entry key="aj_wenshu_list" value="AjWenshuList" />
         <entry key="api_item" value="ApiItem" />
         <entry key="audio_attr" value="AudioAttr" />
@@ -1528,9 +1616,13 @@
         <entry key="date_range_string" value="DateRangeString" />
         <entry key="db_api" value="DbApi" />
         <entry key="db_exception" value="DbException" />
+        <entry key="dict" value="Dict" />
+        <entry key="dict_body" value="DictBody" />
+        <entry key="dict_query" value="DictQuery" />
         <entry key="diff_box" value="DiffBox" />
         <entry key="diff_item" value="DiffItem" />
         <entry key="download_all_wenshu_option" value="DownloadAllWenshuOption" />
+        <entry key="fetch_option" value="FetchOption" />
         <entry key="file_attr" value="FileAttr" />
         <entry key="file_info" value="FileInfo" />
         <entry key="file_info_simple" value="FileInfoSimple" />
