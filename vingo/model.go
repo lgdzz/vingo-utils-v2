@@ -1,6 +1,7 @@
 package vingo
 
 import (
+	"strings"
 	"time"
 )
 
@@ -80,4 +81,30 @@ func (s *DateAt) Start() string {
 
 func (s *DateAt) End() string {
 	return s[1]
+}
+
+type IntString string
+
+func (s *IntString) ToSlice() []int {
+	result := make([]int, 0)
+	arr := strings.Split(string(*s), ",")
+	for _, item := range arr {
+		result = append(result, ToInt(item))
+	}
+	return result
+}
+
+func (s *IntString) ToUintSlice() []uint {
+	result := make([]uint, 0)
+	arr := strings.Split(string(*s), ",")
+	for _, item := range arr {
+		result = append(result, ToUint(item))
+	}
+	return result
+}
+
+type TextString string
+
+func (s *TextString) ToSlice() []string {
+	return strings.Split(string(*s), ",")
 }

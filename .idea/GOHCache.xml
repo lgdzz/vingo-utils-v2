@@ -848,7 +848,7 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/api/org.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715656995707" />
+              <option name="lastModified" value="1715658080361" />
             </ScannedPath>
           </value>
         </entry>
@@ -903,7 +903,7 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/model/org.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715656828745" />
+              <option name="lastModified" value="1715658812822" />
               <option name="schema">
                 <list>
                   <option value="Org" />
@@ -1172,7 +1172,7 @@
         <entry key="file://$PROJECT_DIR$/main.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715653258596" />
+              <option name="lastModified" value="1715666614345" />
             </ScannedPath>
           </value>
         </entry>
@@ -1402,7 +1402,7 @@
         <entry key="file://$PROJECT_DIR$/vingo/model.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714357779876" />
+              <option name="lastModified" value="1715666532121" />
               <option name="schema">
                 <list>
                   <option value="Location" />
