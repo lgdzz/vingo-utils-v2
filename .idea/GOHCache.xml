@@ -903,7 +903,7 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/model/org.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715658812822" />
+              <option name="lastModified" value="1715666785994" />
               <option name="schema">
                 <list>
                   <option value="Org" />
@@ -1029,7 +1029,7 @@
         <entry key="file://$PROJECT_DIR$/db/mysql/db.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715657455882" />
+              <option name="lastModified" value="1715666913810" />
               <option name="schema">
                 <list>
                   <option value="DbApi" />

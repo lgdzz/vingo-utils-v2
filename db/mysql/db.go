@@ -145,6 +145,20 @@ func (s *DbApi) QueryWhereIn(db *gorm.DB, query any, column string) *gorm.DB {
 	return db
 }
 
+func (s *DbApi) QueryWhereInString(db *gorm.DB, query vingo.TextString, column string) *gorm.DB {
+	if query != "" {
+		db = db.Where(fmt.Sprintf("%v in(?)", column), query.ToSlice())
+	}
+	return db
+}
+
+func (s *DbApi) QueryWhereInInt(db *gorm.DB, query vingo.IntString, column string) *gorm.DB {
+	if query != "" {
+		db = db.Where(fmt.Sprintf("%v in(?)", column), query.ToSlice())
+	}
+	return db
+}
+
 func (s *DbApi) QueryWhereDateAt(db *gorm.DB, query *vingo.DateAt, column string) *gorm.DB {
 	if query != nil {
 		db = s.TimeBetween(db, column, *query)
