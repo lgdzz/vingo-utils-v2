@@ -344,7 +344,7 @@ func SetPath[T any](model *T, option PathOption) {
 	if pid > 0 {
 		var parent T
 		option.DbApi.TXNotExistsErr(option.Tx, &parent, pid)
-		parentValue := reflect.ValueOf(parent).Elem()
+		parentValue := reflect.ValueOf(&parent).Elem()
 		s.FieldByName("Path").SetString(fmt.Sprintf("%v,%d", parentValue.FieldByName("Path").String(), s.FieldByName("Id").Uint()))
 		s.FieldByName("Len").SetUint(parentValue.FieldByName("Len").Uint() + 1)
 		if option.ChildAppend != nil {
