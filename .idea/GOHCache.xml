@@ -891,7 +891,7 @@
         <entry key="file://$PROJECT_DIR$/db/mysql/db.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715650862194" />
+              <option name="lastModified" value="1715651447729" />
               <option name="schema">
                 <list>
                   <option value="DbApi" />

@@ -321,15 +321,15 @@ func SetPathChild[T any](model T, option PathOption) {
 	var rows []T
 	option.Tx.Find(&rows, "pid=?", s.FieldByName("Id").Uint())
 	for _, row := range rows {
-		SetPath(row, model, option)
-		SetPathChild(row, option)
+		SetPath[T](row, model, option)
+		SetPathChild[T](row, option)
 	}
 }
 
 // 设置自身path和所有子级path
 func SetPathAndChildPath[T any](model T, option PathOption) {
-	SetPath(model, nil, option)
-	SetPathChild(model, option)
+	SetPath[T](model, nil, option)
+	SetPathChild[T](model, option)
 }
 
 // 事务函数
