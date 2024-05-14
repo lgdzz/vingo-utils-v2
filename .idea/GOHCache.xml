@@ -380,6 +380,7 @@
         <entry key="PathOption">
           <value>
             <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/api/role.go" />
               <option value="file://$PROJECT_DIR$/db/mysql/db.go" />
             </set>
           </value>
@@ -758,21 +759,26 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/api/org.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715592194803" />
+              <option name="lastModified" value="1715653113070" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/../fast-go/api/role.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715589116742" />
+              <option name="lastModified" value="1715653194617" />
+              <option name="schema">
+                <list>
+                  <option value="PathOption" />
+                </list>
+              </option>
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/../fast-go/api/rule.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715589135911" />
+              <option name="lastModified" value="1715653123245" />
             </ScannedPath>
           </value>
         </entry>
@@ -891,7 +897,7 @@
         <entry key="file://$PROJECT_DIR$/db/mysql/db.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715651447729" />
+              <option name="lastModified" value="1715653486984" />
               <option name="schema">
                 <list>
                   <option value="DbApi" />
@@ -1034,7 +1040,7 @@
         <entry key="file://$PROJECT_DIR$/main.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715651236462" />
+              <option name="lastModified" value="1715653258596" />
             </ScannedPath>
           </value>
         </entry>

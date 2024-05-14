@@ -290,11 +290,11 @@ type PathOption struct {
 
 // 设置数据路径，上下级数据结构包含（path、len）字段使用
 // model传入必须是指针类型
-func SetPath[T any](model T, parent T, option PathOption) {
+func SetPath[T any](model *T, parent *T, option PathOption) {
 	s := reflect.ValueOf(model).Elem()
 	pid := s.FieldByName("Pid").Uint()
 	if pid > 0 {
-		if reflect.ValueOf(parent).IsNil() {
+		if parent == nil {
 			option.DbApi.TXNotExistsErr(option.Tx, &parent, pid)
 		}
 		parentValue := reflect.ValueOf(parent).Elem()
@@ -316,18 +316,18 @@ func SetPath[T any](model T, parent T, option PathOption) {
 }
 
 // 设置所有子级路径，一般在更新pid时使用
-func SetPathChild[T any](model T, option PathOption) {
+func SetPathChild[T any](model *T, option PathOption) {
 	s := reflect.ValueOf(model).Elem()
 	var rows []T
 	option.Tx.Find(&rows, "pid=?", s.FieldByName("Id").Uint())
 	for _, row := range rows {
-		SetPath[T](row, model, option)
-		SetPathChild[T](row, option)
+		SetPath[T](&row, model, option)
+		SetPathChild[T](&row, option)
 	}
 }
 
 // 设置自身path和所有子级path
-func SetPathAndChildPath[T any](model T, option PathOption) {
+func SetPathAndChildPath[T any](model *T, option PathOption) {
 	SetPath[T](model, nil, option)
 	SetPathChild[T](model, option)
 }
