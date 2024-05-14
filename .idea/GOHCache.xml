@@ -152,6 +152,13 @@
             </set>
           </value>
         </entry>
+        <entry key="DictGroup">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/dict.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="DictQuery">
           <value>
             <set>
@@ -841,14 +848,14 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/api/dict.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715655426426" />
+              <option name="lastModified" value="1715668203470" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/../fast-go/api/org.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715658080361" />
+              <option name="lastModified" value="1715667334046" />
             </ScannedPath>
           </value>
         </entry>
@@ -890,9 +897,10 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/model/dict.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715654613667" />
+              <option name="lastModified" value="1715667954357" />
               <option name="schema">
                 <list>
+                  <option value="DictGroup" />
                   <option value="Dict" />
                   <option value="DictQuery" />
                 </list>
@@ -903,7 +911,7 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/model/org.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715666785994" />
+              <option name="lastModified" value="1715666999511" />
               <option name="schema">
                 <list>
                   <option value="Org" />
@@ -1172,7 +1180,7 @@
         <entry key="file://$PROJECT_DIR$/main.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715666614345" />
+              <option name="lastModified" value="1715668549380" />
             </ScannedPath>
           </value>
         </entry>
@@ -1333,7 +1341,7 @@
         <entry key="file://$PROJECT_DIR$/vingo/diff.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715583894543" />
+              <option name="lastModified" value="1715668275472" />
               <option name="schema">
                 <list>
                   <option value="DiffBox" />
@@ -1402,7 +1410,7 @@
         <entry key="file://$PROJECT_DIR$/vingo/model.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1715666532121" />
+              <option name="lastModified" value="1715667060425" />
               <option name="schema">
                 <list>
                   <option value="Location" />
@@ -1666,6 +1674,7 @@
         <entry key="db_exception" value="DbException" />
         <entry key="dict" value="Dict" />
         <entry key="dict_body" value="DictBody" />
+        <entry key="dict_group" value="DictGroup" />
         <entry key="dict_query" value="DictQuery" />
         <entry key="diff_box" value="DiffBox" />
         <entry key="diff_item" value="DiffItem" />

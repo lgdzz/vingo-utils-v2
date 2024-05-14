@@ -74,6 +74,17 @@ func (s *DiffBox) IsChange(column string) bool {
 	return ok
 }
 
+// 判断指定字段是否被修改，被修改则进行相应处理
+func (s *DiffBox) IsModify(column string, callback func()) {
+	if s.Result == nil {
+		s.Compare()
+	}
+	_, ok := (*s.Result)[column]
+	if ok && callback != nil {
+		callback()
+	}
+}
+
 // 批量或判断（只要有一个被修改则返回真）
 func (s *DiffBox) IsChangeOr(column ...string) bool {
 	for _, item := range column {

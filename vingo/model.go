@@ -83,6 +83,7 @@ func (s *DateAt) End() string {
 	return s[1]
 }
 
+// 数字切片字符串形态，如：1,2,3
 type IntString string
 
 func (s *IntString) ToSlice() []int {
@@ -103,6 +104,7 @@ func (s *IntString) ToUintSlice() []uint {
 	return result
 }
 
+// 文本切片字符串形态，如：a,b,c
 type TextString string
 
 func (s *TextString) ToSlice() []string {
