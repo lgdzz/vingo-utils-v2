@@ -202,12 +202,12 @@ func (c *Context) GetOrgId() uint {
 	return c.GetUint("orgId")
 }
 
-func (c *Context) GetRoleId() (id []uint) {
-	var textArr = strings.Split(c.GetString("roleId"), ",")
-	for _, item := range textArr {
-		id = append(id, vingo.ToUint(item))
+func (c *Context) GetRoleId() vingo.UintIds {
+	id, exists := c.Get("roleId")
+	if !exists {
+		id = vingo.UintIds{}
 	}
-	return
+	return id.(vingo.UintIds)
 }
 
 func (c *Context) GetRealName() string {
