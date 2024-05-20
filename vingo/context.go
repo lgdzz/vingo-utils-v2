@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"
-	"github.com/lgdzz/vingo-utils/vingo"
 	"net"
 	"net/url"
 	"os"
@@ -202,12 +201,12 @@ func (c *Context) GetOrgId() uint {
 	return c.GetUint("orgId")
 }
 
-func (c *Context) GetRoleId() vingo.UintIds {
+func (c *Context) GetRoleId() UintIds {
 	id, exists := c.Get("roleId")
 	if !exists {
-		id = vingo.UintIds{}
+		id = UintIds{}
 	}
-	return id.(vingo.UintIds)
+	return id.(UintIds)
 }
 
 func (c *Context) GetRealName() string {
