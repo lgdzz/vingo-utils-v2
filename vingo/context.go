@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"
+	"github.com/lgdzz/vingo-utils/vingo"
 	"net"
 	"net/url"
 	"os"
@@ -201,8 +202,12 @@ func (c *Context) GetOrgId() uint {
 	return c.GetUint("orgId")
 }
 
-func (c *Context) GetRoleId() uint {
-	return c.GetUint("roleId")
+func (c *Context) GetRoleId() (id []uint) {
+	var textArr = strings.Split(c.GetString("roleId"), ",")
+	for _, item := range textArr {
+		id = append(id, vingo.ToUint(item))
+	}
+	return
 }
 
 func (c *Context) GetRealName() string {
