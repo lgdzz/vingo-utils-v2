@@ -19,8 +19,8 @@ func FastRefresh[T any](redisApi *redis.RedisApi, key string, expired time.Durat
 		result = handle()
 		redisApi.Set(key, result, expired)
 	} else {
-		redisApi.Get(key, result)
-		if result == nil {
+		exist := redisApi.Get(key, result)
+		if !exist {
 			result = handle()
 			redisApi.Set(key, result, expired)
 		}

@@ -517,6 +517,27 @@
             </set>
           </value>
         </entry>
+        <entry key="Role">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/role.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="RoleBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/role.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="RoleQuery">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/role.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="Rule">
           <value>
             <set>
@@ -771,7 +792,7 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/api/account.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1716175820810" />
+              <option name="lastModified" value="1716189813052" />
             </ScannedPath>
           </value>
         </entry>
@@ -790,7 +811,7 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/api/auth.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1716187420346" />
+              <option name="lastModified" value="1716190361623" />
             </ScannedPath>
           </value>
         </entry>
@@ -804,7 +825,7 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/api/role.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1716182764999" />
+              <option name="lastModified" value="1716190429082" />
             </ScannedPath>
           </value>
         </entry>
@@ -832,14 +853,14 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/middleware/admin.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1716176876801" />
+              <option name="lastModified" value="1716188267075" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/../fast-go/model/account.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1716177316591" />
+              <option name="lastModified" value="1716189425549" />
               <option name="schema">
                 <list>
                   <option value="Account" />
@@ -861,6 +882,20 @@
                   <option value="Dict" />
                   <option value="DictQuery" />
                   <option value="DictOptions" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/model/role.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1716189290359" />
+              <option name="schema">
+                <list>
+                  <option value="Role" />
+                  <option value="RoleQuery" />
+                  <option value="RoleBody" />
                 </list>
               </option>
             </ScannedPath>
@@ -903,7 +938,7 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/router/admin.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1716174552621" />
+              <option name="lastModified" value="1716188270798" />
             </ScannedPath>
           </value>
         </entry>
@@ -917,7 +952,7 @@
         <entry key="file://$PROJECT_DIR$/cache/cache.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1714381171672" />
+              <option name="lastModified" value="1716190586969" />
             </ScannedPath>
           </value>
         </entry>
@@ -1445,7 +1480,7 @@
         <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/xzcf_aj_ws.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1716186545790" />
+              <option name="lastModified" value="1716190078638" />
               <option name="schema">
                 <list>
                   <option value="XzcfAjWenshuItem" />
@@ -1579,6 +1614,9 @@
         <entry key="resource_video" value="ResourceVideo" />
         <entry key="response_data" value="ResponseData" />
         <entry key="result" value="Result" />
+        <entry key="role" value="Role" />
+        <entry key="role_body" value="RoleBody" />
+        <entry key="role_query" value="RoleQuery" />
         <entry key="rule" value="Rule" />
         <entry key="rule_options" value="RuleOptions" />
         <entry key="rule_query" value="RuleQuery" />
