@@ -26,6 +26,11 @@ type JwtBody[T any] struct {
 	Ticket   *JwtTicket `json:"ticket"`
 }
 
+type JwtRes struct {
+	Token  string `json:"token"`
+	Expire int64  `json:"expire"`
+}
+
 func NewJwt[T any](secret string, redisApi *redis.RedisApi) *JwtApi[T] {
 	return &JwtApi[T]{
 		Secret:   secret,
@@ -36,7 +41,7 @@ func NewJwt[T any](secret string, redisApi *redis.RedisApi) *JwtApi[T] {
 // 生成token
 // JwtIssued(jwt.JwtBody[Business]{}, "123456")
 // Business是声明body中business字段类型
-func (s *JwtApi[T]) Issued(body JwtBody[T]) (string, int64) {
+func (s *JwtApi[T]) Issued(body JwtBody[T]) JwtRes {
 	if body.Day == 0 {
 		body.Day = 90
 	}
@@ -50,7 +55,10 @@ func (s *JwtApi[T]) Issued(body JwtBody[T]) (string, int64) {
 	if err != nil {
 		panic(err)
 	}
-	return token, exp
+	return JwtRes{
+		Token:  token,
+		Expire: exp,
+	}
 }
 
 // 验证token

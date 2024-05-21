@@ -299,6 +299,13 @@
             </set>
           </value>
         </entry>
+        <entry key="JwtRes">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/jwt/jwt.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="JwtTicket">
           <value>
             <set>
@@ -867,7 +874,7 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/api/auth.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1716269356723" />
+              <option name="lastModified" value="1716269627925" />
             </ScannedPath>
           </value>
         </entry>
@@ -1206,12 +1213,13 @@
         <entry key="file://$PROJECT_DIR$/jwt/jwt.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1716269541559" />
+              <option name="lastModified" value="1716269819248" />
               <option name="schema">
                 <list>
                   <option value="JwtApi" />
                   <option value="JwtTicket" />
                   <option value="JwtBody" />
+                  <option value="JwtRes" />
                 </list>
               </option>
             </ScannedPath>
@@ -1676,6 +1684,7 @@
         <entry key="json_object" value="JsonObject" />
         <entry key="jwt_api" value="JwtApi" />
         <entry key="jwt_body" value="JwtBody" />
+        <entry key="jwt_res" value="JwtRes" />
         <entry key="jwt_ticket" value="JwtTicket" />
         <entry key="limit" value="Limit" />
         <entry key="location" value="Location" />
