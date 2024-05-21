@@ -36,7 +36,7 @@ func NewJwt[T any](secret string, redisApi *redis.RedisApi) *JwtApi[T] {
 // 生成token
 // JwtIssued(jwt.JwtBody[Business]{}, "123456")
 // Business是声明body中business字段类型
-func (s *JwtApi[T]) Issued(body JwtBody[T]) string {
+func (s *JwtApi[T]) Issued(body JwtBody[T]) (string, int64) {
 	if body.Day == 0 {
 		body.Day = 90
 	}
@@ -50,7 +50,7 @@ func (s *JwtApi[T]) Issued(body JwtBody[T]) string {
 	if err != nil {
 		panic(err)
 	}
-	return token
+	return token, exp
 }
 
 // 验证token
