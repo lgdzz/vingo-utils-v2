@@ -175,7 +175,7 @@ func (s *DbApi) QueryWhereDateAtString(db *gorm.DB, query *string, column string
 }
 
 func (s *DbApi) FindInSet(db *gorm.DB, query any, column string) *gorm.DB {
-	db = s.Where(fmt.Sprintf("FIND_IN_SET(?,%v)", column), query)
+	db = db.Where(fmt.Sprintf("FIND_IN_SET(?,%v)", column), query)
 	return db
 }
 
