@@ -83,6 +83,22 @@ func (s *DateAt) End() string {
 	return s[1]
 }
 
+func (s *DateAt) StartTime() time.Time {
+	t, err := time.ParseInLocation(DatetimeFormat, s.Start(), time.Local)
+	if err != nil {
+		panic(err.Error())
+	}
+	return t
+}
+
+func (s *DateAt) EndTime() time.Time {
+	t, err := time.ParseInLocation(DatetimeFormat, s.End(), time.Local)
+	if err != nil {
+		panic(err.Error())
+	}
+	return t
+}
+
 // 数字切片字符串形态，如：1,2,3
 type IntString string
 

@@ -108,7 +108,7 @@ func (s *PageOption[T]) BuildOrderString() string {
 	}
 
 	if s.Query.Order != nil {
-		*s.Orders = []PageOrder{*s.Query.Order}
+		s.Orders = &[]PageOrder{*s.Query.Order}
 	}
 
 	var orders = make([]string, 0)
