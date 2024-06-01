@@ -49,9 +49,6 @@ func createLogFile() error {
 	if os.IsNotExist(err) {
 		// 如果文件不存在则创建新文件
 		file, err = os.Create(filename)
-		if err != nil {
-			return err
-		}
 	}
 	return err
 }

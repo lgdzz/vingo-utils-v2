@@ -126,3 +126,10 @@ type TextString string
 func (s *TextString) ToSlice() []string {
 	return strings.Split(string(*s), ",")
 }
+
+type Ids[T any] struct {
+	Ids []T `json:"ids"`
+}
+
+// 排序
+type Sort[T any] Ids[T]
