@@ -22,6 +22,11 @@ func (s *DiffItem) SetMessage() {
 	s.Message = fmt.Sprintf("将%v的值[%v]变更为[%v]；", s.Column, s.OldValue, s.NewValue)
 }
 
+// 设置新值
+func (s *DiffBox) SetNew(newValue any) {
+	s.New = newValue
+}
+
 // 设置新值并且执行比对
 func (s *DiffBox) SetNewAndCompare(newValue any, result func(diff *DiffBox)) {
 	s.New = newValue

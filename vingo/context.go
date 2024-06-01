@@ -24,6 +24,15 @@ type Context struct {
 	*gin.Context
 }
 
+// 动态添加查询条件
+func (c *Context) AddQuery(kv ...KeyValue) {
+	var query = c.Request.URL.Query()
+	for _, item := range kv {
+		query.Add(item.Key, item.Value)
+	}
+	c.Request.URL.RawQuery = query.Encode()
+}
+
 // url解码
 func (c *Context) UrlDecode() (dStr string) {
 	var (

@@ -133,3 +133,8 @@ type Ids[T any] struct {
 
 // 排序
 type Sort[T any] Ids[T]
+
+type KeyValue struct {
+	Key   string
+	Value string
+}
