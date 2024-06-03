@@ -10,6 +10,11 @@ import (
 
 type LocalTime time.Time
 
+func NewLocalTime(t time.Time) (l LocalTime) {
+	l.To(t)
+	return
+}
+
 func (t LocalTime) MarshalJSON() ([]byte, error) {
 	tTime := time.Time(t).Local()
 	return []byte(fmt.Sprintf("\"%v\"", tTime.Format(DatetimeFormat))), nil

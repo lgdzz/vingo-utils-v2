@@ -360,7 +360,7 @@ func SetPath[T any](model *T, parent *T, option PathOption) {
 	}
 	selectFiled := []string{"path", "len"}
 	selectFiled = append(selectFiled, option.AppendField...)
-	option.Tx.Model(model).Select(selectFiled).Updates(s.Interface())
+	option.Tx.Model(model).Select(selectFiled).UpdateColumns(s.Interface())
 }
 
 // 设置所有子级路径，一般在更新pid时使用
