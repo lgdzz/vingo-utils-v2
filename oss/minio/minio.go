@@ -2,70 +2,113 @@ package minio
 
 import (
 	"context"
-	"github.com/lgdzz/vingo-utils-v2/oss"
+	"encoding/base64"
+	"fmt"
+	"github.com/lgdzz/vingo-utils-v2/vingo"
 	"github.com/minio/minio-go/v7"
 	"github.com/minio/minio-go/v7/pkg/credentials"
-	"log"
+	"strings"
+	"time"
 )
 
-type Config struct {
-	Endpoint        string // 必填
-	Bucket          string // 必填
-	AccessKeyId     string // 必填
-	SecretAccessKey string // 必填
-	Location        string
-	UseSSL          bool
-}
-
-type ClientApi struct {
-	Config Config
-	Client *minio.Client
-}
-
-// 在主进程中只需要执行一次
-func InitClient(config Config) (api ClientApi) {
-	api.Config = config
+// 创建新的客户端（全局只需要执行一次）
+func NewClient(config Config) *MinIOApi {
+	var api = MinIOApi{
+		Config: config,
+	}
 
 	// Initialize minio client object.
-	Client, err := minio.New(api.Config.Endpoint, &minio.Options{
+	client, err := minio.New(api.Config.Endpoint, &minio.Options{
 		Creds:  credentials.NewStaticV4(api.Config.AccessKeyId, api.Config.SecretAccessKey, ""),
 		Secure: api.Config.UseSSL,
 	})
 	if err != nil {
-		log.Fatalln(err)
+		msg := fmt.Sprintf("MinIO初始化异常：%v", err.Error())
+		vingo.Log(msg)
+		fmt.Println(msg)
 	}
 
-	api.Client = Client
-
-	return api
+	api.Client = client
+	return &api
 }
 
-// 上传文件
-func (s *ClientApi) Upload(object oss.Object, localFilePath string) *oss.UploadRes {
-	ctx := context.Background()
-	err := s.Client.MakeBucket(ctx, s.Config.Bucket, minio.MakeBucketOptions{Region: s.Config.Location})
-	if err != nil {
-		exists, errBucketExists := s.Client.BucketExists(ctx, s.Config.Bucket)
-		if errBucketExists != nil || !exists {
-			panic(err.Error())
-		}
-	}
-	info, err := s.Client.FPutObject(ctx, s.Config.Bucket, object.Name, localFilePath, minio.PutObjectOptions{ContentType: object.ContentType})
+// 完整文件url
+func (s *MinIOApi) GetObjectUrl(objectName string) string {
+	return s.Config.Domain + s.Config.Bucket + "/" + objectName
+}
+
+// 上传本地文件
+func (s *MinIOApi) UploadFileOfLocal(object Object, localFilePath string) minio.UploadInfo {
+	info, err := s.Client.FPutObject(context.Background(), s.Config.Bucket, object.Name, localFilePath, minio.PutObjectOptions{ContentType: object.ContentType})
 	if err != nil {
 		panic(err.Error())
 	}
-	return &oss.UploadRes{
-		Key:  info.Key,
-		Info: info,
+	return info
+}
+
+// 上传base64文件
+func (s *MinIOApi) UploadFileOfBase64(object Object, fileBase64 string) minio.UploadInfo {
+	// 解码Base64图像数据
+	var fileBase64Array = strings.Split(fileBase64, ",")
+	if len(fileBase64Array) > 1 {
+		fileBase64 = fileBase64Array[1]
 	}
+	imageData, err := base64.StdEncoding.DecodeString(fileBase64)
+	if err != nil {
+		panic(err.Error())
+	}
+	info, err := s.Client.PutObject(context.Background(), s.Config.Bucket, object.Name, strings.NewReader(string(imageData)), int64(len(imageData)), minio.PutObjectOptions{ContentType: object.ContentType})
+	if err != nil {
+		panic(err.Error())
+	}
+	return info
 }
 
 // 删除文件
-func (s *ClientApi) Delete(objectName string) error {
-	ctx := context.Background()
-	err := s.Client.RemoveObject(ctx, s.Config.Bucket, objectName, minio.RemoveObjectOptions{})
+func (s *MinIOApi) DeleteFile(objectName string) error {
+	err := s.Client.RemoveObject(context.Background(), s.Config.Bucket, objectName, minio.RemoveObjectOptions{})
 	if err != nil {
 		return err
 	}
 	return nil
+}
+
+// 获取文件授权访问地址(默认24小时有效)
+func (s *MinIOApi) GetObjectSignUrl(objectName string, expires *time.Duration) string {
+	if expires == nil {
+		*expires = time.Hour * 24
+	}
+	url, err := s.Client.PresignedGetObject(context.Background(), s.Config.Bucket, objectName, *expires, nil)
+	if err != nil {
+		return err.Error()
+	}
+	return url.String()
+}
+
+// 获取对象put上传签名
+func (s *MinIOApi) GetObjectPutSign(objectName string) PutSign {
+	url, err := s.Client.PresignedPutObject(context.Background(), s.Config.Bucket, objectName, time.Minute*10)
+	if err != nil {
+		panic(err.Error())
+	}
+	return PutSign{
+		Key: objectName,
+		Url: url.String(),
+	}
+}
+
+// 获取对象post上传签名
+func (s *MinIOApi) GetObjectPostSign(objectName string) PostSign {
+	policy := minio.NewPostPolicy()
+	_ = policy.SetExpires(time.Now().Add(time.Minute * 10))
+	_ = policy.SetKey(objectName)
+	_ = policy.SetBucket(s.Config.Bucket)
+	url, formData, err := s.Client.PresignedPostPolicy(context.Background(), policy)
+	if err != nil {
+		panic(err.Error())
+	}
+	return PostSign{
+		Policy: formData,
+		Url:    url.String(),
+	}
 }

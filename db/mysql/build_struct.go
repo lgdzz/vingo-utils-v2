@@ -35,9 +35,8 @@ func (s *{{ .ModelName }}) TableName() string {
 }
 
 type {{ .ModelName }}Query struct {
-	page.Limit
-	*page.Order
-	CreatedAt *vingo.DateAt ` + "`form:\"createdAt[]\"`" + `
+	mysql.PageQuery
+	CreatedAt *string ` + "`form:\"createdAt\"`" + `
 	Keyword string ` + "`form:\"keyword\"`" + `
 }
 

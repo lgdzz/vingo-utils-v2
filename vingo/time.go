@@ -361,3 +361,15 @@ func GetTodayOfLocalTime() LocalTime {
 	r.To(time.Date(t.Year(), t.Month(), t.Day(), 0, 0, 0, 0, time.Local))
 	return r
 }
+
+// 获取指定年开始时间和结束时间
+func GetYearBetween(year string) DateRange {
+	t, err := time.ParseInLocation("2006", year, time.Local)
+	if err != nil {
+		panic(err.Error())
+	}
+	between := DateRange{}
+	between.Start = datetime.BeginOfYear(t)
+	between.End = datetime.EndOfYear(t)
+	return between
+}
