@@ -38,6 +38,7 @@
         <entry key="Config">
           <value>
             <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/config/index.go" />
               <option value="file://$PROJECT_DIR$/config/config.go" />
               <option value="file://$PROJECT_DIR$/db/mysql/config.go" />
               <option value="file://$PROJECT_DIR$/db/redis/redis.go" />
@@ -597,7 +598,7 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/api/api.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1718854186902" />
+              <option name="lastModified" value="1718867524566" />
               <option name="schema">
                 <list>
                   <option value="FunctionModule" />
@@ -609,7 +610,26 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/api/resource.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1718861700106" />
+              <option name="lastModified" value="1718866213755" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/config/index.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1718865687200" />
+              <option name="schema">
+                <list>
+                  <option value="Config" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/global/variable.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1718865590789" />
             </ScannedPath>
           </value>
         </entry>
@@ -636,7 +656,7 @@
         <entry key="file://$PROJECT_DIR$/../fast-go/router/component.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1718854487228" />
+              <option name="lastModified" value="1718866238837" />
             </ScannedPath>
           </value>
         </entry>
@@ -896,7 +916,7 @@
         <entry key="file://$PROJECT_DIR$/oss/minio/struct.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1718865399691" />
+              <option name="lastModified" value="1718867664524" />
               <option name="schema">
                 <list>
                   <option value="MinIOApi" />

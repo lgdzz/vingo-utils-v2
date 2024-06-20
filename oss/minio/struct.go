@@ -16,13 +16,13 @@ type MinIOApi struct {
 
 // 配置
 type Config struct {
-	Endpoint        string
-	AccessKeyId     string
-	SecretAccessKey string
-	Bucket          string
-	Location        string
-	UseSSL          bool
-	Domain          string
+	Endpoint        string `yaml:"endpoint" json:"endpoint"`
+	AccessKeyId     string `yaml:"accessKeyId" json:"accessKeyId"`
+	SecretAccessKey string `yaml:"secretAccessKey" json:"secretAccessKey"`
+	Bucket          string `yaml:"bucket" json:"bucket"`
+	Location        string `yaml:"location" json:"location"`
+	UseSSL          bool   `yaml:"useSSL" json:"useSSL"`
+	Domain          string `yaml:"domain" json:"domain"`
 }
 
 // 存储对象
