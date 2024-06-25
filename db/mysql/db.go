@@ -167,7 +167,7 @@ func (s *DbApi) QueryWhereDateAt(db *gorm.DB, query *vingo.DateAt, column string
 }
 
 func (s *DbApi) QueryWhereDateAtString(db *gorm.DB, query *string, column string) *gorm.DB {
-	if query != nil {
+	if query != nil && *query != "" {
 		arr := strings.Split(*query, ",")
 		db = s.TimeBetween(db, column, vingo.DateAt{arr[0], arr[1]})
 	}
