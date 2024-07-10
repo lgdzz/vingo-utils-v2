@@ -114,6 +114,30 @@ func IdCard(id string) IdCardInfo {
 	return info
 }
 
+// 验证身份证号是否正确（校验码验证）
+// 身份证号码的最后一位校验码是根据前面的17位数字计算出来的。计算步骤如下：
+// 1．将身份证号码的前17位数字分别乘以对应的系数。系数从左到右依次是：{7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2}
+// 2．将上述乘积求和
+// 3. 将求和结果除以11，取余数
+// 4. 根据余数，从对应表中找出校验码：{0: "1", 1: "0", 2: "X", 3: "9", 4: "8", 5: "7", 6: "6", 7: "5", 8: "4", 9: "3", 10: "2"}
+func IdCardCheck(id string) bool {
+	if len(id) != 18 {
+		return false
+	}
+	strSlice := strings.Split(id, "")
+	var sum uint
+	for i, factor := range idCardFactors {
+		sum += ToUint(strSlice[i]) * factor
+	}
+	// 余数
+	code := sum % 11
+	if last, ok := idCardCodes[code]; ok {
+		// 余数取到的效验码等于身份证最后一位则为有效
+		return last == strings.ToUpper(strSlice[17])
+	}
+	return false
+}
+
 /**
  * 将字节转换为可读文本
  * @param int size 大小

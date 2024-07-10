@@ -31,3 +31,9 @@ const (
 	ASC  = "ASC"
 	DESC = "DESC"
 )
+
+// 身份证号系数
+var idCardFactors = []uint{7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2}
+
+// 身份证号效验码
+var idCardCodes = map[uint]string{0: "1", 1: "0", 2: "X", 3: "9", 4: "8", 5: "7", 6: "6", 7: "5", 8: "4", 9: "3", 10: "2"}
