@@ -94,14 +94,25 @@ func (s *DbApi) SqlLike(keyword string) string {
 	return fmt.Sprintf("%%%v%%", strings.Trim(keyword, " "))
 }
 
+// 关键词组装
+func (s *DbApi) SqlLikeRight(keyword string) string {
+	return fmt.Sprintf("%v%%", strings.Trim(keyword, " "))
+}
+
 // like模糊查询
-func (s *DbApi) LikeOr(db *gorm.DB, keyword string, column ...string) *gorm.DB {
+func (s *DbApi) LikeOr(db *gorm.DB, keyword string, isRight bool, column ...string) *gorm.DB {
 	if keyword != "" {
 		var text []string
 		for _, item := range column {
 			text = append(text, fmt.Sprintf("%v like @text", item))
 		}
-		db = db.Where(strings.Join(text, " OR "), sql.Named("text", s.SqlLike(keyword)))
+		var value string
+		if isRight {
+			value = s.SqlLikeRight(keyword)
+		} else {
+			value = s.SqlLike(keyword)
+		}
+		db = db.Where(strings.Join(text, " OR "), sql.Named("text", value))
 	}
 	return db
 }
@@ -202,7 +213,14 @@ func (s *DbApi) QueryWhereFindInSetString(db *gorm.DB, query *string, column str
 
 func (s *DbApi) QueryWhereLike(db *gorm.DB, query string, column ...string) *gorm.DB {
 	if query != "" {
-		db = s.LikeOr(db, query, column...)
+		db = s.LikeOr(db, query, false, column...)
+	}
+	return db
+}
+
+func (s *DbApi) QueryWhereLikeRight(db *gorm.DB, query string, column ...string) *gorm.DB {
+	if query != "" {
+		db = s.LikeOr(db, query, true, column...)
 	}
 	return db
 }
