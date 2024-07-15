@@ -43,6 +43,13 @@
             </set>
           </value>
         </entry>
+        <entry key="ConfirmException">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/model.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="Context">
           <value>
             <set>
@@ -500,10 +507,24 @@
     </option>
     <option name="scannedPathMapping">
       <map>
+        <entry key="file://$PROJECT_DIR$/../fast-go/api/account.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1721023619813" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/api/auth.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1721030711708" />
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/../fast-go/api/org.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1721012559956" />
+              <option name="lastModified" value="1721015220716" />
             </ScannedPath>
           </value>
         </entry>
@@ -915,7 +936,7 @@
         <entry key="file://$PROJECT_DIR$/vingo/exception.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1704183612038" />
+              <option name="lastModified" value="1721030886774" />
             </ScannedPath>
           </value>
         </entry>
@@ -971,7 +992,7 @@
         <entry key="file://$PROJECT_DIR$/vingo/model.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1717222005000" />
+              <option name="lastModified" value="1721030846817" />
               <option name="schema">
                 <list>
                   <option value="Location" />
@@ -981,6 +1002,7 @@
                   <option value="IdCardInfo" />
                   <option value="AuthException" />
                   <option value="DbException" />
+                  <option value="ConfirmException" />
                   <option value="DateRange" />
                   <option value="DateRangeString" />
                   <option value="Ids" />
@@ -1064,6 +1086,7 @@
         <entry key="client_api" value="ClientApi" />
         <entry key="column" value="Column" />
         <entry key="config" value="Config" />
+        <entry key="confirm_exception" value="ConfirmException" />
         <entry key="context" value="Context" />
         <entry key="database" value="Database" />
         <entry key="date_range" value="DateRange" />

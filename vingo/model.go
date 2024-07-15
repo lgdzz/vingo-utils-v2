@@ -54,6 +54,11 @@ type DbException struct {
 	Message string
 }
 
+// 需要点击确认的异常
+type ConfirmException struct {
+	Message string
+}
+
 // 时间范围
 type DateRange struct {
 	Start time.Time
