@@ -37,7 +37,6 @@ func TreeBuildString(list *[]map[string]any, id string, pidName string) (result 
 }
 
 func TreeBuild(list *[]map[string]any, id uint, pidName string, already *[]uint) (result []map[string]any) {
-
 	for _, row := range *list {
 
 		if ToUint(row[pidName]) != id {
@@ -48,14 +47,27 @@ func TreeBuild(list *[]map[string]any, id uint, pidName string, already *[]uint)
 
 		children := TreeBuild(list, ToUint(row["id"]), pidName, already)
 
-		if len(children) > 0 {
+		childCount := len(children)
+		if childCount > 0 {
 			row["hasChild"] = true
 			row["children"] = children
+
+			row["childCount"] = childCount
+			// 递归计算总数
+			childTotalCount := 1
+			for _, child := range children {
+				childTotalCount += int(child["totalCount"].(float64))
+			}
+			row["totalCount"] = float64(childTotalCount)
 		} else {
 			row["hasChild"] = false
+
+			row["childCount"] = 0
+			row["totalCount"] = 1.0 // 如果没有子节点，只计数自身
 		}
 		result = append(result, row)
 	}
+
 	return
 }
 
