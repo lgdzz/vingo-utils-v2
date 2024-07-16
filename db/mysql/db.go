@@ -225,6 +225,13 @@ func (s *DbApi) QueryWhereLikeRight(db *gorm.DB, query string, column ...string)
 	return db
 }
 
+func (s *DbApi) QueryWherePath(db *gorm.DB, query string, column string) *gorm.DB {
+	if query != "" {
+		db = db.Where(fmt.Sprintf("%v='%v' OR %v LIKE '%v,%%'", column, query, column, query))
+	}
+	return db
+}
+
 func (s *DbApi) QueryWhereBetween(db *gorm.DB, query *[2]any, column string) *gorm.DB {
 	if query != nil {
 		db = db.Where(fmt.Sprintf("%v BETWEEN ? AND ?", column), query[0], query[1])
