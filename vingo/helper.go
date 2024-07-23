@@ -36,16 +36,20 @@ func TreeBuildString(list *[]map[string]any, id string, pidName string) (result 
 	return
 }
 
-func TreeBuild(list *[]map[string]any, id uint, pidName string, already *[]uint) (result []map[string]any) {
+func TreeBuild[T any](list *[]map[string]any, id uint, option *TreeOption[T], already *[]uint) (result []map[string]any) {
 	for _, row := range *list {
 
-		if ToUint(row[pidName]) != id {
+		if ToUint(row[option.PidName]) != id {
 			continue
 		}
 
 		*already = append(*already, id)
 
-		children := TreeBuild(list, ToUint(row["id"]), pidName, already)
+		if option.ItemHandler != nil {
+			row = option.ItemHandler(row)
+		}
+
+		children := TreeBuild[T](list, ToUint(row["id"]), option, already)
 
 		childCount := len(children)
 		if childCount > 0 {
@@ -71,20 +75,29 @@ func TreeBuild(list *[]map[string]any, id uint, pidName string, already *[]uint)
 	return
 }
 
-func TreeBuilds(list *[]map[string]any, ids []uint, pidName string) []map[string]any {
+func TreeBuilds[T any](list *[]map[string]any, ids []uint, option *TreeOption[T]) []map[string]any {
 	result := make([]map[string]any, 0)
 	already := make([]uint, 0)
 	for _, id := range ids {
 		if IsInSlice(id, already) {
 			continue
 		}
-		result = append(result, TreeBuild(list, id, pidName, &already)...)
+		result = append(result, TreeBuild[T](list, id, option, &already)...)
 	}
 	return result
 }
 
+type TreeOption[T any] struct {
+	Rows        *[]T
+	PidName     string
+	Enable      bool
+	ItemHandler func(map[string]any) map[string]any
+}
+
 // enable：如果为true时，则过滤掉禁用的数据
-func Tree[T any](rows *[]T, pidName string, enable bool) []map[string]any {
+func Tree[T any](option TreeOption[T]) []map[string]any {
+	var rows = option.Rows
+	var enable = option.Enable
 	var hideIds = make([]uint, 0)
 	var ids = make([]uint, 0)
 	var newRows = make([]T, 0)
@@ -121,7 +134,7 @@ func Tree[T any](rows *[]T, pidName string, enable bool) []map[string]any {
 	}
 	var list []map[string]any
 	CustomOutput(rows, &list)
-	return TreeBuilds(&list, ids, pidName)
+	return TreeBuilds[T](&list, ids, &option)
 }
 
 func CallStructFunc(obj any, method string, param map[string]any) any {
