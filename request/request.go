@@ -303,11 +303,19 @@ func PostByJsonStream(url string, body interface{}, option Option, receive func(
 // randomName 为true时使用随机名称，否则与远程文件同名
 func DownloadFile(fileUrl string, savePath string, randomName bool) string {
 	var fileName string
-	if randomName {
-		fileName = vingo.GetUUID() + "." + path.Ext(fileUrl)
-	} else {
-		fileName = path.Base(fileUrl)
+
+	// 解析 URL
+	parsedUrl, err := url.Parse(fileUrl)
+	if err != nil {
+		fmt.Println("Error parsing URL:", err)
 	}
+
+	if randomName {
+		fileName = vingo.GetUUID() + path.Ext(parsedUrl.Path)
+	} else {
+		fileName = path.Base(parsedUrl.Path)
+	}
+
 	// 创建文件保存路径
 	vingo.Mkdir(savePath)
 

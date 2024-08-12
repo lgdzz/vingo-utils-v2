@@ -163,9 +163,23 @@ func (s *DbApi) QueryWhereInString(db *gorm.DB, query vingo.TextString, column s
 	return db
 }
 
+func (s *DbApi) QueryWhereNotInString(db *gorm.DB, query vingo.TextString, column string) *gorm.DB {
+	if query != "" {
+		db = db.Where(fmt.Sprintf("%v not in(?)", column), query.ToSlice())
+	}
+	return db
+}
+
 func (s *DbApi) QueryWhereInInt(db *gorm.DB, query vingo.IntString, column string) *gorm.DB {
 	if query != "" {
 		db = db.Where(fmt.Sprintf("%v in(?)", column), query.ToSlice())
+	}
+	return db
+}
+
+func (s *DbApi) QueryWhereNotInInt(db *gorm.DB, query vingo.IntString, column string) *gorm.DB {
+	if query != "" {
+		db = db.Where(fmt.Sprintf("%v not in(?)", column), query.ToSlice())
 	}
 	return db
 }
