@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/duke-git/lancet/v2/pointer"
 	"github.com/go-redis/redis"
+	"github.com/lgdzz/vingo-utils-v2/config"
 	vingoRedis "github.com/lgdzz/vingo-utils-v2/db/redis"
 	"github.com/lgdzz/vingo-utils-v2/vingo"
 	"reflect"
@@ -13,6 +14,7 @@ import (
 var Redis RedisQueue
 
 type RedisQueueConfig struct {
+	config.Config
 	Debug             *bool                // 调试模式，为true时日志在控制台输出，否则记录到日志文件，默认为true
 	AutoBootTime      *int                 // 监控器异常自动重启时间间隔，默认3秒
 	SortedSetRestTime *int                 // 有序集合中没有消息时休息等待时间，默认2秒
@@ -27,6 +29,10 @@ type RedisQueue struct {
 
 // 初始化服务（只需要执行1次）
 func InitRedisQueue(config RedisQueueConfig) {
+	if config.RedisApi != nil {
+		Redis.Config.RedisApi = config.RedisApi
+	}
+
 	if config.Debug != nil {
 		Redis.Config.Debug = config.Debug
 	} else {
