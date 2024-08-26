@@ -116,10 +116,10 @@ func (c *Context) ResponseBody(data any) {
 
 // 请求成功，默认
 func (c *Context) ResponseSuccess(data ...any) {
-	if data == nil {
+	if len(data) == 0 {
 		c.Response(&ResponseData{})
 	} else {
-		c.Response(&ResponseData{Data: data})
+		c.Response(&ResponseData{Data: data[0]})
 	}
 }
 
