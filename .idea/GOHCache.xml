@@ -233,6 +233,48 @@
             </set>
           </value>
         </entry>
+        <entry key="MdtjAjDcjl">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/mdtj_aj_dcjl.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="MdtjAjJl">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/mdtj_aj_dcjl.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="MdtjAjJlItem">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/mdtj_aj_dcjl.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="MdtjAjjlV2">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/mdtj_aj_dcjl.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="MdtjAjjlV2Answer">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/mdtj_aj_dcjl.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="MdtjAjjlV2Item">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/mdtj_aj_dcjl.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="MessagePackage">
           <value>
             <set>
@@ -572,7 +614,7 @@
         <entry key="file://$PROJECT_DIR$/db/mysql/db.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1723449371648" />
+              <option name="lastModified" value="1724231082336" />
               <option name="schema">
                 <list>
                   <option value="DbApi" />
@@ -882,7 +924,7 @@
         <entry key="file://$PROJECT_DIR$/vingo/context.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1717222071000" />
+              <option name="lastModified" value="1724659025604" />
               <option name="schema">
                 <list>
                   <option value="Context" />
@@ -1041,6 +1083,30 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/mediate/mediate2/ajws2.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1724658925083" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/mdtj_aj_dcjl.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1724658894995" />
+              <option name="schema">
+                <list>
+                  <option value="MdtjAjJlItem" />
+                  <option value="MdtjAjJl" />
+                  <option value="MdtjAjjlV2Answer" />
+                  <option value="MdtjAjjlV2Item" />
+                  <option value="MdtjAjjlV2" />
+                  <option value="MdtjAjDcjl" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
       </map>
     </option>
     <option name="tableStructMapping">
@@ -1077,6 +1143,12 @@
         <entry key="key_value" value="KeyValue" />
         <entry key="limit" value="Limit" />
         <entry key="location" value="Location" />
+        <entry key="mdtj_aj_dcjl" value="MdtjAjDcjl" />
+        <entry key="mdtj_aj_jl" value="MdtjAjJl" />
+        <entry key="mdtj_aj_jl_item" value="MdtjAjJlItem" />
+        <entry key="mdtj_ajjl_v2" value="MdtjAjjlV2" />
+        <entry key="mdtj_ajjl_v2_answer" value="MdtjAjjlV2Answer" />
+        <entry key="mdtj_ajjl_v2_item" value="MdtjAjjlV2Item" />
         <entry key="message_package" value="MessagePackage" />
         <entry key="min_io_api" value="MinIOApi" />
         <entry key="nsq_service" value="NsqService" />
@@ -1116,6 +1188,6 @@
         <entry key="zip_object" value="ZipObject" />
       </map>
     </option>
-    <option name="lastTimeChecked" value="1724223554209" />
+    <option name="lastTimeChecked" value="1724658741837" />
   </component>
 </project>

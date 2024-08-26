@@ -225,6 +225,17 @@ func (s *DbApi) QueryWhereFindInSetString(db *gorm.DB, query *string, column str
 	return db
 }
 
+func (s *DbApi) QueryWhereFindInSetUints(db *gorm.DB, query *[]uint, column string) *gorm.DB {
+	if query != nil {
+		var text []string
+		for _, value := range *query {
+			text = append(text, fmt.Sprintf("FIND_IN_SET(%d,%v)", value, column))
+		}
+		db = db.Where(strings.Join(text, " OR "))
+	}
+	return db
+}
+
 func (s *DbApi) QueryWhereLike(db *gorm.DB, query string, column ...string) *gorm.DB {
 	if query != "" {
 		db = s.LikeOr(db, query, false, column...)

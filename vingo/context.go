@@ -115,8 +115,12 @@ func (c *Context) ResponseBody(data any) {
 }
 
 // 请求成功，默认
-func (c *Context) ResponseSuccess() {
-	c.Response(&ResponseData{})
+func (c *Context) ResponseSuccess(data ...any) {
+	if data == nil {
+		c.Response(&ResponseData{})
+	} else {
+		c.Response(&ResponseData{Data: data})
+	}
 }
 
 // 注册get路由
