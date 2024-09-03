@@ -405,3 +405,16 @@ func OrderNo(length int, check func(string) bool) string {
 	}
 	return strings.ToUpper(orderNo)
 }
+
+// 生成按时间+随机数的单号
+func OrderNoPrefix(prefix string, length int, check func(string) bool) string {
+	if length <= 14 {
+		panic("编号长度不少于15位")
+	}
+	orderNo := fmt.Sprintf("%v%v%v", prefix, time.Now().Format("20060102150405"), RandomNumber(length-14))
+	if check != nil && check(orderNo) {
+		// 已存在，重新生成
+		return OrderNo(length, check)
+	}
+	return strings.ToUpper(orderNo)
+}
