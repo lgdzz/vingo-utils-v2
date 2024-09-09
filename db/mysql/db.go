@@ -441,9 +441,9 @@ func (s *DbApi) Commit(handler func(*gorm.DB)) {
 func Fetch[T any](tx *gorm.DB, condition ...any) (row T) {
 	err := tx.First(&row, condition...).Error
 	if err == gorm.ErrRecordNotFound {
-		panic(err.Error())
+		panic(&vingo.BackException{Message: err.Error()})
 	} else if err != nil {
-		panic(err.Error())
+		panic(&vingo.BackException{Message: err.Error()})
 	}
 	return
 }
