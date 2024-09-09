@@ -59,6 +59,11 @@ type ConfirmException struct {
 	Message string
 }
 
+// 页面后退异常
+type BackException struct {
+	Message string
+}
+
 // 时间范围
 type DateRange struct {
 	Start time.Time

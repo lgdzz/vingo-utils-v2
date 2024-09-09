@@ -18,6 +18,8 @@ func ExceptionHandler(c *gin.Context) {
 				context.Response(&ResponseData{Message: t.Message, Status: 200, Error: 1, ErrorType: "数据库错误"})
 			case *ConfirmException:
 				context.Response(&ResponseData{Message: t.Message, Status: 200, Error: 2, ErrorType: "业务错误"})
+			case *BackException:
+				context.Response(&ResponseData{Message: t.Message, Status: 200, Error: 3, ErrorType: "业务错误"})
 			case *AuthException:
 				context.Response(&ResponseData{Message: t.Message, Status: 401, Error: 1})
 			default:

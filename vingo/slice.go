@@ -2,6 +2,7 @@ package vingo
 
 import (
 	"fmt"
+	"github.com/duke-git/lancet/v2/slice"
 	"reflect"
 	"strconv"
 )
@@ -14,19 +15,8 @@ import (
 // i := []int{1, 1, 2, 3, 3, 1, 3}
 // SliceUnique(&i)
 // print：[1, 2, 3]
-func SliceUnique(slice interface{}) {
-	uniqueMap := make(map[interface{}]struct{})
-	valueOfSlice := reflect.ValueOf(slice).Elem()
-
-	for i := 0; i < valueOfSlice.Len(); i++ {
-		uniqueMap[valueOfSlice.Index(i).Interface()] = struct{}{}
-	}
-
-	valueOfSlice.Set(reflect.MakeSlice(valueOfSlice.Type(), 0, 0))
-
-	for k := range uniqueMap {
-		valueOfSlice.Set(reflect.Append(valueOfSlice, reflect.ValueOf(k)))
-	}
+func SliceUnique(values []any) []any {
+	return slice.Unique(values)
 }
 
 // 将[]string数据去重返回
