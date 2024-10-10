@@ -148,3 +148,7 @@ type KeyValue struct {
 	Key   string
 	Value string
 }
+
+type DeleteBody struct {
+	Id any `json:"id"`
+}
