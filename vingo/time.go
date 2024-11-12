@@ -5,6 +5,7 @@ import (
 	"database/sql/driver"
 	"fmt"
 	"github.com/duke-git/lancet/v2/datetime"
+	"strings"
 	"time"
 )
 
@@ -372,4 +373,36 @@ func GetYearBetween(year string) DateRange {
 	between.Start = datetime.BeginOfYear(t)
 	between.End = datetime.EndOfYear(t)
 	return between
+}
+
+// MomentToGoFormat 将 moment.js 的时间格式转换为 Golang 的时间格式
+func MomentToGoFormat(momentFormat string) string {
+	replacements := map[string]string{
+		"YYYY": "2006",
+		"YY":   "06",
+		"MMMM": "January",
+		"MMM":  "Jan",
+		"MM":   "01",
+		"M":    "1",
+		"DD":   "02",
+		"D":    "2",
+		"HH":   "15",
+		"H":    "3",
+		"hh":   "03",
+		"h":    "3",
+		"mm":   "04",
+		"m":    "4",
+		"ss":   "05",
+		"s":    "5",
+		"A":    "PM",
+		"a":    "pm",
+	}
+
+	// 按长度排序，优先替换较长的格式
+	keys := []string{"YYYY", "YY", "MMMM", "MMM", "MM", "M", "DD", "D", "HH", "H", "hh", "h", "mm", "m", "ss", "s", "A", "a"}
+	for _, key := range keys {
+		momentFormat = strings.ReplaceAll(momentFormat, key, replacements[key])
+	}
+
+	return momentFormat
 }
