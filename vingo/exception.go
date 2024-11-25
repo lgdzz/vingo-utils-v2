@@ -3,6 +3,7 @@ package vingo
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"runtime/debug"
 )
 
 // 异常处理
@@ -11,6 +12,9 @@ func ExceptionHandler(c *gin.Context) {
 
 	defer func() {
 		if err := recover(); err != nil {
+			if GinDebug {
+				debug.PrintStack()
+			}
 			switch t := err.(type) {
 			case string:
 				context.Response(&ResponseData{Message: t, Status: 200, Error: 1, ErrorType: "业务错误"})

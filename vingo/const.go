@@ -1,5 +1,7 @@
 package vingo
 
+var GinDebug bool
+
 const (
 	Enable  = 1
 	Disable = 2

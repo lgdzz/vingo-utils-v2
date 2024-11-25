@@ -41,6 +41,8 @@ func InitRouter(hook *Hook) {
 		gin.SetMode(gin.ReleaseMode)
 	}
 
+	vingo.GinDebug = option.Debug
+
 	r := gin.New()
 	r.Use(gin.Logger(), gin.Recovery())
 	_ = r.SetTrustedProxies(nil)
@@ -58,7 +60,7 @@ func InitRouter(hook *Hook) {
 
 	// 404捕捉
 	r.NoRoute(func(c *gin.Context) {
-		context := vingo.Context{c}
+		context := vingo.Context{Context: c}
 		context.Response(&vingo.ResponseData{Message: "404:Not Found", Error: 1})
 	})
 
