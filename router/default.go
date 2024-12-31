@@ -74,8 +74,12 @@ func InitRouter(hook *Hook) {
 	fmt.Println(fmt.Sprintf("+ 项目名称：%v", option.Name))
 	fmt.Println(fmt.Sprintf("+ 服务端口：%d", option.Port))
 	fmt.Println(fmt.Sprintf("+ 调试模式：%v", option.Debug))
-	fmt.Println(fmt.Sprintf("+ Mysql：%v:%v db:%v", option.Database.Host, option.Database.Port, option.Database.Dbname))
-	fmt.Println(fmt.Sprintf("+ Redis：%v:%v db:%v", option.Redis.Host, option.Redis.Port, option.Redis.Select))
+	if option.Database.Host != "" {
+		fmt.Println(fmt.Sprintf("+ Mysql：%v:%v db:%v", option.Database.Host, option.Database.Port, option.Database.Dbname))
+	}
+	if option.Redis.Host != "" {
+		fmt.Println(fmt.Sprintf("+ Redis：%v:%v db:%v", option.Redis.Host, option.Redis.Port, option.Redis.Select))
+	}
 	vingo.ApiAddress(option.Port)
 	fmt.Println(fmt.Sprintf("+ 启动时间：%v", time.Now().Format(vingo.DatetimeFormatChinese)))
 	fmt.Println(fmt.Sprintf("+ 技术支持：%v", option.Copyright))

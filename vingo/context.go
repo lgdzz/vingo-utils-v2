@@ -1,6 +1,7 @@
 package vingo
 
 import (
+	"encoding/base64"
 	"encoding/json"
 	"fmt"
 	"github.com/gin-gonic/gin"
@@ -64,6 +65,7 @@ func (c *Context) GetRealClientIP() string {
 // 请求成功
 func (c *Context) Response(d *ResponseData) {
 	c.Set("clientIp", c.GetRealClientIP())
+
 	if d.Message == "" {
 		d.Message = "Success"
 	}
@@ -120,6 +122,19 @@ func (c *Context) ResponseSuccess(data ...any) {
 		c.Response(&ResponseData{})
 	} else {
 		c.Response(&ResponseData{Data: data[0]})
+	}
+}
+
+// 请求成功，数据进行base64编码
+func (c *Context) ResponseBase64(data ...any) {
+	if len(data) == 0 {
+		c.Response(&ResponseData{})
+	} else {
+		byteData, err := json.Marshal(data[0])
+		if err != nil {
+			panic(fmt.Sprintf("Error marshaling data: %v", err))
+		}
+		c.Response(&ResponseData{Data: base64.StdEncoding.EncodeToString(byteData)})
 	}
 }
 
