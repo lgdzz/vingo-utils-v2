@@ -19,20 +19,22 @@ type Config struct {
 	SignCacheKey string
 }
 
-type ClientApi struct {
+type QiniuApi struct {
 	Config        Config
 	mac           *credentials.Credentials
 	bucketManager *objects.Bucket
 }
 
 // 在主进程中只需要执行一次
-func InitClient(config Config) (api ClientApi) {
-	api.Config = config
-	return api
+func InitClient(config Config) *QiniuApi {
+	var api = QiniuApi{
+		Config: config,
+	}
+	return &api
 }
 
 // 上传签名
-func (s *ClientApi) Sign() string {
+func (s *QiniuApi) Sign() string {
 
 	// 如果配置了redis，则从缓存中读取upToken
 	if s.Config.RedisApi != nil {
@@ -62,7 +64,7 @@ func (s *ClientApi) Sign() string {
 	return upToken
 }
 
-func (s *ClientApi) Delete(objectName string) error {
+func (s *QiniuApi) Delete(objectName string) error {
 	err := s.BucketManager().Object(objectName).Delete().Call(context.Background())
 	if err != nil {
 		return err
@@ -70,14 +72,14 @@ func (s *ClientApi) Delete(objectName string) error {
 	return nil
 }
 
-func (s *ClientApi) NewMac() *credentials.Credentials {
+func (s *QiniuApi) NewMac() *credentials.Credentials {
 	if s.mac == nil {
 		s.mac = credentials.NewCredentials(s.Config.AccessKey, s.Config.SecretKey)
 	}
 	return s.mac
 }
 
-func (s *ClientApi) BucketManager() *objects.Bucket {
+func (s *QiniuApi) BucketManager() *objects.Bucket {
 	if s.bucketManager == nil {
 		objectsManager := objects.NewObjectsManager(&objects.ObjectsManagerOptions{
 			Options: http_client.Options{Credentials: s.NewMac()},
