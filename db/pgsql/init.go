@@ -11,42 +11,21 @@ import (
 	"time"
 )
 
-var Db *gorm.DB
+// 新建一个数据库连接池
+func NewPgSql(config Config) *DbApi {
+	config.StringValue(&config.Host, "127.0.0.1")
+	config.StringValue(&config.Port, "54321")
+	config.StringValue(&config.Username, "system")
+	config.StringValue(&config.Password, "123456")
+	config.StringValue(&config.Charset, "utf8mb4")
+	config.IntValue(&config.MaxIdleConns, 10)
+	config.IntValue(&config.MaxOpenConns, 100)
 
-type PgsqlConfig struct {
-	Host         string `yaml:"host" json:"host"`
-	Port         string `yaml:"port" json:"port"`
-	Dbname       string `yaml:"dbname" json:"dbname"`
-	Username     string `yaml:"username" json:"username"`
-	Password     string `yaml:"password" json:"password"`
-	MaxIdleConns int    `yaml:"maxIdleConns" json:"maxIdleConns"`
-	MaxOpenConns int    `yaml:"maxOpenConns" json:"maxOpenConns"`
-}
-
-func InitClient(config *PgsqlConfig) {
-	InitPgsqlService(config)
-}
-
-func InitPgsqlService(config *PgsqlConfig) {
-	if Db != nil {
-		return
+	var dbApi = DbApi{
+		Config: config,
 	}
 
-	if config.MaxIdleConns == 0 {
-		config.MaxIdleConns = 10
-	}
-	if config.MaxOpenConns == 0 {
-		config.MaxOpenConns = 100
-	}
-
-	dsn := "user=" + config.Username +
-		" password=" + config.Password +
-		" host=" + config.Host +
-		" port=" + config.Port +
-		" dbname=" + config.Dbname +
-		" sslmode=disable TimeZone=Asia/Shanghai options='--client_encoding=UTF8'"
-
-	//这里 gorm.Open()函数与之前版本的不一样，大家注意查看官方最新gorm版本的用法
+	dsn := fmt.Sprintf("host=%v port=%v user=%v password=%v dbname=%v sslmode=disable TimeZone=Asia/Shanghai", config.Host, config.Port, config.Username, config.Password, config.Dbname)
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{
 		SkipDefaultTransaction: true,
 		PrepareStmt:            true,
@@ -84,7 +63,8 @@ func InitPgsqlService(config *PgsqlConfig) {
 	RegisterAfterUpdate(db)
 	RegisterAfterDelete(db)
 
-	Db = db
+	dbApi.DB = db
+	return &dbApi
 }
 
 func RegisterAfterQuery(db *gorm.DB) {

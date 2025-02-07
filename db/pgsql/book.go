@@ -2,7 +2,6 @@ package pgsql
 
 import (
 	"fmt"
-	_ "github.com/go-sql-driver/mysql"
 	"github.com/lgdzz/vingo-utils-v2/vingo"
 	"os"
 	"path/filepath"
@@ -29,17 +28,18 @@ const booktpl = `
   <title>{{ .Name }} 数据字典</title>
   <style>
     body {
-        width: 1000px;
-    	margin: 0 auto;
-		font-size: 14px;
-		padding-bottom: 50px;
+      margin: 0 50px;
+      font-size: 14px;
+      padding-bottom: 50px;
     }
+
     table {
       border-collapse: collapse;
       width: 100%;
     }
 
-    th, td {
+    th,
+    td {
       border: 1px solid #ddd;
       padding: 8px;
       text-align: left;
@@ -48,61 +48,90 @@ const booktpl = `
     th {
       background-color: #f2f2f2;
     }
-    
+
+    .main {
+      display: flex;
+      height: 85vh;
+    }
+
     .menu {
-      position: fixed;
-      left: 100px;
+      margin-right: 50px;
+      height: 100%;
+      overflow: auto;
     }
 
     .menu a {
-      display: block;
+      display: flex;
       color: #2196f3;
+      font-size: 12px;
+      text-decoration: inherit;
+    }
+
+    .menu a div:nth-child(1) {
+      flex: 1;
+    }
+
+    .menu a div:nth-child(2) {
+      color: #ccc;
+      margin: 0 10px;
+    }
+
+    .table {
+      flex: 1;
+      height: 100%;
+      overflow: auto;
     }
   </style>
 </head>
 <body>
   <h1>{{ .Name }} 数据字典<span style="float:right">{{ .ReleaseTime }}</span></h1>
+  <div class="main">
+	  <div class="menu">
+	  {{ range .Tables }}
+	  <a href="#{{ .Name }}">
+      	<div>{{ .Name }}</div>
+        <div>{{ .Comment }}</div>
+      </a>
+	  {{ end }}
+	  </div>
 
-  <div class="menu">
-  {{ range .Tables }}
-  <a href="#{{ .Name }}">{{ .Name }} {{ .Comment }}</a>
-  {{ end }}
+  	  <div class="table">
+	  {{ range .Tables }}
+	  <h2 id="{{ .Name }}">{{ .Name }} {{ .Comment }}</h2>
+	
+	  <table>
+		<tr>
+		  <th>字段名</th>
+		  <th>数据类型</th>
+		  <th>允许空值</th>
+		  <th>键</th>
+		  <th>默认值</th>
+		  <th>备注</th>
+		</tr>
+		{{ range .Columns }}
+		<tr>
+		  <td>{{ .Field }}</td>
+		  <td>{{ .Type }}</td>
+		  <td>{{ .Null }}</td>
+		  <td>{{ .Key }}</td>
+		  <td>{{ .Default }}</td>
+		  <td>{{ .Comment }}</td>
+		</tr>
+		{{ end }}
+	  </table>
+	
+	  {{ end }}
+	  </div>
   </div>
-
-  {{ range .Tables }}
-  <h2 id="{{ .Name }}">{{ .Name }} {{ .Comment }}</h2>
-
-  <table>
-    <tr>
-      <th>字段名</th>
-      <th>数据类型</th>
-      <th>允许空值</th>
-      <th>键</th>
-      <th>默认值</th>
-      <th>备注</th>
-    </tr>
-    {{ range .Columns }}
-    <tr>
-      <td>{{ .Field }}</td>
-      <td>{{ .Type }}</td>
-      <td>{{ .Null }}</td>
-      <td>{{ .Key }}</td>
-      <td>{{ .Default }}</td>
-      <td>{{ .Comment }}</td>
-    </tr>
-    {{ end }}
-  </table>
-
-  {{ end }}
 </body>
 </html>
 `
 
 // 生成数据库字典
-func BuildBook() error {
+func (s *DbApi) BuildBook() error {
 	var tables []TableItem
 	var dbName string
-	err := Db.Raw("SELECT DATABASE()").Row().Scan(&dbName)
+	err := s.DB.Raw("SELECT DATABASE()").Row().Scan(&dbName)
 	if err != nil {
 		return err
 	}
@@ -111,7 +140,7 @@ func BuildBook() error {
 	var outputFilePath = filepath.Join(".", "dbbook", fmt.Sprintf("%v_%v.html", dbName, time.Now().Format("20060102")))
 
 	// 查询所有表的信息
-	rows, err := Db.Raw(`SELECT TABLE_NAME, TABLE_COMMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = ?`, dbName).Rows()
+	rows, err := s.DB.Raw(`SELECT TABLE_NAME, TABLE_COMMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = ?`, dbName).Rows()
 	if err != nil {
 		return err
 	}
@@ -124,13 +153,13 @@ func BuildBook() error {
 		}
 
 		// 查询每张表的列信息并按字段顺序排序
-		columns, err := getTableColumns(dbName, tableName)
+		columns, err := s.getTableColumns(dbName, tableName)
 		if err != nil {
 			return err
 		}
 
 		// 获取字段顺序
-		fieldOrder := getFieldOrder(dbName, tableName)
+		fieldOrder := s.getFieldOrder(dbName, tableName)
 
 		// 根据字段顺序排序
 		sortedColumns := make([]Column, len(columns))
@@ -177,10 +206,10 @@ func BuildBook() error {
 }
 
 // 获取字段顺序
-func getFieldOrder(dbName string, tableName string) []string {
+func (s *DbApi) getFieldOrder(dbName string, tableName string) []string {
 	var fields []string
 
-	rows, err := Db.Raw(`SELECT COLUMN_NAME FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? ORDER BY ORDINAL_POSITION`, dbName, tableName).Rows()
+	rows, err := s.DB.Raw(`SELECT COLUMN_NAME FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? ORDER BY ORDINAL_POSITION`, dbName, tableName).Rows()
 	if err != nil {
 		return fields
 	}
@@ -197,9 +226,9 @@ func getFieldOrder(dbName string, tableName string) []string {
 	return fields
 }
 
-func getTableColumns(dbName string, tableName string) ([]Column, error) {
+func (s *DbApi) getTableColumns(dbName string, tableName string) ([]Column, error) {
 	var columns []Column
-	rows, err := Db.Raw(`SELECT COLUMN_NAME, COLUMN_TYPE, IS_NULLABLE, COLUMN_KEY, COLUMN_DEFAULT, EXTRA, COLUMN_COMMENT FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ?`, dbName, tableName).Rows()
+	rows, err := s.DB.Raw(`SELECT COLUMN_NAME, COLUMN_TYPE, IS_NULLABLE, COLUMN_KEY, COLUMN_DEFAULT, EXTRA, COLUMN_COMMENT FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ?`, dbName, tableName).Rows()
 	if err != nil {
 		return nil, err
 	}
