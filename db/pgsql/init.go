@@ -25,7 +25,7 @@ func NewPgSql(config Config) *DbApi {
 		Config: config,
 	}
 
-	dsn := fmt.Sprintf("host=%v port=%v user=%v password=%v dbname=%v sslmode=disable TimeZone=Asia/Shanghai", config.Host, config.Port, config.Username, config.Password, config.Dbname)
+	dsn := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable TimeZone=Asia/Shanghai", config.Host, config.Port, config.Username, config.Password, config.Dbname)
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{
 		SkipDefaultTransaction: true,
 		PrepareStmt:            true,

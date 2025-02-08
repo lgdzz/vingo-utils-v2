@@ -19,7 +19,16 @@ func (s UintIds) Value() (driver.Value, error) {
 }
 
 func (s *UintIds) Scan(value interface{}) error {
-	v := string(value.([]byte))
+	var v string
+	switch t := value.(type) {
+	case string:
+		v = t
+	case []byte:
+		v = string(t)
+	default:
+		panic("未知数据类型")
+	}
+
 	if v == "" {
 		err := json.Unmarshal([]byte("[]"), s)
 		if err != nil {

@@ -49,11 +49,22 @@ func (t LocalTime) Value() (driver.Value, error) {
 }
 
 func (t *LocalTime) Scan(v interface{}) error {
-	if value, ok := v.(time.Time); ok {
+	switch value := v.(type) {
+	case time.Time:
+		// 如果是 time.Time 类型，直接转换为 LocalTime
 		*t = LocalTime(value.Local())
 		return nil
+	case string:
+		// 如果是 string 类型，尝试解析为时间
+		parsedTime, err := time.Parse(DatetimeFormat, value)
+		if err != nil {
+			return fmt.Errorf("failed to parse string as time: %v", err)
+		}
+		*t = LocalTime(parsedTime.Local())
+		return nil
+	default:
+		return fmt.Errorf("can not convert %v to LocalTime", v)
 	}
-	return fmt.Errorf("can not convert %v to timestamp", v)
 }
 
 func (t LocalTime) Now() LocalTime {
