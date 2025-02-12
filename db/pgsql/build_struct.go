@@ -22,6 +22,7 @@ package model
 import(
 	"github.com/lgdzz/vingo-utils-v2/vingo"
 	"github.com/lgdzz/vingo-utils-v2/db/page"
+	mysql "github.com/lgdzz/vingo-utils-v2/db/pgsql"
 	"gorm.io/gorm"
 )
 

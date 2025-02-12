@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"github.com/lgdzz/vingo-utils-v2/db/mysql"
+	"github.com/lgdzz/vingo-utils-v2/db/pgsql"
 	"github.com/lgdzz/vingo-utils-v2/vingo"
 	"log"
 	"os"
@@ -12,9 +13,10 @@ import (
 )
 
 type Options struct {
-	Enable   bool
-	DbApi    *mysql.DbApi
-	Register func()
+	Enable     bool
+	DbApi      *mysql.DbApi
+	PgSqlDbApi *pgsql.DbApi
+	Register   func()
 }
 
 func InitCli(options Options) {
@@ -52,13 +54,22 @@ func InitCli(options Options) {
 
 	// 创建数据库字典
 	if *dbbook {
-		_ = options.DbApi.BuildBook()
+		if options.DbApi != nil {
+			_ = options.DbApi.BuildBook()
+		} else if options.PgSqlDbApi != nil {
+			_ = options.PgSqlDbApi.BuildBook()
+		}
 		os.Exit(0)
 	}
 
 	// 创建数据表模型文件
 	if *model != "" {
-		_, _ = options.DbApi.CreateDbModel(strings.Split(*model, ",")...)
+		if options.DbApi != nil {
+			_, _ = options.DbApi.CreateDbModel(strings.Split(*model, ",")...)
+		} else if options.PgSqlDbApi != nil {
+			_, _ = options.PgSqlDbApi.CreateDbModel(strings.Split(*model, ",")...)
+
+		}
 		os.Exit(0)
 	}
 
