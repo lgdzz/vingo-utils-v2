@@ -109,6 +109,18 @@ func (s *DateAt) EndTime() time.Time {
 	return t
 }
 
+// bool切片字符串形态，如：true,false
+type BoolString string
+
+func (s *BoolString) ToSlice() []bool {
+	result := make([]bool, 0)
+	arr := strings.Split(string(*s), ",")
+	for _, item := range arr {
+		result = append(result, ToBool(item))
+	}
+	return result
+}
+
 // 数字切片字符串形态，如：1,2,3
 type IntString string
 
