@@ -53,6 +53,13 @@ func SaveFile(dirPath string, fileName string, data []byte) {
 	}
 }
 
+func SaveFileSetMode(dirPath string, fileName string, data []byte, perm os.FileMode) {
+	targetFile := filepath.Join(dirPath, fileName)
+	if err := os.WriteFile(targetFile, data, perm); err != nil {
+		panic(fmt.Sprintf("保存文件失败：%v", err.Error()))
+	}
+}
+
 // 读取文件
 func ReadFile(filename string) []byte {
 	// 读取文件内容
@@ -253,6 +260,41 @@ func FileCopy(src, dstDir string) string {
 
 	// Return the path to the copied file.
 	return filepath.Join(dstDir, dstFileName)
+}
+
+func FileCopySetMode(src, dst string, perm os.FileMode) {
+	// 打开源文件
+	srcFile, err := os.Open(src)
+	if err != nil {
+		panic(err)
+	}
+	defer srcFile.Close()
+
+	// 确保目标目录存在
+	dstDir := filepath.Dir(dst)
+	err = os.MkdirAll(dstDir, perm)
+	if err != nil {
+		panic(err)
+	}
+
+	// 创建目标文件并设置权限
+	dstFile, err := os.OpenFile(dst, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, perm)
+	if err != nil {
+		panic(err)
+	}
+	defer dstFile.Close()
+
+	// 使用 io.Copy 复制文件内容
+	_, err = io.Copy(dstFile, srcFile)
+	if err != nil {
+		panic(err)
+	}
+
+	// 确保数据写入磁盘
+	err = dstFile.Sync()
+	if err != nil {
+		panic(err)
+	}
 }
 
 // 删除文件
