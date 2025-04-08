@@ -13,6 +13,8 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"os"
+	"path/filepath"
 	"strings"
 )
 
@@ -33,29 +35,78 @@ func NewZip() ZipObject {
 
 // 将url文件添加到压缩包
 func (s *ZipObject) AddUrlFileToZip(url string, fileName string, folders ...string) {
-	// 发起 HTTP 请求获取远程文件内容
 	resp, err := http.Get(url)
 	if err != nil {
-		panic(fmt.Sprintf("Error downloading file: %v", err.Error()))
+		panic(fmt.Sprintf("Error downloading file: %v", err))
 	}
 	defer resp.Body.Close()
-	// 创建 zip 文件中的条目
-	var folder string
-	if len(folders) > 0 {
-		folder = strings.Join(folders, "/") + "/"
-	}
+
 	if fileName == "" {
-		fileName = url[strings.LastIndex(url, "/")+1:] // 提取文件名
+		fileName = url[strings.LastIndex(url, "/")+1:]
 	}
-	fileInZip, err := s.ZipWriter.Create(folder + fileName)
+	fullPath := buildZipPath(fileName, folders...)
+
+	fileInZip, err := s.ZipWriter.Create(fullPath)
 	if err != nil {
-		panic(fmt.Sprintf("Error creating file in zip: %v", err.Error()))
+		panic(fmt.Sprintf("Error creating file in zip: %v", err))
 	}
-	// 将远程文件内容复制到 zip 文件中
+
 	_, err = io.Copy(fileInZip, resp.Body)
 	if err != nil {
-		panic(fmt.Sprintf("Error copying file to zip: %v", err.Error()))
+		panic(fmt.Sprintf("Error copying file to zip: %v", err))
 	}
+}
+
+// 添加本地文件到 zip 中
+func (s *ZipObject) AddLocalFileToZip(localPath string, fileName string, folders ...string) {
+	file, err := os.Open(localPath)
+	if err != nil {
+		panic(fmt.Sprintf("Error opening local file: %v", err))
+	}
+	defer file.Close()
+
+	if fileName == "" {
+		fileName = filepath.Base(localPath)
+	}
+	fullPath := buildZipPath(fileName, folders...)
+
+	fileInfo, err := file.Stat()
+	if err != nil {
+		panic(fmt.Sprintf("Error getting file info: %v", err))
+	}
+
+	header, err := zip.FileInfoHeader(fileInfo)
+	if err != nil {
+		panic(fmt.Sprintf("Error creating zip header: %v", err))
+	}
+	header.Name = fullPath
+	header.Method = zip.Deflate
+
+	writer, err := s.ZipWriter.CreateHeader(header)
+	if err != nil {
+		panic(fmt.Sprintf("Error creating file in zip: %v", err))
+	}
+
+	_, err = io.Copy(writer, file)
+	if err != nil {
+		panic(fmt.Sprintf("Error writing file to zip: %v", err))
+	}
+}
+
+// 关闭 zip writer（重要：写入完成后需要关闭）
+func (s *ZipObject) Close() {
+	err := s.ZipWriter.Close()
+	if err != nil {
+		panic(fmt.Sprintf("Error closing zip writer: %v", err))
+	}
+}
+
+// 工具函数：拼接 zip 内路径
+func buildZipPath(fileName string, folders ...string) string {
+	if len(folders) == 0 {
+		return fileName
+	}
+	return strings.Join(folders, "/") + "/" + fileName
 }
 
 func (s *ZipObject) Download(c *Context, filename string) {
