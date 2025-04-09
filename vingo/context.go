@@ -141,28 +141,44 @@ func (c *Context) ResponseBase64(data ...any) {
 // 注册get路由
 func RoutesGet(g *gin.RouterGroup, path string, handler func(*Context)) {
 	g.GET(path, func(c *gin.Context) {
-		handler(&Context{Context: c})
+		context := &Context{Context: c}
+		handler(context)
+		if ApiOplog.Enable {
+			go ApiOplog.Write(context)
+		}
 	})
 }
 
 // 注册post路由
 func RoutesPost(g *gin.RouterGroup, path string, handler func(*Context)) {
 	g.POST(path, func(c *gin.Context) {
-		handler(&Context{Context: c})
+		context := &Context{Context: c}
+		handler(context)
+		if ApiOplog.Enable {
+			go ApiOplog.Write(context)
+		}
 	})
 }
 
 // 注册put路由
 func RoutesPut(g *gin.RouterGroup, path string, handler func(*Context)) {
 	g.PUT(path, func(c *gin.Context) {
-		handler(&Context{Context: c})
+		context := &Context{Context: c}
+		handler(context)
+		if ApiOplog.Enable {
+			go ApiOplog.Write(context)
+		}
 	})
 }
 
 // 注册patch路由
 func RoutesPatch(g *gin.RouterGroup, path string, handler func(*Context)) {
 	g.PATCH(path, func(c *gin.Context) {
-		handler(&Context{Context: c})
+		context := &Context{Context: c}
+		handler(context)
+		if ApiOplog.Enable {
+			go ApiOplog.Write(context)
+		}
 	})
 }
 
@@ -284,3 +300,10 @@ type ResponseData struct {
 	Data      any    // 返回数据内容
 	NoLog     bool   // true时不记录日志
 }
+
+type Oplog struct {
+	Enable bool
+	Write  func(c *Context)
+}
+
+var ApiOplog = Oplog{}

@@ -22,7 +22,7 @@ package model
 import(
 	"github.com/lgdzz/vingo-utils-v2/vingo"
 	"github.com/lgdzz/vingo-utils-v2/db/page"
-	mysql "github.com/lgdzz/vingo-utils-v2/db/pgsql"
+	pgsql "github.com/lgdzz/vingo-utils-v2/db/pgsql"
 	"gorm.io/gorm"
 )
 
@@ -36,13 +36,9 @@ func (s *{{ .ModelName }}) TableName() string {
 }
 
 type {{ .ModelName }}Query struct {
-	mysql.PageQuery
+	*pgsql.PageQuery
 	CreatedAt *string ` + "`form:\"createdAt\"`" + `
 	Keyword string ` + "`form:\"keyword\"`" + `
-}
-
-type {{ .ModelName }}Body struct {
-	{{ .ModelName }}
 }
 `
 
@@ -78,34 +74,75 @@ func (s *DbApi) CreateDbModel(tableNames ...string) (bool, error) {
 	for _, tableName := range tableNames {
 
 		var modelPath = filepath.Join(".", "model", tableName+".go")
-		// 模型文件存在则不创建
 		if vingo.FileExists(modelPath) {
 			continue
 		}
 
-		var tableComment string
-		s.DB.Table("information_schema.tables").Where("table_schema=? AND table_name=?", s.Config.Dbname, tableName).Select("table_comment").Scan(&tableComment)
+		var tableComment sql.NullString
+		queryTableComment := `
+	SELECT obj_description(c.oid, 'pg_class') 
+	FROM pg_class c
+	WHERE relname = ?
+`
+		s.DB.Raw(queryTableComment, tableName).Scan(&tableComment)
+
+		commentStr := ""
+		if tableComment.Valid {
+			commentStr = tableComment.String
+		}
 
 		var columns []Column
-		s.DB.Raw("SHOW FULL COLUMNS FROM " + tableName).Select("Field,Type,Comment").Scan(&columns)
+		queryColumn := `
+			SELECT 
+				a.attname AS field,
+				format_type(a.atttypid, a.atttypmod) AS type,
+				col_description(a.attrelid, a.attnum) AS comment,
+				CASE WHEN a.attnotnull THEN 'NO' ELSE 'YES' END AS null
+			FROM 
+				pg_attribute a
+			JOIN 
+				pg_class c ON a.attrelid = c.oid
+			JOIN 
+				pg_namespace n ON c.relnamespace = n.oid
+			WHERE 
+				c.relname = ? 
+				AND a.attnum > 0 
+				AND NOT a.attisdropped
+		`
+		s.DB.Raw(queryColumn, tableName).Scan(&columns)
+
 		columns = vingo.ForEach[Column](columns, func(item Column, index int) Column {
-			if vingo.StringStartsWith(item.Type, []string{"int", "tinyint", "smallint"}) {
-				if vingo.StringContainsAnd(item.Type, "unsigned") {
-					item.DataType = "uint"
-				} else {
-					item.DataType = "int"
-				}
-			} else if vingo.StringStartsWith(item.Type, []string{"decimal"}) {
+			typ := item.Type
+			if vingo.StringStartsWith(typ, []string{"integer", "int4"}) {
+				item.DataType = "uint"
+			} else if vingo.StringStartsWith(typ, []string{"bigint", "int8"}) {
+				item.DataType = "uint"
+			} else if vingo.StringStartsWith(typ, []string{"smallint", "int2"}) {
+				item.DataType = "uint"
+			} else if vingo.StringStartsWith(typ, []string{"numeric", "decimal", "double precision", "real"}) {
 				item.DataType = "float64"
-			} else if item.Field == "deleted_at" {
-				item.DataType = "gorm.DeletedAt"
-			} else if vingo.StringStartsWith(item.Type, []string{"datetime"}) {
+			} else if vingo.StringStartsWith(typ, []string{"boolean"}) {
+				item.DataType = "bool"
+			} else if vingo.StringStartsWith(typ, []string{"timestamp", "date", "time"}) {
 				item.DataType = "*vingo.LocalTime"
 			} else {
 				item.DataType = "string"
 			}
 			item.JsonName = strutil.CamelCase(item.Field)
 			item.DataName = strutil.UpperFirst(item.JsonName)
+
+			// 判断主键
+			var isPrimaryKey string
+			s.DB.Raw(`
+				SELECT a.attname 
+				FROM pg_index i 
+				JOIN pg_attribute a ON a.attrelid = i.indrelid AND a.attnum = ANY(i.indkey)
+				WHERE i.indrelid = ?::regclass AND i.indisprimary
+			`, tableName).Scan(&isPrimaryKey)
+
+			if isPrimaryKey == item.Field {
+				item.Key = "PRI"
+			}
 			return item
 		})
 
@@ -126,7 +163,7 @@ func (s *DbApi) CreateDbModel(tableNames ...string) (bool, error) {
 		if err = t.Execute(outputFile, TableData{
 			TableName:    tableName,
 			ModelName:    strutil.UpperFirst(strutil.CamelCase(tableName)),
-			TableComment: tableComment,
+			TableComment: commentStr,
 			TableColumns: columns,
 			Date:         time.Now().Format("2006/01/02"),
 		}); err != nil {
