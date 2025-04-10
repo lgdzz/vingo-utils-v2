@@ -1,6 +1,7 @@
 package pgsql
 
 import (
+	"database/sql"
 	"fmt"
 	"github.com/lgdzz/vingo-utils-v2/vingo"
 	"os"
@@ -127,41 +128,52 @@ const booktpl = `
 </html>
 `
 
-// 生成数据库字典
 func (s *DbApi) BuildBook() error {
 	var tables []TableItem
 	var dbName string
-	err := s.DB.Raw("SELECT DATABASE()").Row().Scan(&dbName)
+
+	// PostgreSQL 获取当前数据库名
+	err := s.DB.Raw("SELECT current_database()").Row().Scan(&dbName)
 	if err != nil {
 		return err
 	}
 
 	vingo.Mkdir("dbbook")
-	var outputFilePath = filepath.Join(".", "dbbook", fmt.Sprintf("%v_%v.html", dbName, time.Now().Format("20060102")))
+	var outputFilePath = filepath.Join("dbbook", fmt.Sprintf("%v_%v.html", dbName, time.Now().Format("20060102")))
 
-	// 查询所有表的信息
-	rows, err := s.DB.Raw(`SELECT TABLE_NAME, TABLE_COMMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = ?`, dbName).Rows()
+	// PostgreSQL 获取所有表名及注释
+	rows, err := s.DB.Raw(`
+		SELECT c.relname AS table_name, obj_description(c.oid) AS comment
+		FROM pg_class c
+		JOIN pg_namespace n ON n.oid = c.relnamespace
+		WHERE c.relkind = 'r' AND n.nspname = 'public'
+	`).Rows()
 	if err != nil {
 		return err
 	}
 	defer rows.Close()
 
 	for rows.Next() {
-		var tableName, tableComment string
-		if err := rows.Scan(&tableName, &tableComment); err != nil {
+		var tableName string
+		var comment sql.NullString
+
+		if err := rows.Scan(&tableName, &comment); err != nil {
 			return err
 		}
 
-		// 查询每张表的列信息并按字段顺序排序
-		columns, err := s.getTableColumns(dbName, tableName)
+		tableComment := ""
+		if comment.Valid {
+			tableComment = comment.String
+		}
+
+		// 获取列信息
+		columns, err := s.getTableColumns(tableName)
 		if err != nil {
 			return err
 		}
 
-		// 获取字段顺序
-		fieldOrder := s.getFieldOrder(dbName, tableName)
-
-		// 根据字段顺序排序
+		// 字段排序
+		fieldOrder := s.getFieldOrder(tableName)
 		sortedColumns := make([]Column, len(columns))
 		for i, field := range fieldOrder {
 			for _, col := range columns {
@@ -179,14 +191,12 @@ func (s *DbApi) BuildBook() error {
 		})
 	}
 
-	// 构造 Database 对象
 	database := Database{
 		Name:        dbName,
 		Tables:      tables,
 		ReleaseTime: time.Now().Format("2006年01月02日"),
 	}
 
-	// 渲染模板
 	t, err := template.New("tpl").Parse(booktpl)
 	if err != nil {
 		return err
@@ -206,10 +216,15 @@ func (s *DbApi) BuildBook() error {
 }
 
 // 获取字段顺序
-func (s *DbApi) getFieldOrder(dbName string, tableName string) []string {
+func (s *DbApi) getFieldOrder(tableName string) []string {
 	var fields []string
 
-	rows, err := s.DB.Raw(`SELECT COLUMN_NAME FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? ORDER BY ORDINAL_POSITION`, dbName, tableName).Rows()
+	rows, err := s.DB.Raw(`
+		SELECT column_name
+		FROM information_schema.columns
+		WHERE table_schema = 'public' AND table_name = ?
+		ORDER BY ordinal_position
+	`, tableName).Rows()
 	if err != nil {
 		return fields
 	}
@@ -226,21 +241,53 @@ func (s *DbApi) getFieldOrder(dbName string, tableName string) []string {
 	return fields
 }
 
-func (s *DbApi) getTableColumns(dbName string, tableName string) ([]Column, error) {
+// 获取表字段信息（PostgreSQL）
+func (s *DbApi) getTableColumns(tableName string) ([]Column, error) {
 	var columns []Column
-	rows, err := s.DB.Raw(`SELECT COLUMN_NAME, COLUMN_TYPE, IS_NULLABLE, COLUMN_KEY, COLUMN_DEFAULT, EXTRA, COLUMN_COMMENT FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ?`, dbName, tableName).Rows()
+
+	rows, err := s.DB.Raw(`
+		SELECT
+			a.attname AS column_name,
+			format_type(a.atttypid, a.atttypmod) AS data_type,
+			NOT a.attnotnull AS is_nullable,
+			CASE WHEN ct.contype = 'p' THEN 'PRI' ELSE '' END AS column_key,
+			COALESCE(pg_get_expr(d.adbin, d.adrelid), '') AS column_default,
+			col_description(a.attrelid, a.attnum) AS column_comment
+		FROM
+			pg_attribute a
+		JOIN pg_class c ON a.attrelid = c.oid
+		JOIN pg_namespace n ON c.relnamespace = n.oid
+		LEFT JOIN pg_attrdef d ON d.adrelid = c.oid AND d.adnum = a.attnum
+		LEFT JOIN pg_constraint ct ON ct.conrelid = c.oid AND a.attnum = ANY(ct.conkey)
+		WHERE
+			a.attnum > 0
+			AND NOT a.attisdropped
+			AND c.relname = ?
+			AND n.nspname = 'public'
+		ORDER BY a.attnum
+	`, tableName).Rows()
 	if err != nil {
 		return nil, err
 	}
 	defer rows.Close()
 
 	for rows.Next() {
-		var column Column
-		if err := rows.Scan(&column.Field, &column.Type, &column.Null, &column.Key, &column.Default, &column.Extra, &column.Comment); err != nil {
+		var col Column
+		var nullable bool
+		var comment sql.NullString
+
+		if err := rows.Scan(&col.Field, &col.Type, &nullable, &col.Key, &col.Default, &comment); err != nil {
 			return nil, err
 		}
 
-		columns = append(columns, column)
+		col.Null = map[bool]string{true: "YES", false: "NO"}[nullable]
+		col.Extra = "" // PostgreSQL 没有 extra
+		col.Comment = ""
+		if comment.Valid {
+			col.Comment = comment.String
+		}
+
+		columns = append(columns, col)
 	}
 
 	return columns, nil

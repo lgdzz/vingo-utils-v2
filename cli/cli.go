@@ -55,9 +55,15 @@ func InitCli(options Options) {
 	// 创建数据库字典
 	if *dbbook {
 		if options.DbApi != nil {
-			_ = options.DbApi.BuildBook()
+			err := options.DbApi.BuildBook()
+			if err != nil {
+				fmt.Println(err)
+			}
 		} else if options.PgSqlDbApi != nil {
-			_ = options.PgSqlDbApi.BuildBook()
+			err := options.PgSqlDbApi.BuildBook()
+			if err != nil {
+				fmt.Println(err)
+			}
 		}
 		os.Exit(0)
 	}
