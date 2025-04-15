@@ -9,6 +9,7 @@ package pgsql
 import (
 	"database/sql"
 	"fmt"
+	"github.com/duke-git/lancet/v2/slice"
 	"github.com/lgdzz/vingo-utils-v2/vingo"
 	"gorm.io/gorm"
 	"reflect"
@@ -382,21 +383,27 @@ func (s *DbApi) AutoCommit(tx *gorm.DB, callback ...func()) {
 }
 
 type TableColumn struct {
-	Column  string `gorm:"column:Field" json:"column"`
-	Type    string `gorm:"column:Type" json:"type"`
-	Comment string `gorm:"column:Comment" json:"comment"`
+	Column     string `gorm:"column:COLUMN_NAME" json:"column"`
+	ColumnType string `gorm:"column:COLUMN_TYPE" json:"-"`
+	Type       string `gorm:"column:DATA_TYPE" json:"type"`
+	Comment    string `gorm:"column:COLUMN_COMMENT" json:"comment"`
 }
 
 // 获取表字段
 func (s *DbApi) GetTableColumn(tableName string) []TableColumn {
-	var columns []TableColumn
-	s.DB.Raw("SHOW FULL COLUMNS FROM " + tableName).Select("Field,Type,Comment").Scan(&columns)
+	var columns = make([]TableColumn, 0)
+	s.DB.Raw(`
+		SELECT * FROM information_schema.columns
+		WHERE table_schema = 'public' AND table_name = ?
+		ORDER BY ordinal_position ASC
+	`, tableName).Scan(&columns)
+
 	for index, item := range columns {
-		if vingo.StringContainsOr(item.Type, []string{"int", "tinyint", "bigint", "float", "decimal"}) {
+		if slice.Contain([]string{"int", "tinyint", "bigint", "float", "decimal"}, item.Type) {
 			columns[index].Type = "number"
-		} else if vingo.StringContainsOr(item.Type, []string{"char", "varchar", "text", "longtext"}) {
+		} else if slice.Contain([]string{"char", "varchar", "text", "longtext"}, item.Type) {
 			columns[index].Type = "string"
-		} else if vingo.StringContainsOr(item.Type, []string{"datetime"}) {
+		} else if item.ColumnType == "datetime" {
 			columns[index].Type = "datetime"
 		}
 	}
