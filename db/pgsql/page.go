@@ -1,7 +1,9 @@
 package pgsql
 
 import (
+	"context"
 	"fmt"
+	"github.com/lgdzz/vingo-utils-v2/pool"
 	"github.com/lgdzz/vingo-utils-v2/vingo"
 	"gorm.io/gorm"
 	"strings"
@@ -66,11 +68,13 @@ func (s *PageOrder) HandleColumn() string {
 }
 
 type PageOption[T any] struct {
-	Db       *gorm.DB     // 必须
-	Query    PageQuery    // 必须
-	DefOrder *PageOrder   // 默认排序
-	Orders   *[]PageOrder // 服务端指定多个排序条件
-	Handle   func(T) any
+	Db         *gorm.DB     // 必须
+	Query      PageQuery    // 必须
+	DefOrder   *PageOrder   // 默认排序
+	Orders     *[]PageOrder // 服务端指定多个排序条件
+	Handle     func(T) any  // 处理函数
+	HandlePool func(*T)     // 处理函数（协程池）
+	MaxWorkers int          // 最大协程数
 }
 
 // 创建一个新的分页查询
@@ -95,6 +99,17 @@ func NewPage[T any](option PageOption[T]) (result PageResult) {
 				return option.Handle(item)
 			})
 			return
+		} else if option.HandlePool != nil {
+			if option.MaxWorkers <= 0 {
+				option.MaxWorkers = 100
+			}
+			p := pool.NewGoroutinePool(context.Background(), option.MaxWorkers, len(items))
+			p.Run()
+			for index, _ := range items {
+				option.HandlePool(&items[index])
+			}
+			_ = p.CloseAndWait()
+			result.Items = items
 		}
 	}
 	result.Items = items
