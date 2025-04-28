@@ -115,7 +115,7 @@ func NewPage[T any](option PageOption[T]) (result PageResult) {
 				})
 
 			}
-			*option.PoolResult = p.CloseAndWait()
+			option.PoolResult = vingo.Of(p.CloseAndWait())
 			result.Items = items
 		}
 	}
