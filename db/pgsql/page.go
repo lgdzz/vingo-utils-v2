@@ -68,13 +68,14 @@ func (s *PageOrder) HandleColumn() string {
 }
 
 type PageOption[T any] struct {
-	Db         *gorm.DB     // 必须
-	Query      PageQuery    // 必须
-	DefOrder   *PageOrder   // 默认排序
-	Orders     *[]PageOrder // 服务端指定多个排序条件
-	Handle     func(T) any  // 处理函数
-	HandlePool func(*T)     // 处理函数（协程池）
-	MaxWorkers int          // 最大协程数
+	Db         *gorm.DB       // 必须
+	Query      PageQuery      // 必须
+	DefOrder   *PageOrder     // 默认排序
+	Orders     *[]PageOrder   // 服务端指定多个排序条件
+	Handle     func(T) any    // 处理函数
+	HandlePool func(*T)       // 处理函数（协程池）
+	PoolResult *[]pool.Result // 协程池结果
+	MaxWorkers int            // 最大协程数
 }
 
 // 创建一个新的分页查询
@@ -106,9 +107,15 @@ func NewPage[T any](option PageOption[T]) (result PageResult) {
 			p := pool.NewGoroutinePool(context.Background(), option.MaxWorkers, len(items))
 			p.Run()
 			for index, _ := range items {
-				option.HandlePool(&items[index])
+				p.Submit(func(_ context.Context) pool.Result {
+					return pool.BusinessHandle(&items[index], func(object *T) any {
+						option.HandlePool(object)
+						return nil
+					})
+				})
+
 			}
-			_ = p.CloseAndWait()
+			*option.PoolResult = p.CloseAndWait()
 			result.Items = items
 		}
 	}
