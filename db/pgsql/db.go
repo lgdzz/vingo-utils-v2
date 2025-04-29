@@ -214,6 +214,10 @@ func (s *DbApi) QueryWhereDateAtString(db *gorm.DB, query *string, column string
 	return db
 }
 
+func (s *DbApi) FindInSetBuild(column string, value string) string {
+	return fmt.Sprintf("`%v` = ANY(string_to_array(%v, ','))", value, column)
+}
+
 func (s *DbApi) FindInSet(db *gorm.DB, query any, column string) *gorm.DB {
 	db = db.Where(fmt.Sprintf("? = ANY(string_to_array(%v, ','))", column), vingo.ToString(query))
 	return db
