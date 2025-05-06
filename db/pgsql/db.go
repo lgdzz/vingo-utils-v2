@@ -215,7 +215,7 @@ func (s *DbApi) QueryWhereDateAtString(db *gorm.DB, query *string, column string
 }
 
 func (s *DbApi) FindInSetBuild(column string, value string) string {
-	return fmt.Sprintf("`%v` = ANY(string_to_array(%v, ','))", value, column)
+	return fmt.Sprintf("'%v' = ANY(string_to_array(%v, ','))", value, column)
 }
 
 func (s *DbApi) FindInSet(db *gorm.DB, query any, column string) *gorm.DB {
