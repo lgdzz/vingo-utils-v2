@@ -255,6 +255,17 @@ func (s *DbApi) QueryWhereFindInSetUints(db *gorm.DB, query *[]uint, column stri
 	return db
 }
 
+func (s *DbApi) QueryWhereFindInSetStrings(db *gorm.DB, query *[]string, column string) *gorm.DB {
+	if query != nil {
+		var text []string
+		for _, value := range *query {
+			text = append(text, fmt.Sprintf("%v = ANY(string_to_array(%v, ','))", vingo.ToString(value), column))
+		}
+		db = db.Where(strings.Join(text, " OR "))
+	}
+	return db
+}
+
 func (s *DbApi) QueryWhereFindInSetIntString(db *gorm.DB, query vingo.IntString, column string) *gorm.DB {
 	if query != "" {
 		var text []string
