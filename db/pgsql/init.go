@@ -39,9 +39,8 @@ func NewPgSql(config Config) *DbApi {
 			},
 		),
 		NowFunc: func() time.Time {
-			tmp := time.Now().Local().Format(vingo.DatetimeFormat)
-			now, _ := time.ParseInLocation(vingo.DatetimeFormat, tmp, time.Local)
-			return now
+			loc, _ := time.LoadLocation("Asia/Shanghai")
+			return time.Now().In(loc)
 		},
 	})
 	if err != nil {
