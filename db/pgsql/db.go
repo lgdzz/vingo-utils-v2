@@ -259,7 +259,7 @@ func (s *DbApi) QueryWhereFindInSetStrings(db *gorm.DB, query *[]string, column 
 	if query != nil {
 		var text []string
 		for _, value := range *query {
-			text = append(text, fmt.Sprintf("%v = ANY(string_to_array(%v, ','))", vingo.ToString(value), column))
+			text = append(text, fmt.Sprintf("'%v' = ANY(string_to_array(%v, ','))", vingo.ToString(value), column))
 		}
 		db = db.Where(strings.Join(text, " OR "))
 	}
@@ -270,7 +270,7 @@ func (s *DbApi) QueryWhereFindInSetIntString(db *gorm.DB, query vingo.IntString,
 	if query != "" {
 		var text []string
 		for _, value := range query.ToUintSlice() {
-			text = append(text, fmt.Sprintf("%v = ANY(string_to_array(%v, ','))", vingo.ToString(value), column))
+			text = append(text, fmt.Sprintf("'%v' = ANY(string_to_array(%v, ','))", vingo.ToString(value), column))
 		}
 		db = db.Where(strings.Join(text, " OR "))
 	}
