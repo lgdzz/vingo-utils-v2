@@ -261,6 +261,21 @@ func (c *Context) GetOrgName() string {
 	return c.GetString("orgName")
 }
 
+func (c *Context) GetDataDimension() int {
+	return c.GetInt("dataDimension")
+}
+
+func (c *Context) DataDimension(maxLevel func(), orgLevel func(), accLevel func()) {
+	switch c.GetDataDimension() {
+	case 3: // 本单位至下属单位
+		maxLevel()
+	case 2: // 本单位
+		orgLevel()
+	case 1: // 本账户
+		accLevel()
+	}
+}
+
 // 获取请求body
 // GetRequestBody[结构体类型](c)
 func GetRequestBody[T any](c *Context) T {
