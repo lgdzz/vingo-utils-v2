@@ -268,11 +268,17 @@ func (c *Context) GetDataDimension() int {
 func (c *Context) DataDimension(maxLevel func(), orgLevel func(), accLevel func()) {
 	switch c.GetDataDimension() {
 	case 3: // 本单位至下属单位
-		maxLevel()
+		if maxLevel != nil {
+			maxLevel()
+		}
 	case 2: // 本单位
-		orgLevel()
+		if orgLevel != nil {
+			orgLevel()
+		}
 	case 1: // 本账户
-		accLevel()
+		if accLevel != nil {
+			accLevel()
+		}
 	}
 }
 
