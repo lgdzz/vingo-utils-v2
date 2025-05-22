@@ -105,6 +105,13 @@ func (t LocalTime) ValueFromRow(rows *sql.Rows, columnName string) (interface{},
 	return t, nil
 }
 
+func (t LocalTime) IsToday() bool {
+	now := time.Now().Local()
+	y1, m1, d1 := now.Date()
+	y2, m2, d2 := time.Time(t).Date()
+	return y1 == y2 && m1 == m2 && d1 == d2
+}
+
 func TimeAddDays(t time.Time, days int, hour int, min int, sec int) time.Time {
 	// Add the specified number of days
 	t = t.AddDate(0, 0, days)
