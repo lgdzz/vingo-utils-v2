@@ -275,6 +275,14 @@ func (s *DbApi) QueryWhereBetween(db *gorm.DB, query *[2]any, column string) *go
 	return db
 }
 
+func (s *DbApi) QueryWhereBetweenText(db *gorm.DB, query vingo.BetweenText, column string) *gorm.DB {
+	if query != "" {
+		between := query.ToStruct()
+		db = db.Where(fmt.Sprintf("%v BETWEEN ? AND ?", column), between.Start, between.End)
+	}
+	return db
+}
+
 func (s *DbApi) QueryWhereDeletedAt(db *gorm.DB, column string) *gorm.DB {
 	db = db.Where(fmt.Sprintf("%v IS NULL", column))
 	return db

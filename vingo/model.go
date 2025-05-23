@@ -153,6 +153,24 @@ type Ids[T any] struct {
 	Ids []T `json:"ids"`
 }
 
+// 范围字符串形态，如：100,500
+type BetweenText string
+type BetweenStruct struct {
+	Start float64
+	End   float64
+}
+
+func (s *BetweenText) ToStruct() BetweenStruct {
+	arr := strings.Split(string(*s), ",")
+	if len(arr) != 2 {
+		panic("范围字符串格式错误")
+	}
+	return BetweenStruct{
+		Start: ToFloat(arr[0]),
+		End:   ToFloat(arr[0]),
+	}
+}
+
 // 排序
 type Sort[T any] Ids[T]
 
