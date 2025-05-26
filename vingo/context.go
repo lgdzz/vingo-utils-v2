@@ -245,6 +245,10 @@ func (c *Context) GetOrgId() uint {
 	return c.GetUint("orgId")
 }
 
+func (c *Context) GetDept() uint {
+	return c.GetUint("deptId")
+}
+
 func (c *Context) GetRoleId() UintIds {
 	id, exists := c.Get("roleId")
 	if !exists {
