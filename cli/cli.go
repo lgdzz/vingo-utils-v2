@@ -97,6 +97,7 @@ func InitCli(options Options) {
 func BuildProject(value string, version string) {
 	var goos string
 	var osName string
+	var gOARCH = "amd64"
 	switch value {
 	case "l":
 		goos = "linux"
@@ -107,6 +108,10 @@ func BuildProject(value string, version string) {
 	case "m":
 		goos = "darwin"
 		osName = "mac"
+	case "l_arm":
+		goos = "linux"
+		osName = "linux"
+		gOARCH = "arm64"
 	}
 	var err error
 	if err = os.Setenv("CGO_ENABLED", "0"); err != nil {
@@ -117,7 +122,7 @@ func BuildProject(value string, version string) {
 		log.Println("设置GOOS错误：", err.Error())
 		os.Exit(0)
 	}
-	if err = os.Setenv("GOARCH", "amd64"); err != nil {
+	if err = os.Setenv("GOARCH", gOARCH); err != nil {
 		log.Println("设置GOARCH错误：", err.Error())
 		os.Exit(0)
 	}
