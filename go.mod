@@ -12,7 +12,6 @@ require (
 	github.com/go-sql-driver/mysql v1.8.0
 	github.com/golang-jwt/jwt/v4 v4.5.0
 	github.com/google/uuid v1.3.0
-	github.com/jinzhu/gorm v1.9.16
 	github.com/minio/minio-go/v7 v7.0.63
 	github.com/nsqio/go-nsq v1.1.0
 	github.com/qiniu/go-sdk/v7 v7.25.1
@@ -53,7 +52,6 @@ require (
 	github.com/klauspost/compress v1.16.7 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.7 // indirect
 	github.com/leodido/go-urn v1.2.1 // indirect
-	github.com/lib/pq v1.1.1 // indirect
 	github.com/mattn/go-isatty v0.0.17 // indirect
 	github.com/mattn/go-sqlite3 v1.14.17 // indirect
 	github.com/minio/md5-simd v1.1.2 // indirect

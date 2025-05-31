@@ -247,6 +247,17 @@ func (s *DbApi) QueryWhereFindInSetIntString(db *gorm.DB, query vingo.IntString,
 	return db
 }
 
+func (s *DbApi) QueryWhereFindInSetTextString(db *gorm.DB, query vingo.TextString, column string) *gorm.DB {
+	if query != "" {
+		var text []string
+		for _, value := range query.ToSlice() {
+			text = append(text, fmt.Sprintf("FIND_IN_SET('%v',%v)", value, column))
+		}
+		db = db.Where(strings.Join(text, " OR "))
+	}
+	return db
+}
+
 func (s *DbApi) QueryWhereLike(db *gorm.DB, query string, column ...string) *gorm.DB {
 	if query != "" {
 		db = s.LikeOr(db, query, false, column...)
