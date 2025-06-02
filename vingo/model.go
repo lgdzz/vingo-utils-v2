@@ -167,7 +167,7 @@ func (s *BetweenText) ToStruct() BetweenStruct {
 	}
 	return BetweenStruct{
 		Start: ToFloat(arr[0]),
-		End:   ToFloat(arr[0]),
+		End:   ToFloat(arr[1]),
 	}
 }
 
