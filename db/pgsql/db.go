@@ -309,6 +309,17 @@ func (s *DbApi) QueryWherePath(db *gorm.DB, query string, column string) *gorm.D
 	return db
 }
 
+func (s *DbApi) QueryWherePaths(db *gorm.DB, query []string, column string) *gorm.DB {
+	if len(query) > 0 {
+		var text []string
+		for _, value := range query {
+			text = append(text, fmt.Sprintf("(%v='%v' OR %v LIKE '%v,%%')", column, value, column, value))
+		}
+		db = db.Where(strings.Join(text, " OR "))
+	}
+	return db
+}
+
 func (s *DbApi) QueryWhereBetween(db *gorm.DB, query *[2]any, column string) *gorm.DB {
 	if query != nil {
 		db = db.Where(fmt.Sprintf("%v BETWEEN ? AND ?", column), query[0], query[1])
