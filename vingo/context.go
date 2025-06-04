@@ -269,19 +269,30 @@ func (c *Context) GetDataDimension() int {
 	return c.GetInt("dataDimension")
 }
 
-func (c *Context) DataDimension(maxLevel func(), orgLevel func(), accLevel func()) {
+type DataDimension struct {
+	MaxLevel  func()
+	OrgLevel  func()
+	DeptLevel func()
+	AccLevel  func()
+}
+
+func (s *DataDimension) Handle(c *Context) {
 	switch c.GetDataDimension() {
-	case 3: // 本单位至下属单位
-		if maxLevel != nil {
-			maxLevel()
+	case 4: // 本单位至下属单位（最大维度）
+		if s.MaxLevel != nil {
+			s.MaxLevel()
 		}
-	case 2: // 本单位
-		if orgLevel != nil {
-			orgLevel()
+	case 3: // 本单位
+		if s.OrgLevel != nil {
+			s.OrgLevel()
+		}
+	case 2: // 本部门
+		if s.DeptLevel != nil {
+			s.DeptLevel()
 		}
 	case 1: // 本账户
-		if accLevel != nil {
-			accLevel()
+		if s.AccLevel != nil {
+			s.AccLevel()
 		}
 	}
 }
