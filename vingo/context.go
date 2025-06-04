@@ -245,7 +245,7 @@ func (c *Context) GetOrgId() uint {
 	return c.GetUint("orgId")
 }
 
-func (c *Context) GetDept() uint {
+func (c *Context) GetDeptId() uint {
 	return c.GetUint("deptId")
 }
 
