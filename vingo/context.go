@@ -299,15 +299,17 @@ func (s *DataDimension) Handle(c *Context) {
 
 // 获取请求body
 // GetRequestBody[结构体类型](c)
-func GetRequestBody[T any](c *Context) T {
+func GetRequestBody[T any](c *Context, valid ...bool) T {
 	var body T
 	if err := c.ShouldBindJSON(&body); err != nil {
 		panic(err.Error())
 	}
 
-	if err := Valid.Struct(body); err != nil {
-		// handle validation error
-		panic(err)
+	if len(valid) > 0 && valid[0] {
+		if err := Valid.Struct(body); err != nil {
+			// handle validation error
+			panic(err)
+		}
 	}
 
 	if data, err := json.Marshal(body); err != nil {
