@@ -186,3 +186,8 @@ type IdBody struct {
 type DeleteBody struct {
 	IdBody
 }
+
+type DetailQuery struct {
+	Id    uint       `form:"id"`
+	Fetch TextString `form:"fetch"`
+}

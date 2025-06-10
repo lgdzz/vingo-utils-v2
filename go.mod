@@ -1,6 +1,8 @@
 module github.com/lgdzz/vingo-utils-v2
 
-go 1.22.1
+go 1.23.0
+
+toolchain go1.23.10
 
 require (
 	github.com/aliyun/aliyun-oss-go-sdk v2.2.9+incompatible
@@ -17,6 +19,7 @@ require (
 	github.com/qiniu/go-sdk/v7 v7.25.1
 	github.com/tealeg/xlsx v1.0.5
 	github.com/tjfoc/gmsm v1.4.1
+	github.com/xuri/excelize/v2 v2.9.1
 	gorm.io/driver/mysql v1.5.4
 	gorm.io/driver/postgres v1.5.11
 	gorm.io/driver/sqlite v1.5.5
@@ -63,17 +66,22 @@ require (
 	github.com/pelletier/go-toml/v2 v2.0.6 // indirect
 	github.com/pkg/errors v0.8.1 // indirect
 	github.com/prometheus/procfs v0.0.0-20190425082905-87a4384529e0 // indirect
+	github.com/richardlehane/mscfb v1.0.4 // indirect
+	github.com/richardlehane/msoleps v1.0.4 // indirect
 	github.com/rs/xid v1.5.0 // indirect
 	github.com/sirupsen/logrus v1.9.3 // indirect
+	github.com/tiendc/go-deepcopy v1.6.0 // indirect
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
 	github.com/ugorji/go/codec v1.2.9 // indirect
+	github.com/xuri/efp v0.0.1 // indirect
+	github.com/xuri/nfp v0.0.1 // indirect
 	golang.org/x/arch v0.7.0 // indirect
-	golang.org/x/crypto v0.17.0 // indirect
+	golang.org/x/crypto v0.38.0 // indirect
 	golang.org/x/exp v0.0.0-20221208152030-732eee02a75a // indirect
-	golang.org/x/net v0.14.0 // indirect
-	golang.org/x/sync v0.1.0 // indirect
-	golang.org/x/sys v0.18.0 // indirect
-	golang.org/x/text v0.14.0 // indirect
+	golang.org/x/net v0.40.0 // indirect
+	golang.org/x/sync v0.14.0 // indirect
+	golang.org/x/sys v0.33.0 // indirect
+	golang.org/x/text v0.25.0 // indirect
 	golang.org/x/time v0.3.0 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
