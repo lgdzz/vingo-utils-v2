@@ -9,6 +9,7 @@ import (
 	"net"
 	"net/url"
 	"os"
+	"runtime/debug"
 	"strings"
 	"time"
 )
@@ -106,6 +107,11 @@ func (c *Context) Response(d *ResponseData) {
 					body = "\"\""
 				}
 				LogRequest(duration, fmt.Sprintf("{\"uuid\":\"%v\",\"method\":\"%v\",\"url\":\"%v\",\"body\":%v,\"err\":\"%v\",\"errType\":\"%v\",\"userAgent\":\"%v\",\"clientIP\":\"%v\",\"user\":\"%v\"}", uuid, context.Request.Method, context.Request.RequestURI, body, err, d.ErrorType, c.GetHeader("User-Agent"), c.GetString("clientIp"), c.GetString("user")))
+			}
+
+			if d.ErrorType == "异常错误" {
+				stack := string(debug.Stack())
+				LogError(stack)
 			}
 		}(c, uuid, d)
 	}

@@ -199,6 +199,13 @@ func (s *DbApi) QueryWhereNotInInt(db *gorm.DB, query vingo.IntString, column st
 	return db
 }
 
+func (s *DbApi) QueryWhereDateRange(db *gorm.DB, query *vingo.DateRange, column string) *gorm.DB {
+	if query != nil {
+		db = s.TimeBetween(db, column, vingo.DateAt{query.Start.Format(vingo.DatetimeFormat), query.End.Format(vingo.DatetimeFormat)})
+	}
+	return db
+}
+
 func (s *DbApi) QueryWhereDateAt(db *gorm.DB, query *vingo.DateAt, column string) *gorm.DB {
 	if query != nil {
 		db = s.TimeBetween(db, column, *query)
