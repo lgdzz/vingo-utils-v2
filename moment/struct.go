@@ -11,3 +11,5 @@ type DateText string
 
 // 日期时间格式字符串
 type DateTimeText string
+
+type DateTimeTextRange string

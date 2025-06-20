@@ -51,3 +51,12 @@ func (s DateTimeText) ToTime() time.Time {
 func (s DateTimeText) ToLocalTime() vingo.LocalTime {
 	return vingo.NewLocalTime(s.ToTime())
 }
+
+// 日期时间范围字符串转结构
+func (s DateTimeTextRange) ToStruct() vingo.DateAt {
+	arr := strings.Split(string(s), ",")
+	if len(arr) != 2 {
+		panic("invalid date range format")
+	}
+	return vingo.DateAt{arr[0], arr[1]}
+}
