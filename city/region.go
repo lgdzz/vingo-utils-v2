@@ -58,7 +58,7 @@ func RegionNames(regions []RegionJson) []string {
 func RegionCodes(regions []RegionJson) []string {
 	var result []string
 	slice.ForEach(regions, func(index int, item RegionJson) {
-		result = append(result, item.Name)
+		result = append(result, item.Code)
 	})
 	return result
 }
