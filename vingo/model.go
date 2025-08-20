@@ -44,26 +44,6 @@ type IdCardInfo struct {
 	Gender     string // 性别
 }
 
-// 身份验证异常
-type AuthException struct {
-	Message string
-}
-
-// 数据库事务异常
-type DbException struct {
-	Message string
-}
-
-// 需要点击确认的异常
-type ConfirmException struct {
-	Message string
-}
-
-// 页面后退异常
-type BackException struct {
-	Message string
-}
-
 // 时间范围
 type DateRange struct {
 	Start time.Time

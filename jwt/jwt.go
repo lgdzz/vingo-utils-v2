@@ -3,6 +3,7 @@ package jwt
 import (
 	"fmt"
 	"github.com/golang-jwt/jwt/v4"
+	"github.com/lgdzz/vingo-utils-exception/exception"
 	"github.com/lgdzz/vingo-utils-v2/db/redis"
 	"github.com/lgdzz/vingo-utils-v2/vingo"
 	"time"
@@ -69,14 +70,14 @@ func (s *JwtApi[T]) Check(token string) JwtBody[T] {
 		return []byte(s.Secret), nil
 	})
 	if err != nil {
-		panic(&vingo.AuthException{Message: err.Error()})
+		panic(&exception.AuthException{Message: err.Error()})
 	}
 	var body JwtBody[T]
 	vingo.CustomOutput(claims.Claims, &body)
 	if body.CheckTK {
 		var tk string
 		if !s.RedisApi.Get(body.Ticket.Key, &tk) || tk != body.Ticket.TK {
-			panic(&vingo.AuthException{Message: "登录已失效"})
+			panic(&exception.AuthException{Message: "登录已失效"})
 		}
 	}
 	return body

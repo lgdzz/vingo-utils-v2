@@ -9,6 +9,7 @@ package mysql
 import (
 	"database/sql"
 	"fmt"
+	"github.com/lgdzz/vingo-utils-exception/exception"
 	"github.com/lgdzz/vingo-utils-v2/vingo"
 	"gorm.io/gorm"
 	"reflect"
@@ -471,9 +472,9 @@ func (s *DbApi) Commit(handler func(*gorm.DB)) {
 func Fetch[T any](tx *gorm.DB, condition ...any) (row T) {
 	err := tx.First(&row, condition...).Error
 	if err == gorm.ErrRecordNotFound {
-		panic(&vingo.BackException{Message: err.Error()})
+		panic(&exception.BackException{Message: err.Error()})
 	} else if err != nil {
-		panic(&vingo.BackException{Message: err.Error()})
+		panic(&exception.BackException{Message: err.Error()})
 	}
 	return
 }

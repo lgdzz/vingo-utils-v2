@@ -2,6 +2,7 @@ package mysql
 
 import (
 	"fmt"
+	"github.com/lgdzz/vingo-utils-exception/exception"
 	"github.com/lgdzz/vingo-utils-v2/vingo"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -76,7 +77,7 @@ func NewMysql(config Config) *DbApi {
 func RegisterAfterQuery(db *gorm.DB) {
 	err := db.Callback().Query().After("gorm:query").Register("gormerror:after_query", func(db *gorm.DB) {
 		if db.Error != nil && db.Error != gorm.ErrRecordNotFound {
-			panic(&vingo.DbException{Message: db.Error.Error()})
+			panic(&exception.DbException{Message: db.Error.Error()})
 		}
 	})
 	if err != nil {
@@ -87,7 +88,7 @@ func RegisterAfterQuery(db *gorm.DB) {
 func RegisterAfterCreate(db *gorm.DB) {
 	err := db.Callback().Create().After("gorm:create").Register("gormerror:after_create", func(db *gorm.DB) {
 		if db.Error != nil {
-			panic(&vingo.DbException{Message: db.Error.Error()})
+			panic(&exception.DbException{Message: db.Error.Error()})
 		}
 	})
 	if err != nil {
@@ -98,7 +99,7 @@ func RegisterAfterCreate(db *gorm.DB) {
 func RegisterAfterUpdate(db *gorm.DB) {
 	err := db.Callback().Update().After("gorm:update").Register("gormerror:after_update", func(db *gorm.DB) {
 		if db.Error != nil {
-			panic(&vingo.DbException{Message: db.Error.Error()})
+			panic(&exception.DbException{Message: db.Error.Error()})
 		}
 	})
 	if err != nil {
@@ -109,7 +110,7 @@ func RegisterAfterUpdate(db *gorm.DB) {
 func RegisterAfterDelete(db *gorm.DB) {
 	err := db.Callback().Delete().After("gorm:delete").Register("gormerror:after_delete", func(db *gorm.DB) {
 		if db.Error != nil {
-			panic(&vingo.DbException{Message: db.Error.Error()})
+			panic(&exception.DbException{Message: db.Error.Error()})
 		}
 	})
 	if err != nil {
