@@ -238,13 +238,6 @@ func (s *DbApi) QueryWhereFindInSetInt(db *gorm.DB, query *int, column string) *
 	return db
 }
 
-func (s *DbApi) QueryWhereFindInSetUint(db *gorm.DB, query *uint, column string) *gorm.DB {
-	if query != nil {
-		db = s.FindInSet(db, *query, column)
-	}
-	return db
-}
-
 func (s *DbApi) QueryWhereFindInSetString(db *gorm.DB, query *string, column string) *gorm.DB {
 	if query != nil {
 		db = s.FindInSet(db, *query, column)
@@ -252,7 +245,7 @@ func (s *DbApi) QueryWhereFindInSetString(db *gorm.DB, query *string, column str
 	return db
 }
 
-func (s *DbApi) QueryWhereFindInSetUints(db *gorm.DB, query *[]uint, column string) *gorm.DB {
+func (s *DbApi) QueryWhereFindInSetInts(db *gorm.DB, query *[]uint, column string) *gorm.DB {
 	if query != nil {
 		var text []string
 		for _, value := range *query {
@@ -277,7 +270,7 @@ func (s *DbApi) QueryWhereFindInSetStrings(db *gorm.DB, query *[]string, column 
 func (s *DbApi) QueryWhereFindInSetIntString(db *gorm.DB, query vingo.IntString, column string) *gorm.DB {
 	if query != "" {
 		var text []string
-		for _, value := range query.ToUintSlice() {
+		for _, value := range query.ToSlice() {
 			text = append(text, fmt.Sprintf("'%v' = ANY(string_to_array(%v, ','))", vingo.ToString(value), column))
 		}
 		db = db.Where(strings.Join(text, " OR "))
@@ -467,20 +460,20 @@ type PathOption struct {
 // model传入必须是指针类型
 func SetPath[T any](model *T, parent *T, option PathOption) {
 	s := reflect.ValueOf(model).Elem()
-	pid := s.FieldByName("Pid").Uint()
+	pid := s.FieldByName("Pid").Int()
 	if pid > 0 {
 		if parent == nil {
 			option.DbApi.TXNotExistsErr(option.Tx, &parent, pid)
 		}
 		parentValue := reflect.ValueOf(parent).Elem()
-		s.FieldByName("Path").SetString(fmt.Sprintf("%v,%d", parentValue.FieldByName("Path").String(), s.FieldByName("Id").Uint()))
-		s.FieldByName("Len").SetUint(parentValue.FieldByName("Len").Uint() + 1)
+		s.FieldByName("Path").SetString(fmt.Sprintf("%v,%d", parentValue.FieldByName("Path").String(), s.FieldByName("Id").Int()))
+		s.FieldByName("Len").SetInt(parentValue.FieldByName("Len").Int() + 1)
 		if option.ChildAppend != nil {
 			option.ChildAppend(s, parentValue)
 		}
 	} else {
-		s.FieldByName("Path").SetString(strconv.Itoa(int(s.FieldByName("Id").Uint())))
-		s.FieldByName("Len").SetUint(1)
+		s.FieldByName("Path").SetString(strconv.Itoa(int(s.FieldByName("Id").Int())))
+		s.FieldByName("Len").SetInt(1)
 		if option.RootAppend != nil {
 			option.RootAppend(s)
 		}
@@ -494,7 +487,7 @@ func SetPath[T any](model *T, parent *T, option PathOption) {
 func SetPathChild[T any](model *T, option PathOption) {
 	s := reflect.ValueOf(model).Elem()
 	var rows []T
-	option.Tx.Find(&rows, "pid=?", s.FieldByName("Id").Uint())
+	option.Tx.Find(&rows, "pid=?", s.FieldByName("Id").Int())
 	for _, row := range rows {
 		SetPath[T](&row, model, option)
 		SetPathChild[T](&row, option)

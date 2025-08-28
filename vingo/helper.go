@@ -106,7 +106,7 @@ func Tree[T any](option TreeOption[T]) []map[string]any {
 
 		if enable {
 			var isHide = rowValue.FieldByName("IsHide").Bool()
-			var currentId = int(rowValue.FieldByName("Id").Uint())
+			var currentId = int(rowValue.FieldByName("Id").Int())
 			if isHide {
 				hideIds = append(hideIds, currentId)
 				continue
@@ -114,7 +114,7 @@ func Tree[T any](option TreeOption[T]) []map[string]any {
 			var path = strings.Split(rowValue.FieldByName("Path").String(), ",")
 			var cHide bool
 			for _, p := range path {
-				var currentP = ToUint(p)
+				var currentP = ToInt(p)
 				if IsInSlice(currentP, hideIds) && !IsInSlice(currentId, hideIds) {
 					cHide = true
 					break
@@ -127,7 +127,7 @@ func Tree[T any](option TreeOption[T]) []map[string]any {
 
 			newRows = append(newRows, row)
 		}
-		ids = append(ids, int(rowValue.FieldByName("Pid").Uint()))
+		ids = append(ids, int(rowValue.FieldByName("Pid").Int()))
 	}
 	if enable {
 		rows = &newRows
