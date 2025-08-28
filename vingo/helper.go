@@ -39,7 +39,7 @@ func TreeBuildString(list *[]map[string]any, id string, pidName string) (result 
 func TreeBuild[T any](list *[]map[string]any, id int, option *TreeOption[T], already *[]int) (result []map[string]any) {
 	for _, row := range *list {
 
-		if ToUint(row[option.PidName]) != id {
+		if ToInt(row[option.PidName]) != id {
 			continue
 		}
 
@@ -49,7 +49,7 @@ func TreeBuild[T any](list *[]map[string]any, id int, option *TreeOption[T], alr
 			row = option.ItemHandler(row)
 		}
 
-		children := TreeBuild[T](list, ToUint(row["id"]), option, already)
+		children := TreeBuild[T](list, ToInt(row["id"]), option, already)
 
 		childCount := len(children)
 		if childCount > 0 {
