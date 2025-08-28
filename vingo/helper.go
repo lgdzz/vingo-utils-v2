@@ -36,7 +36,7 @@ func TreeBuildString(list *[]map[string]any, id string, pidName string) (result 
 	return
 }
 
-func TreeBuild[T any](list *[]map[string]any, id uint, option *TreeOption[T], already *[]uint) (result []map[string]any) {
+func TreeBuild[T any](list *[]map[string]any, id int, option *TreeOption[T], already *[]int) (result []map[string]any) {
 	for _, row := range *list {
 
 		if ToUint(row[option.PidName]) != id {
@@ -75,9 +75,9 @@ func TreeBuild[T any](list *[]map[string]any, id uint, option *TreeOption[T], al
 	return
 }
 
-func TreeBuilds[T any](list *[]map[string]any, ids []uint, option *TreeOption[T]) []map[string]any {
+func TreeBuilds[T any](list *[]map[string]any, ids []int, option *TreeOption[T]) []map[string]any {
 	result := make([]map[string]any, 0)
-	already := make([]uint, 0)
+	already := make([]int, 0)
 	for _, id := range ids {
 		if IsInSlice(id, already) {
 			continue
@@ -98,15 +98,15 @@ type TreeOption[T any] struct {
 func Tree[T any](option TreeOption[T]) []map[string]any {
 	var rows = option.Rows
 	var enable = option.Enable
-	var hideIds = make([]uint, 0)
-	var ids = make([]uint, 0)
+	var hideIds = make([]int, 0)
+	var ids = make([]int, 0)
 	var newRows = make([]T, 0)
 	for _, row := range *rows {
 		rowValue := reflect.ValueOf(row)
 
 		if enable {
 			var isHide = rowValue.FieldByName("IsHide").Bool()
-			var currentId = uint(rowValue.FieldByName("Id").Uint())
+			var currentId = int(rowValue.FieldByName("Id").Uint())
 			if isHide {
 				hideIds = append(hideIds, currentId)
 				continue
@@ -127,7 +127,7 @@ func Tree[T any](option TreeOption[T]) []map[string]any {
 
 			newRows = append(newRows, row)
 		}
-		ids = append(ids, uint(rowValue.FieldByName("Pid").Uint()))
+		ids = append(ids, int(rowValue.FieldByName("Pid").Uint()))
 	}
 	if enable {
 		rows = &newRows
