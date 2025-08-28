@@ -239,20 +239,20 @@ func ApiAddress(port uint) {
 	}
 }
 
-func (c *Context) GetUserId() uint {
-	return c.GetUint("userId")
+func (c *Context) GetUserId() int {
+	return c.GetInt("userId")
 }
 
-func (c *Context) GetAccId() uint {
-	return c.GetUint("accId")
+func (c *Context) GetAccId() int {
+	return c.GetInt("accId")
 }
 
-func (c *Context) GetOrgId() uint {
-	return c.GetUint("orgId")
+func (c *Context) GetOrgId() int {
+	return c.GetInt("orgId")
 }
 
-func (c *Context) GetDeptId() uint {
-	return c.GetUint("deptId")
+func (c *Context) GetDeptId() int {
+	return c.GetInt("deptId")
 }
 
 func (c *Context) GetRoleId() UintIds {
