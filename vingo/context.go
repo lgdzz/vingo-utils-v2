@@ -255,12 +255,12 @@ func (c *Context) GetDeptId() int {
 	return c.GetInt("deptId")
 }
 
-func (c *Context) GetRoleId() UintIds {
+func (c *Context) GetRoleId() IntIds {
 	id, exists := c.Get("roleId")
 	if !exists {
-		id = UintIds{}
+		id = IntIds{}
 	}
-	return id.(UintIds)
+	return id.(IntIds)
 }
 
 func (c *Context) GetRealName() string {
