@@ -90,11 +90,7 @@ func (s *DbApi) CreateDbModel(tableNames ...string) (bool, error) {
 		s.DB.Raw("SHOW FULL COLUMNS FROM " + tableName).Select("Field,Type,Comment").Scan(&columns)
 		columns = vingo.ForEach[Column](columns, func(item Column, index int) Column {
 			if vingo.StringStartsWith(item.Type, []string{"int", "tinyint", "smallint"}) {
-				if vingo.StringContainsAnd(item.Type, "unsigned") {
-					item.DataType = "uint"
-				} else {
-					item.DataType = "int"
-				}
+				item.DataType = "int"
 			} else if vingo.StringStartsWith(item.Type, []string{"decimal"}) {
 				item.DataType = "float64"
 			} else if item.Field == "deleted_at" {

@@ -114,11 +114,11 @@ func (s *DbApi) CreateDbModel(tableNames ...string) (bool, error) {
 		columns = vingo.ForEach[Column](columns, func(item Column, index int) Column {
 			typ := item.Type
 			if vingo.StringStartsWith(typ, []string{"integer", "int4"}) {
-				item.DataType = "uint"
+				item.DataType = "int"
 			} else if vingo.StringStartsWith(typ, []string{"bigint", "int8"}) {
-				item.DataType = "uint"
+				item.DataType = "int"
 			} else if vingo.StringStartsWith(typ, []string{"smallint", "int2"}) {
-				item.DataType = "uint"
+				item.DataType = "int"
 			} else if vingo.StringStartsWith(typ, []string{"numeric", "decimal", "double precision", "real"}) {
 				item.DataType = "float64"
 			} else if vingo.StringStartsWith(typ, []string{"boolean"}) {

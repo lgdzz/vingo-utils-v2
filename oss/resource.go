@@ -8,8 +8,8 @@ import (
 )
 
 type Resource struct {
-	Id        uint             `gorm:"primaryKey;column:id" json:"id"`
-	OrgId     uint             `gorm:"column:org_id" json:"orgId"`
+	Id        int              `gorm:"primaryKey;column:id" json:"id"`
+	OrgId     int              `gorm:"column:org_id" json:"orgId"`
 	Type      string           `gorm:"column:type" json:"type"`                 // video-视频|audio-音频|image-图片|file-文件
 	TakeNum   int64            `gorm:"column:take_num" json:"takeNum"`          // 引用次数，为0时可删除
 	FileName  string           `gorm:"column:file_name" json:"fileName"`        // 文件名称
@@ -22,7 +22,7 @@ type Resource struct {
 	DeletedAt gorm.DeletedAt   `gorm:"column:deleted_at" json:"deletedAt"`      // 删除时间
 }
 
-func (s *Resource) CheckOrgId(orgId uint) {
+func (s *Resource) CheckOrgId(orgId int) {
 	if s.OrgId != orgId {
 		panic("不允许跨组织操作素材")
 	}

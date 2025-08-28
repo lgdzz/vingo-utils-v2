@@ -395,7 +395,7 @@ func (s *DbApi) TXNotExistsErr(tx *gorm.DB, model any, condition ...any) {
 	}
 }
 
-func (s *DbApi) CheckHasChild(model any, id uint) {
+func (s *DbApi) CheckHasChild(model any, id int) {
 	err := s.DB.First(model, "pid=?", id)
 	if err.Error != gorm.ErrRecordNotFound {
 		panic("记录有子项，删除失败")

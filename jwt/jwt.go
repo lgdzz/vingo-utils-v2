@@ -21,7 +21,7 @@ type JwtTicket struct {
 
 type JwtBody[T any] struct {
 	ID       string     `json:"id"`
-	Day      uint       `json:"day"` // 默认有效期90天
+	Day      int        `json:"day"` // 默认有效期90天
 	Business T          `json:"business"`
 	CheckTK  bool       `json:"checkTk"`
 	Ticket   *JwtTicket `json:"ticket"`

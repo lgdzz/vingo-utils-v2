@@ -168,6 +168,6 @@ type DeleteBody struct {
 }
 
 type DetailQuery struct {
-	Id    uint       `form:"id"`
+	Id    int        `form:"id"`
 	Fetch TextString `form:"fetch"`
 }
